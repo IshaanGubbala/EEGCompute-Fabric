@@ -86,6 +86,7 @@ EEGCompute-Fabric/
 │   ├── simulate_lsl_eeg.py      # LSL EEG simulator
 │   ├── simulate_markers.py      # Event marker simulator
 │   ├── validate_v15.py          # v1.5 validation suite
+│   ├── validate_v2.py           # v2 validation (timing, artifacts)
 │   └── reranking_demo.py        # Search re-ranking app
 ├── data/
 │   ├── logs/{session_id}/      # Session logs (auto-created)
@@ -267,7 +268,7 @@ Run latency/CPU logger for long-term monitoring:
 
 ```bash
 # Monitor for 1 hour
-python scripts/latency_cpu_logger.py --duration 3600 --output data/logs/metrics_live.jsonl
+    python scripts/latency_cpu_logger.py --duration 3600 --output data/logs/metrics_live.jsonl
 
 # Monitor indefinitely (until Ctrl+C)
 python scripts/latency_cpu_logger.py --duration 0
@@ -286,6 +287,7 @@ python scripts/latency_cpu_logger.py --duration 0
 - [x] EEG-BIDS export module
 - [x] Offline AUROC/AUPRC evaluation
 - [x] Continuous latency/CPU logger
+- [x] V2 validation script and artifact generation (report, JSONL, derivatives)
 
 ### Deferred to v1.6 🚧
 - [ ] Signal QC (bandpass, notch, ICLabel) in live path
@@ -341,7 +343,19 @@ pip install --force-reinstall PyQt6
 - EEG-BIDS export
 - Config system for reproducible runs
 
-### v2.0 (Future)
+### v2.0 (Validate)
+Run the v2 validation monitor to generate report and artifacts:
+
+```
+python scripts/validate_v2.py --duration 600 --api-url http://localhost:8008
+```
+
+Outputs:
+- `output/reports/v2_validation.md` — summary of p95/p99, CPU/RAM, gaps
+- `output/jsonl/latency_cpu.jsonl` — combined latency/CPU snapshots
+- `derivatives/scores/<session>/*.jsonl` — copied ScoreVectors aligned by session
+
+Use `scripts/eval_offline.py` to compute AUROC/AUPRC and latency plots per session.
 - Multi-device support
 - Advanced artifact rejection
 - Online learning

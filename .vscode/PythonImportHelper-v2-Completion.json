@@ -144,12 +144,44 @@
         "documentation": {}
     },
     {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "numpy",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "numpy",
         "description": "numpy",
         "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
         "documentation": {}
     },
     {
@@ -645,6 +677,14 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "mne",
         "kind": 6,
         "isExtraImport": true,
@@ -725,14 +765,6 @@
         "description": "sklearn.pipeline",
         "isExtraImport": true,
         "detail": "sklearn.pipeline",
-        "documentation": {}
-    },
-    {
-        "label": "write_brainvision",
-        "importPath": "pybv",
-        "description": "pybv",
-        "isExtraImport": true,
-        "detail": "pybv",
         "documentation": {}
     },
     {
@@ -1473,15 +1505,6 @@
         "documentation": {}
     },
     {
-        "label": "write_bids_session",
-        "kind": 2,
-        "importPath": "data.bids_writer",
-        "description": "data.bids_writer",
-        "peekOfCode": "def write_bids_session(root: str, subj: str, run: int, fs: int, data, ch_names):\n    root = Path(root); ses = root / f\"sub-{subj}\" / \"ses-01\" / \"eeg\"\n    ses.mkdir(parents=True, exist_ok=True)\n    base = f\"sub-{subj}_ses-01_task-task_run-{run:02d}_eeg\"\n    vhdr = ses / f\"{base}.vhdr\"\n    write_brainvision(data, fs, ch_names, vhdr, events=None, resolution=1e-6, unit=\"µV\")\n    (ses / f\"{base}.json\").write_text(json.dumps({\"TaskName\":\"task\"}))\n    return str(vhdr)",
-        "detail": "data.bids_writer",
-        "documentation": {}
-    },
-    {
         "label": "Timer",
         "kind": 6,
         "importPath": "eval.latency_audit",
@@ -1875,6 +1898,78 @@
         "description": "scripts.validate_v15",
         "peekOfCode": "def validate_v15(duration_minutes=10, api_url=\"http://localhost:8008\"):\n    \"\"\"Run v1.5 validation tests\"\"\"\n    print(\"=\" * 60)\n    print(\"EEGCompute Fabric v1.5 Validation\")\n    print(\"=\" * 60)\n    print(f\"\\nDuration: {duration_minutes} minutes\")\n    print(f\"API URL: {api_url}\\n\")\n    # Test 1: Check API is running\n    print(\"[1/6] Checking API connectivity...\")\n    try:",
         "detail": "scripts.validate_v15",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_dirs",
+        "kind": 2,
+        "importPath": "scripts.validate_v2",
+        "description": "scripts.validate_v2",
+        "peekOfCode": "def ensure_dirs() -> Dict[str, Path]:\n    base_out = Path(\"output\")\n    reports = base_out / \"reports\"\n    jsonl = base_out / \"jsonl\"\n    deriv = Path(\"derivatives\") / \"scores\"\n    for p in [reports, jsonl, deriv]:\n        p.mkdir(parents=True, exist_ok=True)\n    return {\"reports\": reports, \"jsonl\": jsonl, \"deriv\": deriv}\ndef get_metrics(api_url: str) -> dict:\n    try:",
+        "detail": "scripts.validate_v2",
+        "documentation": {}
+    },
+    {
+        "label": "get_metrics",
+        "kind": 2,
+        "importPath": "scripts.validate_v2",
+        "description": "scripts.validate_v2",
+        "peekOfCode": "def get_metrics(api_url: str) -> dict:\n    try:\n        r = requests.get(f\"{api_url}/metrics\", timeout=2)\n        return r.json() if r.status_code == 200 else {}\n    except Exception:\n        return {}\ndef get_latest(api_url: str) -> dict:\n    try:\n        r = requests.get(f\"{api_url}/latest\", timeout=2)\n        return r.json() if r.status_code == 200 else {}",
+        "detail": "scripts.validate_v2",
+        "documentation": {}
+    },
+    {
+        "label": "get_latest",
+        "kind": 2,
+        "importPath": "scripts.validate_v2",
+        "description": "scripts.validate_v2",
+        "peekOfCode": "def get_latest(api_url: str) -> dict:\n    try:\n        r = requests.get(f\"{api_url}/latest\", timeout=2)\n        return r.json() if r.status_code == 200 else {}\n    except Exception:\n        return {}\ndef summarize_latency(history: List[float]) -> Dict[str, float]:\n    if not history:\n        return {}\n    arr = np.array(history, float)",
+        "detail": "scripts.validate_v2",
+        "documentation": {}
+    },
+    {
+        "label": "summarize_latency",
+        "kind": 2,
+        "importPath": "scripts.validate_v2",
+        "description": "scripts.validate_v2",
+        "peekOfCode": "def summarize_latency(history: List[float]) -> Dict[str, float]:\n    if not history:\n        return {}\n    arr = np.array(history, float)\n    return {\n        \"mean_ms\": float(np.mean(arr)),\n        \"p50_ms\": float(np.percentile(arr, 50)),\n        \"p95_ms\": float(np.percentile(arr, 95)),\n        \"p99_ms\": float(np.percentile(arr, 99)),\n        \"max_ms\": float(np.max(arr)),",
+        "detail": "scripts.validate_v2",
+        "documentation": {}
+    },
+    {
+        "label": "find_latest_session_logs",
+        "kind": 2,
+        "importPath": "scripts.validate_v2",
+        "description": "scripts.validate_v2",
+        "peekOfCode": "def find_latest_session_logs() -> Optional[Path]:\n    log_root = Path(\"data/logs\")\n    if not log_root.exists():\n        return None\n    sessions = [p for p in log_root.iterdir() if p.is_dir()]\n    if not sessions:\n        return None\n    sessions.sort(key=lambda p: p.stat().st_mtime, reverse=True)\n    return sessions[0]\ndef copy_scores_to_derivatives(deriv_dir: Path) -> Optional[Path]:",
+        "detail": "scripts.validate_v2",
+        "documentation": {}
+    },
+    {
+        "label": "copy_scores_to_derivatives",
+        "kind": 2,
+        "importPath": "scripts.validate_v2",
+        "description": "scripts.validate_v2",
+        "peekOfCode": "def copy_scores_to_derivatives(deriv_dir: Path) -> Optional[Path]:\n    session_dir = find_latest_session_logs()\n    if not session_dir:\n        return None\n    target = deriv_dir / session_dir.name\n    target.mkdir(parents=True, exist_ok=True)\n    for fname in [\"p300_scores.jsonl\", \"ssvep_scores.jsonl\", \"errp_scores.jsonl\"]:\n        src = session_dir / fname\n        if src.exists():\n            dst = target / fname",
+        "detail": "scripts.validate_v2",
+        "documentation": {}
+    },
+    {
+        "label": "write_report",
+        "kind": 2,
+        "importPath": "scripts.validate_v2",
+        "description": "scripts.validate_v2",
+        "peekOfCode": "def write_report(report_path: Path, summary: dict) -> None:\n    lines = []\n    lines.append(f\"# V2 Validation Report\\n\")\n    lines.append(f\"Generated: {datetime.now().isoformat()}\\n\")\n    lines.append(\"\\n## Timing & Stability\\n\")\n    lat = summary.get(\"latency\", {})\n    for k in [\"p300\", \"ssvep\", \"errp\"]:\n        s = lat.get(k, {})\n        if s:\n            lines.append(f\"- {k.upper()} p95: {s.get('p95_ms', 'n/a'):.1f} ms; p99: {s.get('p99_ms', 'n/a'):.1f} ms (n={s.get('count', 0)})\\n\")",
+        "detail": "scripts.validate_v2",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "scripts.validate_v2",
+        "description": "scripts.validate_v2",
+        "peekOfCode": "def main():\n    ap = argparse.ArgumentParser(description=\"V2 Validation\")\n    ap.add_argument(\"--duration\", type=int, default=600, help=\"Duration in seconds (default 600 = 10 min)\")\n    ap.add_argument(\"--api-url\", type=str, default=\"http://localhost:8008\", help=\"Fabric API URL\")\n    args = ap.parse_args()\n    paths = ensure_dirs()\n    out_jsonl = paths[\"jsonl\"] / \"latency_cpu.jsonl\"\n    out_jsonl.parent.mkdir(parents=True, exist_ok=True)\n    # Connectivity check\n    print(\"[v2] Checking API connectivity...\")",
+        "detail": "scripts.validate_v2",
         "documentation": {}
     },
     {
