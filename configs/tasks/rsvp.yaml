@@ -1,0 +1,5 @@
+rate_hz: 8
+isi_ms: 100
+epoch: [-0.2, 0.8]
+xdawn_n: 4
+classifier: LDA

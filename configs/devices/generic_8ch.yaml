@@ -1,0 +1,5 @@
+name: generic_8ch
+fs: 512
+channels: [Fz, FCz, Cz, Pz, Oz, P3, P4, FC3]
+notch_hz: 60
+bandpass: [1.0, 40.0]

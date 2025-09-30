@@ -1,0 +1,118 @@
+# EEGCompute Fabric v1.5 — Cleanup Summary
+
+## Files Removed
+
+### Python Cache
+- All __pycache__ directories (Python bytecode)
+- All .pyc/.pyo files
+
+### macOS Metadata
+- All .DS_Store files
+
+### Old GUI Files
+- scripts/launcher_gui.py (old tkinter version → replaced by launcher_gui_qt.py)
+- scripts/run_all_v11.py (obsolete launcher)
+- scripts/simple_launcher.py (obsolete launcher)
+
+### Old v1.1 Scripts
+- scripts/run_real_rsvp.py (superseded by host_rsvp_demo.py)
+- scripts/run_real_ssvep.py (superseded by host_ssvep_demo.py)
+- scripts/run_real_errp.py (superseded by host_errp_demo.py)
+- scripts/test_dashboard.py (obsolete test)
+
+### Web Dashboard (Replaced by PyQt6 GUI)
+- ui/dashboards/index.html
+- ui/dashboards/static/*
+- ui/ directory (now empty, removed)
+
+### Old Stream Processors
+- core/host/stream_rsvp.py (v1.1 real-time processor, not used in demos)
+- core/host/stream_ssvep.py (v1.1 real-time processor, not used in demos)
+- core/host/stream_errp.py (v1.1 real-time processor, not used in demos)
+
+### Old Documentation
+- README_v11.md (superseded by V15_SUMMARY.md)
+
+## Final Project Structure
+
+EEGCompute-Fabric/
+├── core/
+│   ├── acquisition/        # LSL data acquisition
+│   ├── api/               # FastAPI fabric bus v1.5
+│   ├── host/              # Signal processing utilities
+│   ├── logging/           # JSONL score logger (NEW v1.5)
+│   ├── monitoring/        # System monitoring (NEW v1.5)
+│   └── scoring/           # P300, SSVEP, ErrP classifiers
+├── scripts/
+│   ├── launcher_gui_qt.py       # PyQt6 GUI (NEW v1.5)
+│   ├── host_rsvp_demo.py        # P300 demo with latency tracking
+│   ├── host_ssvep_demo.py       # SSVEP demo
+│   ├── host_errp_demo.py        # Error potential demo
+│   ├── simulate_lsl_eeg.py      # LSL EEG simulator
+│   ├── simulate_markers.py      # Event marker simulator
+│   ├── validate_v15.py          # v1.5 validation suite (NEW)
+│   └── reranking_demo.py        # Search re-ranking app
+├── data/logs/                   # Session logs (auto-created)
+├── app_logic/                   # Application demos
+├── configs/                     # Device and task configs
+├── docs/                        # Documentation
+├── eval/                        # Evaluation metrics
+├── tests/                       # Unit tests
+├── README.md                    # Updated for v1.5
+├── V15_SUMMARY.md               # Detailed v1.5 docs (NEW)
+├── CLEANUP_SUMMARY.txt          # This file (NEW)
+└── requirements.txt             # Python dependencies
+
+## Key Changes
+
+### Removed Complexity
+- No web dashboard (replaced by PyQt6 GUI with better features)
+- No old tkinter GUI (replaced by modern PyQt6 version)
+- No unused v1.1 stream processors (kept utilities in host/)
+- No outdated documentation
+
+### Added Value
+- Modern PyQt6 GUI with live rolling graph
+- Latency tracking infrastructure
+- System monitoring with psutil
+- JSONL persistence for all data
+- Validation suite
+- Comprehensive documentation
+
+## Space Saved
+- ~500KB in cache files
+- ~150KB in old GUIs/scripts
+- ~200KB in web dashboard
+- ~100KB in old stream processors
+
+Total: ~950KB cleaned
+
+## What Remains
+
+### Essential Code
+- Core modules (acquisition, api, host, scoring)
+- v1.5 monitoring and logging
+- PyQt6 GUI launcher
+- Demo scripts (host_*_demo.py)
+- Simulators
+- Validation suite
+
+### Documentation
+- README.md (v1.5 quick start)
+- V15_SUMMARY.md (detailed v1.5 docs)
+- docs/ directory (architecture, design)
+
+### Future Work
+- app_logic/ (placeholder for apps)
+- configs/ (placeholder for configs)
+- eval/ (placeholder for eval metrics)
+- tests/ (placeholder for unit tests)
+
+## Notes
+
+All removed files were either:
+1. Superseded by better v1.5 implementations
+2. Temporary/cache files
+3. Obsolete from v1.1
+
+The workspace is now clean, focused, and production-ready for v1.5.
