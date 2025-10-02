@@ -1,926 +1,5 @@
 [
     {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Tuple",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Literal",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Tuple",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "numpy",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
-        "documentation": {}
-    },
-    {
-        "label": "StreamInlet",
-        "importPath": "pylsl",
-        "description": "pylsl",
-        "isExtraImport": true,
-        "detail": "pylsl",
-        "documentation": {}
-    },
-    {
-        "label": "resolve_stream",
-        "importPath": "pylsl",
-        "description": "pylsl",
-        "isExtraImport": true,
-        "detail": "pylsl",
-        "documentation": {}
-    },
-    {
-        "label": "StreamInfo",
-        "importPath": "pylsl",
-        "description": "pylsl",
-        "isExtraImport": true,
-        "detail": "pylsl",
-        "documentation": {}
-    },
-    {
-        "label": "StreamOutlet",
-        "importPath": "pylsl",
-        "description": "pylsl",
-        "isExtraImport": true,
-        "detail": "pylsl",
-        "documentation": {}
-    },
-    {
-        "label": "StreamInfo",
-        "importPath": "pylsl",
-        "description": "pylsl",
-        "isExtraImport": true,
-        "detail": "pylsl",
-        "documentation": {}
-    },
-    {
-        "label": "StreamOutlet",
-        "importPath": "pylsl",
-        "description": "pylsl",
-        "isExtraImport": true,
-        "detail": "pylsl",
-        "documentation": {}
-    },
-    {
-        "label": "StreamInfo",
-        "importPath": "pylsl",
-        "description": "pylsl",
-        "isExtraImport": true,
-        "detail": "pylsl",
-        "documentation": {}
-    },
-    {
-        "label": "StreamOutlet",
-        "importPath": "pylsl",
-        "description": "pylsl",
-        "isExtraImport": true,
-        "detail": "pylsl",
-        "documentation": {}
-    },
-    {
-        "label": "time,",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "time.",
-        "description": "time.",
-        "detail": "time.",
-        "documentation": {}
-    },
-    {
-        "label": "os,",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os.",
-        "description": "os.",
-        "detail": "os.",
-        "documentation": {}
-    },
-    {
-        "label": "asdict",
-        "importPath": "dataclasses",
-        "description": "dataclasses",
-        "isExtraImport": true,
-        "detail": "dataclasses",
-        "documentation": {}
-    },
-    {
-        "label": "dataclass",
-        "importPath": "dataclasses",
-        "description": "dataclasses",
-        "isExtraImport": true,
-        "detail": "dataclasses",
-        "documentation": {}
-    },
-    {
-        "label": "field",
-        "importPath": "dataclasses",
-        "description": "dataclasses",
-        "isExtraImport": true,
-        "detail": "dataclasses",
-        "documentation": {}
-    },
-    {
-        "label": "asdict",
-        "importPath": "dataclasses",
-        "description": "dataclasses",
-        "isExtraImport": true,
-        "detail": "dataclasses",
-        "documentation": {}
-    },
-    {
-        "label": "asdict",
-        "importPath": "dataclasses",
-        "description": "dataclasses",
-        "isExtraImport": true,
-        "detail": "dataclasses",
-        "documentation": {}
-    },
-    {
-        "label": "deque",
-        "importPath": "collections",
-        "description": "collections",
-        "isExtraImport": true,
-        "detail": "collections",
-        "documentation": {}
-    },
-    {
-        "label": "deque",
-        "importPath": "collections",
-        "description": "collections",
-        "isExtraImport": true,
-        "detail": "collections",
-        "documentation": {}
-    },
-    {
-        "label": "defaultdict",
-        "importPath": "collections",
-        "description": "collections",
-        "isExtraImport": true,
-        "detail": "collections",
-        "documentation": {}
-    },
-    {
-        "label": "deque",
-        "importPath": "collections",
-        "description": "collections",
-        "isExtraImport": true,
-        "detail": "collections",
-        "documentation": {}
-    },
-    {
-        "label": "FastAPI",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "Request",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "StreamingResponse",
-        "importPath": "fastapi.responses",
-        "description": "fastapi.responses",
-        "isExtraImport": true,
-        "detail": "fastapi.responses",
-        "documentation": {}
-    },
-    {
-        "label": "time",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "time",
-        "description": "time",
-        "detail": "time",
-        "documentation": {}
-    },
-    {
-        "label": "json",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "timedelta",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "mne",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "mne",
-        "description": "mne",
-        "detail": "mne",
-        "documentation": {}
-    },
-    {
-        "label": "ICA",
-        "importPath": "mne.preprocessing",
-        "description": "mne.preprocessing",
-        "isExtraImport": true,
-        "detail": "mne.preprocessing",
-        "documentation": {}
-    },
-    {
-        "label": "label_components",
-        "importPath": "mne_icalabel",
-        "description": "mne_icalabel",
-        "isExtraImport": true,
-        "detail": "mne_icalabel",
-        "documentation": {}
-    },
-    {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
-        "documentation": {}
-    },
-    {
-        "label": "psutil",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "psutil",
-        "description": "psutil",
-        "detail": "psutil",
-        "documentation": {}
-    },
-    {
-        "label": "LinearDiscriminantAnalysis",
-        "importPath": "sklearn.discriminant_analysis",
-        "description": "sklearn.discriminant_analysis",
-        "isExtraImport": true,
-        "detail": "sklearn.discriminant_analysis",
-        "documentation": {}
-    },
-    {
-        "label": "LogisticRegression",
-        "importPath": "sklearn.linear_model",
-        "description": "sklearn.linear_model",
-        "isExtraImport": true,
-        "detail": "sklearn.linear_model",
-        "documentation": {}
-    },
-    {
-        "label": "XdawnCovariances",
-        "importPath": "pyriemann.estimation",
-        "description": "pyriemann.estimation",
-        "isExtraImport": true,
-        "detail": "pyriemann.estimation",
-        "documentation": {}
-    },
-    {
-        "label": "TangentSpace",
-        "importPath": "pyriemann.tangentspace",
-        "description": "pyriemann.tangentspace",
-        "isExtraImport": true,
-        "detail": "pyriemann.tangentspace",
-        "documentation": {}
-    },
-    {
-        "label": "make_pipeline",
-        "importPath": "sklearn.pipeline",
-        "description": "sklearn.pipeline",
-        "isExtraImport": true,
-        "detail": "sklearn.pipeline",
-        "documentation": {}
-    },
-    {
-        "label": "roc_auc_score",
-        "importPath": "sklearn.metrics",
-        "description": "sklearn.metrics",
-        "isExtraImport": true,
-        "detail": "sklearn.metrics",
-        "documentation": {}
-    },
-    {
-        "label": "average_precision_score",
-        "importPath": "sklearn.metrics",
-        "description": "sklearn.metrics",
-        "isExtraImport": true,
-        "detail": "sklearn.metrics",
-        "documentation": {}
-    },
-    {
-        "label": "roc_auc_score",
-        "importPath": "sklearn.metrics",
-        "description": "sklearn.metrics",
-        "isExtraImport": true,
-        "detail": "sklearn.metrics",
-        "documentation": {}
-    },
-    {
-        "label": "average_precision_score",
-        "importPath": "sklearn.metrics",
-        "description": "sklearn.metrics",
-        "isExtraImport": true,
-        "detail": "sklearn.metrics",
-        "documentation": {}
-    },
-    {
-        "label": "roc_curve",
-        "importPath": "sklearn.metrics",
-        "description": "sklearn.metrics",
-        "isExtraImport": true,
-        "detail": "sklearn.metrics",
-        "documentation": {}
-    },
-    {
-        "label": "roc_auc_score",
-        "importPath": "sklearn.metrics",
-        "description": "sklearn.metrics",
-        "isExtraImport": true,
-        "detail": "sklearn.metrics",
-        "documentation": {}
-    },
-    {
-        "label": "average_precision_score",
-        "importPath": "sklearn.metrics",
-        "description": "sklearn.metrics",
-        "isExtraImport": true,
-        "detail": "sklearn.metrics",
-        "documentation": {}
-    },
-    {
-        "label": "roc_curve",
-        "importPath": "sklearn.metrics",
-        "description": "sklearn.metrics",
-        "isExtraImport": true,
-        "detail": "sklearn.metrics",
-        "documentation": {}
-    },
-    {
-        "label": "precision_recall_curve",
-        "importPath": "sklearn.metrics",
-        "description": "sklearn.metrics",
-        "isExtraImport": true,
-        "detail": "sklearn.metrics",
-        "documentation": {}
-    },
-    {
-        "label": "roc_auc_score",
-        "importPath": "sklearn.metrics",
-        "description": "sklearn.metrics",
-        "isExtraImport": true,
-        "detail": "sklearn.metrics",
-        "documentation": {}
-    },
-    {
-        "label": "average_precision_score",
-        "importPath": "sklearn.metrics",
-        "description": "sklearn.metrics",
-        "isExtraImport": true,
-        "detail": "sklearn.metrics",
-        "documentation": {}
-    },
-    {
-        "label": "roc_curve",
-        "importPath": "sklearn.metrics",
-        "description": "sklearn.metrics",
-        "isExtraImport": true,
-        "detail": "sklearn.metrics",
-        "documentation": {}
-    },
-    {
-        "label": "cross_val_score",
-        "importPath": "sklearn.model_selection",
-        "description": "sklearn.model_selection",
-        "isExtraImport": true,
-        "detail": "sklearn.model_selection",
-        "documentation": {}
-    },
-    {
-        "label": "StratifiedKFold",
-        "importPath": "sklearn.model_selection",
-        "description": "sklearn.model_selection",
-        "isExtraImport": true,
-        "detail": "sklearn.model_selection",
-        "documentation": {}
-    },
-    {
-        "label": "cross_val_score",
-        "importPath": "sklearn.model_selection",
-        "description": "sklearn.model_selection",
-        "isExtraImport": true,
-        "detail": "sklearn.model_selection",
-        "documentation": {}
-    },
-    {
-        "label": "StratifiedKFold",
-        "importPath": "sklearn.model_selection",
-        "description": "sklearn.model_selection",
-        "isExtraImport": true,
-        "detail": "sklearn.model_selection",
-        "documentation": {}
-    },
-    {
-        "label": "pickle",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "pickle",
-        "description": "pickle",
-        "detail": "pickle",
-        "documentation": {}
-    },
-    {
-        "label": "ErrPDecoder",
-        "importPath": "core.scoring.errp_decoder",
-        "description": "core.scoring.errp_decoder",
-        "isExtraImport": true,
-        "detail": "core.scoring.errp_decoder",
-        "documentation": {}
-    },
-    {
-        "label": "ErrPDecoder",
-        "importPath": "core.scoring.errp_decoder",
-        "description": "core.scoring.errp_decoder",
-        "isExtraImport": true,
-        "detail": "core.scoring.errp_decoder",
-        "documentation": {}
-    },
-    {
         "label": "argparse,",
         "kind": 6,
         "isExtraImport": true,
@@ -930,61 +9,99 @@
         "documentation": {}
     },
     {
-        "label": "matplotlib.pyplot",
-        "kind": 6,
+        "label": "ensure_dir",
+        "importPath": "utils",
+        "description": "utils",
         "isExtraImport": true,
-        "importPath": "matplotlib.pyplot",
-        "description": "matplotlib.pyplot",
-        "detail": "matplotlib.pyplot",
+        "detail": "utils",
         "documentation": {}
     },
     {
-        "label": "Ring",
-        "importPath": "core.host.windows",
-        "description": "core.host.windows",
+        "label": "load_cfg",
+        "importPath": "utils",
+        "description": "utils",
         "isExtraImport": true,
-        "detail": "core.host.windows",
+        "detail": "utils",
         "documentation": {}
     },
     {
-        "label": "epoch_relative",
-        "importPath": "core.host.windows",
-        "description": "core.host.windows",
+        "label": "read_jsonl",
+        "importPath": "utils",
+        "description": "utils",
         "isExtraImport": true,
-        "detail": "core.host.windows",
+        "detail": "utils",
         "documentation": {}
     },
     {
-        "label": "P300Riemann",
-        "importPath": "core.scoring.p300_riemann",
-        "description": "core.scoring.p300_riemann",
+        "label": "write_jsonl",
+        "importPath": "utils",
+        "description": "utils",
         "isExtraImport": true,
-        "detail": "core.scoring.p300_riemann",
+        "detail": "utils",
         "documentation": {}
     },
     {
-        "label": "P300Riemann",
-        "importPath": "core.scoring.p300_riemann",
-        "description": "core.scoring.p300_riemann",
+        "label": "ensure_dir",
+        "importPath": "utils",
+        "description": "utils",
         "isExtraImport": true,
-        "detail": "core.scoring.p300_riemann",
+        "detail": "utils",
         "documentation": {}
     },
     {
-        "label": "fbcca_score",
-        "importPath": "core.scoring.ssvep_csp",
-        "description": "core.scoring.ssvep_csp",
+        "label": "build_image_dataset",
+        "importPath": "utils",
+        "description": "utils",
         "isExtraImport": true,
-        "detail": "core.scoring.ssvep_csp",
+        "detail": "utils",
         "documentation": {}
     },
     {
-        "label": "requests",
-        "kind": 6,
+        "label": "ensure_dir",
+        "importPath": "utils",
+        "description": "utils",
         "isExtraImport": true,
-        "importPath": "requests",
-        "description": "requests",
-        "detail": "requests",
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "write_jsonl",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "load_cfg",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "load_cfg",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_dir",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "build_image_dataset",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
         "documentation": {}
     },
     {
@@ -997,6 +114,73 @@
         "documentation": {}
     },
     {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "zipfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "zipfile",
+        "description": "zipfile",
+        "detail": "zipfile",
+        "documentation": {}
+    },
+    {
+        "label": "urllib.request",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "urllib.request",
+        "description": "urllib.request",
+        "detail": "urllib.request",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "sys",
         "kind": 6,
         "isExtraImport": true,
@@ -1006,30 +190,19 @@
         "documentation": {}
     },
     {
-        "label": "subprocess",
-        "kind": 6,
+        "label": "Qt",
+        "importPath": "PyQt6.QtCore",
+        "description": "PyQt6.QtCore",
         "isExtraImport": true,
-        "importPath": "subprocess",
-        "description": "subprocess",
-        "detail": "subprocess",
+        "detail": "PyQt6.QtCore",
         "documentation": {}
     },
     {
-        "label": "threading",
-        "kind": 6,
+        "label": "QProcess",
+        "importPath": "PyQt6.QtCore",
+        "description": "PyQt6.QtCore",
         "isExtraImport": true,
-        "importPath": "threading",
-        "description": "threading",
-        "detail": "threading",
-        "documentation": {}
-    },
-    {
-        "label": "webbrowser",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "webbrowser",
-        "description": "webbrowser",
-        "detail": "webbrowser",
+        "detail": "PyQt6.QtCore",
         "documentation": {}
     },
     {
@@ -1073,22 +246,6 @@
         "documentation": {}
     },
     {
-        "label": "QGridLayout",
-        "importPath": "PyQt6.QtWidgets",
-        "description": "PyQt6.QtWidgets",
-        "isExtraImport": true,
-        "detail": "PyQt6.QtWidgets",
-        "documentation": {}
-    },
-    {
-        "label": "QPushButton",
-        "importPath": "PyQt6.QtWidgets",
-        "description": "PyQt6.QtWidgets",
-        "isExtraImport": true,
-        "detail": "PyQt6.QtWidgets",
-        "documentation": {}
-    },
-    {
         "label": "QLabel",
         "importPath": "PyQt6.QtWidgets",
         "description": "PyQt6.QtWidgets",
@@ -1105,7 +262,7 @@
         "documentation": {}
     },
     {
-        "label": "QComboBox",
+        "label": "QPushButton",
         "importPath": "PyQt6.QtWidgets",
         "description": "PyQt6.QtWidgets",
         "isExtraImport": true,
@@ -1113,7 +270,15 @@
         "documentation": {}
     },
     {
-        "label": "QTextEdit",
+        "label": "QFileDialog",
+        "importPath": "PyQt6.QtWidgets",
+        "description": "PyQt6.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt6.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QSpinBox",
         "importPath": "PyQt6.QtWidgets",
         "description": "PyQt6.QtWidgets",
         "isExtraImport": true,
@@ -1129,7 +294,7 @@
         "documentation": {}
     },
     {
-        "label": "QFrame",
+        "label": "QPlainTextEdit",
         "importPath": "PyQt6.QtWidgets",
         "description": "PyQt6.QtWidgets",
         "isExtraImport": true,
@@ -1137,7 +302,7 @@
         "documentation": {}
     },
     {
-        "label": "QScrollArea",
+        "label": "QMessageBox",
         "importPath": "PyQt6.QtWidgets",
         "description": "PyQt6.QtWidgets",
         "isExtraImport": true,
@@ -1145,7 +310,7 @@
         "documentation": {}
     },
     {
-        "label": "QTabWidget",
+        "label": "QCheckBox",
         "importPath": "PyQt6.QtWidgets",
         "description": "PyQt6.QtWidgets",
         "isExtraImport": true,
@@ -1153,832 +318,399 @@
         "documentation": {}
     },
     {
-        "label": "Qt",
-        "importPath": "PyQt6.QtCore",
-        "description": "PyQt6.QtCore",
-        "isExtraImport": true,
-        "detail": "PyQt6.QtCore",
-        "documentation": {}
-    },
-    {
-        "label": "QTimer",
-        "importPath": "PyQt6.QtCore",
-        "description": "PyQt6.QtCore",
-        "isExtraImport": true,
-        "detail": "PyQt6.QtCore",
-        "documentation": {}
-    },
-    {
-        "label": "pyqtSignal",
-        "importPath": "PyQt6.QtCore",
-        "description": "PyQt6.QtCore",
-        "isExtraImport": true,
-        "detail": "PyQt6.QtCore",
-        "documentation": {}
-    },
-    {
-        "label": "QObject",
-        "importPath": "PyQt6.QtCore",
-        "description": "PyQt6.QtCore",
-        "isExtraImport": true,
-        "detail": "PyQt6.QtCore",
-        "documentation": {}
-    },
-    {
-        "label": "QFont",
-        "importPath": "PyQt6.QtGui",
-        "description": "PyQt6.QtGui",
-        "isExtraImport": true,
-        "detail": "PyQt6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QPalette",
-        "importPath": "PyQt6.QtGui",
-        "description": "PyQt6.QtGui",
-        "isExtraImport": true,
-        "detail": "PyQt6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QColor",
-        "importPath": "PyQt6.QtGui",
-        "description": "PyQt6.QtGui",
-        "isExtraImport": true,
-        "detail": "PyQt6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "pyqtgraph",
+        "label": "json,",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "pyqtgraph",
-        "description": "pyqtgraph",
-        "detail": "pyqtgraph",
-        "documentation": {}
-    },
-    {
-        "label": "asyncio",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "asyncio",
-        "description": "asyncio",
-        "detail": "asyncio",
-        "documentation": {}
-    },
-    {
-        "label": "random",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "random",
-        "description": "random",
-        "detail": "random",
-        "documentation": {}
-    },
-    {
-        "label": "rerank",
-        "importPath": "app_logic.reranker.ranker",
-        "description": "app_logic.reranker.ranker",
-        "isExtraImport": true,
-        "detail": "app_logic.reranker.ranker",
-        "documentation": {}
-    },
-    {
-        "label": "ClosedLoop",
-        "kind": 6,
-        "importPath": "app_logic.reranker.feedback_loop",
-        "description": "app_logic.reranker.feedback_loop",
-        "peekOfCode": "class ClosedLoop:\n    def __init__(self, alpha=1.0, decay=0.95):\n        self.alpha = alpha; self.decay = decay; self.mem: Dict[str, float] = {}\n    def update(self, item_id: str, p: float):\n        self.mem[item_id] = self.decay*self.mem.get(item_id, 0.0) + self.alpha*p",
-        "detail": "app_logic.reranker.feedback_loop",
-        "documentation": {}
-    },
-    {
-        "label": "rerank",
-        "kind": 2,
-        "importPath": "app_logic.reranker.ranker",
-        "description": "app_logic.reranker.ranker",
-        "peekOfCode": "def rerank(items: List[Tuple[str, float]], p300_scores: dict, alpha=1.0):\n    def s(item):\n        iid, prior = item\n        return prior + alpha*p300_scores.get(iid, 0.0)\n    return sorted(items, key=s, reverse=True)",
-        "detail": "app_logic.reranker.ranker",
-        "documentation": {}
-    },
-    {
-        "label": "ErrPBandit",
-        "kind": 6,
-        "importPath": "app_logic.rl.bandit",
-        "description": "app_logic.rl.bandit",
-        "peekOfCode": "class ErrPBandit:\n    def __init__(self, n_actions: int, lr=0.1, penalty_scale=1.0):\n        self.Q = np.zeros(n_actions); self.lr = lr; self.penalty_scale = penalty_scale\n    def step(self, a: int, reward: float, errp_prob: float):\n        r = reward - self.penalty_scale*errp_prob\n        self.Q[a] += self.lr*(r - self.Q[a]); return r\n    def act(self, eps=0.1):\n        return np.random.randint(len(self.Q)) if np.random.rand()<eps else int(np.argmax(self.Q))",
-        "detail": "app_logic.rl.bandit",
-        "documentation": {}
-    },
-    {
-        "label": "connect_eeg",
-        "kind": 2,
-        "importPath": "core.acquisition.lsl_inlet",
-        "description": "core.acquisition.lsl_inlet",
-        "peekOfCode": "def connect_eeg(name=\"EEG\", stype=\"EEG\", timeout=10):\n    streams = resolve_stream('type', stype, timeout=timeout)\n    if not streams:\n        raise RuntimeError(f\"No LSL stream found for type={stype}\")\n    return StreamInlet(streams[0], max_chunklen=512, recover=True)\ndef connect_markers(name=\"Markers\", stype=\"Markers\", timeout=10):\n    streams = resolve_stream('type', stype, timeout=timeout)\n    if not streams:\n        raise RuntimeError(\"No LSL marker stream found\")\n    return StreamInlet(streams[0], max_chunklen=16, recover=True)",
-        "detail": "core.acquisition.lsl_inlet",
-        "documentation": {}
-    },
-    {
-        "label": "connect_markers",
-        "kind": 2,
-        "importPath": "core.acquisition.lsl_inlet",
-        "description": "core.acquisition.lsl_inlet",
-        "peekOfCode": "def connect_markers(name=\"Markers\", stype=\"Markers\", timeout=10):\n    streams = resolve_stream('type', stype, timeout=timeout)\n    if not streams:\n        raise RuntimeError(\"No LSL marker stream found\")\n    return StreamInlet(streams[0], max_chunklen=16, recover=True)\ndef pull_chunk(inlet, max_samples=512):\n    chunk, ts = inlet.pull_chunk(timeout=0.0, max_samples=max_samples)\n    if not chunk: return None, None\n    return np.asarray(chunk), np.asarray(ts)",
-        "detail": "core.acquisition.lsl_inlet",
-        "documentation": {}
-    },
-    {
-        "label": "pull_chunk",
-        "kind": 2,
-        "importPath": "core.acquisition.lsl_inlet",
-        "description": "core.acquisition.lsl_inlet",
-        "peekOfCode": "def pull_chunk(inlet, max_samples=512):\n    chunk, ts = inlet.pull_chunk(timeout=0.0, max_samples=max_samples)\n    if not chunk: return None, None\n    return np.asarray(chunk), np.asarray(ts)",
-        "detail": "core.acquisition.lsl_inlet",
-        "documentation": {}
-    },
-    {
-        "label": "start_marker_outlet",
-        "kind": 2,
-        "importPath": "core.acquisition.markers",
-        "description": "core.acquisition.markers",
-        "peekOfCode": "def start_marker_outlet(name=\"Markers\", stype=\"Markers\", source_id=\"markers\"):\n    info = StreamInfo(name, stype, 1, 0, 'string', source_id)\n    outlet = StreamOutlet(info); return outlet\ndef emit_loop_rsvp(outlet, rate_hz=8.0):\n    isi = 1.0/rate_hz\n    vocab = [f\"id_{i:03d}\" for i in range(1,101)]\n    while True:\n        outlet.push_sample([random.choice(vocab)])\n        time.sleep(isi)\ndef emit_loop_ssvep(outlet, rate_hz=2.0):",
-        "detail": "core.acquisition.markers",
-        "documentation": {}
-    },
-    {
-        "label": "emit_loop_rsvp",
-        "kind": 2,
-        "importPath": "core.acquisition.markers",
-        "description": "core.acquisition.markers",
-        "peekOfCode": "def emit_loop_rsvp(outlet, rate_hz=8.0):\n    isi = 1.0/rate_hz\n    vocab = [f\"id_{i:03d}\" for i in range(1,101)]\n    while True:\n        outlet.push_sample([random.choice(vocab)])\n        time.sleep(isi)\ndef emit_loop_ssvep(outlet, rate_hz=2.0):\n    isi = 1.0/rate_hz\n    targets = [\"31.0\",\"32.0\",\"33.0\",\"34.5\"]\n    while True:",
-        "detail": "core.acquisition.markers",
-        "documentation": {}
-    },
-    {
-        "label": "emit_loop_ssvep",
-        "kind": 2,
-        "importPath": "core.acquisition.markers",
-        "description": "core.acquisition.markers",
-        "peekOfCode": "def emit_loop_ssvep(outlet, rate_hz=2.0):\n    isi = 1.0/rate_hz\n    targets = [\"31.0\",\"32.0\",\"33.0\",\"34.5\"]\n    while True:\n        outlet.push_sample([random.choice(targets)])\n        time.sleep(isi)",
-        "detail": "core.acquisition.markers",
-        "documentation": {}
-    },
-    {
-        "label": "index",
-        "kind": 2,
-        "importPath": "core.api.fabric_bus",
-        "description": "core.api.fabric_bus",
-        "peekOfCode": "def index():\n    \"\"\"v1.5: API-only, no web dashboard. Use PyQt6 GUI: python scripts/launcher_gui_qt.py\"\"\"\n    return {\n        \"name\": \"EEGCompute Fabric Bus v1.5\",\n        \"status\": \"running\",\n        \"endpoints\": {\n            \"GET /latest\": \"Latest scores for all signal types\",\n            \"GET /metrics\": \"Latency and system metrics\",\n            \"GET /events\": \"Server-Sent Events stream\",\n            \"POST /publish\": \"Publish a new score\",",
-        "detail": "core.api.fabric_bus",
-        "documentation": {}
-    },
-    {
-        "label": "latest",
-        "kind": 2,
-        "importPath": "core.api.fabric_bus",
-        "description": "core.api.fabric_bus",
-        "peekOfCode": "def latest():\n    return {k: asdict(v) for k, v in latest_scores.items()}\n@app.get(\"/stream\")\nasync def stream(kind: str = \"p300\"):\n    sv = latest_scores.get(kind)\n    return asdict(sv) if sv else None\n@app.get(\"/metrics\")\ndef metrics():\n    \"\"\"v1.5: System metrics and latency statistics\"\"\"\n    metrics_data = {}",
-        "detail": "core.api.fabric_bus",
-        "documentation": {}
-    },
-    {
-        "label": "metrics",
-        "kind": 2,
-        "importPath": "core.api.fabric_bus",
-        "description": "core.api.fabric_bus",
-        "peekOfCode": "def metrics():\n    \"\"\"v1.5: System metrics and latency statistics\"\"\"\n    metrics_data = {}\n    # Latency statistics\n    for kind, history in latency_history.items():\n        if history:\n            latencies = list(history)\n            metrics_data[f\"{kind}_latency\"] = {\n                \"mean_ms\": float(np.mean(latencies)),\n                \"p50_ms\": float(np.percentile(latencies, 50)),",
-        "detail": "core.api.fabric_bus",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "kind": 5,
-        "importPath": "core.api.fabric_bus",
-        "description": "core.api.fabric_bus",
-        "peekOfCode": "app = FastAPI(title=\"EEGCompute Fabric Bus v1.5\")\n# v1.5: No web dashboard - use PyQt6 GUI instead\nscore_queue: \"asyncio.Queue[ScoreVector]\" = asyncio.Queue(maxsize=1024)\nlatest_scores: Dict[str, ScoreVector] = {}\n# v1.5: Latency tracking\nlatency_history: Dict[str, deque] = {\n    \"p300\": deque(maxlen=1000),\n    \"ssvep\": deque(maxlen=1000),\n    \"errp\": deque(maxlen=1000),\n}",
-        "detail": "core.api.fabric_bus",
-        "documentation": {}
-    },
-    {
-        "label": "ScoreVector",
-        "kind": 6,
-        "importPath": "core.api.schema",
-        "description": "core.api.schema",
-        "peekOfCode": "class ScoreVector:\n    t0: float\n    dt: float\n    kind: Literal[\"p300\",\"ssvep\",\"errp\"]\n    value: float\n    quality: float\n    meta: Dict[str, Any] = field(default_factory=dict)\n    # v1.5: Latency tracking\n    eeg_last_sample_time: Optional[float] = None  # When last EEG sample was received\n    processing_start_time: Optional[float] = None  # When processing started",
-        "detail": "core.api.schema",
-        "documentation": {}
-    },
-    {
-        "label": "BIDSWriter",
-        "kind": 6,
-        "importPath": "core.export.bids_writer",
-        "description": "core.export.bids_writer",
-        "peekOfCode": "class BIDSWriter:\n    \"\"\"Write EEG data + events to BIDS format\"\"\"\n    def __init__(\n        self,\n        output_dir: str = \"data/bids\",\n        subject: str = \"001\",\n        session: Optional[str] = None,\n        task: str = \"bci\"\n    ):\n        \"\"\"",
-        "detail": "core.export.bids_writer",
-        "documentation": {}
-    },
-    {
-        "label": "export_session_to_bids",
-        "kind": 2,
-        "importPath": "core.export.bids_writer",
-        "description": "core.export.bids_writer",
-        "peekOfCode": "def export_session_to_bids(\n    eeg_data: np.ndarray,\n    events: List[Dict[str, Any]],\n    scores: List[Dict[str, Any]],\n    fs: float = 512.0,\n    subject: str = \"001\",\n    task: str = \"bci\",\n    output_dir: str = \"data/bids\"\n) -> Path:\n    \"\"\"",
-        "detail": "core.export.bids_writer",
-        "documentation": {}
-    },
-    {
-        "label": "bandpass_notch",
-        "kind": 2,
-        "importPath": "core.host.filters",
-        "description": "core.host.filters",
-        "peekOfCode": "def bandpass_notch(raw: mne.io.BaseRaw, l_freq=1.0, h_freq=40.0, notch=60.0):\n    raw = raw.copy().filter(l_freq=l_freq, h_freq=h_freq, fir_design=\"firwin\", phase=\"zero\")\n    raw = raw.notch_filter(freqs=[notch])\n    return raw\ndef reref(raw: mne.io.BaseRaw, ref=\"average\"):\n    raw = raw.copy().set_eeg_reference(ref)\n    return raw",
-        "detail": "core.host.filters",
-        "documentation": {}
-    },
-    {
-        "label": "reref",
-        "kind": 2,
-        "importPath": "core.host.filters",
-        "description": "core.host.filters",
-        "peekOfCode": "def reref(raw: mne.io.BaseRaw, ref=\"average\"):\n    raw = raw.copy().set_eeg_reference(ref)\n    return raw",
-        "detail": "core.host.filters",
-        "documentation": {}
-    },
-    {
-        "label": "run_ica_and_mask",
-        "kind": 2,
-        "importPath": "core.host.ica_iclabel",
-        "description": "core.host.ica_iclabel",
-        "peekOfCode": "def run_ica_and_mask(raw: mne.io.BaseRaw, n_components=20, threshold=0.9, random_state=97):\n    ica = ICA(n_components=n_components, random_state=random_state, max_iter=\"auto\")\n    ica.fit(raw.copy().load_data())\n    labels = label_components(raw, ica, method=\"iclabel\")\n    comp_labels, proba = labels[\"labels\"], labels[\"y_pred_proba\"]\n    bads = []\n    for i, (lab, probs) in enumerate(zip(comp_labels, proba)):\n        if lab in (\"eye\",\"muscle\",\"heart\") and max(probs) >= threshold:\n            bads.append(i)\n    raw_clean = ica.apply(raw.copy(), exclude=bads)",
-        "detail": "core.host.ica_iclabel",
-        "documentation": {}
-    },
-    {
-        "label": "flatline_rate",
-        "kind": 2,
-        "importPath": "core.host.qc",
-        "description": "core.host.qc",
-        "peekOfCode": "def flatline_rate(x: np.ndarray, tol=1e-6):\n    return float(np.mean(np.abs(np.diff(x)) < tol))\ndef jump_events(x: np.ndarray, z=6.0):\n    dx = np.diff(x); s = np.std(dx) + 1e-9\n    return int(np.sum(np.abs(dx) > z*s))\ndef channel_quality(x: np.ndarray):\n    fr = flatline_rate(x); jumps = jump_events(x)\n    qual = max(0.0, 1.0 - 0.5*fr - 0.02*jumps)\n    return float(np.clip(qual, 0.0, 1.0))",
-        "detail": "core.host.qc",
-        "documentation": {}
-    },
-    {
-        "label": "jump_events",
-        "kind": 2,
-        "importPath": "core.host.qc",
-        "description": "core.host.qc",
-        "peekOfCode": "def jump_events(x: np.ndarray, z=6.0):\n    dx = np.diff(x); s = np.std(dx) + 1e-9\n    return int(np.sum(np.abs(dx) > z*s))\ndef channel_quality(x: np.ndarray):\n    fr = flatline_rate(x); jumps = jump_events(x)\n    qual = max(0.0, 1.0 - 0.5*fr - 0.02*jumps)\n    return float(np.clip(qual, 0.0, 1.0))",
-        "detail": "core.host.qc",
-        "documentation": {}
-    },
-    {
-        "label": "channel_quality",
-        "kind": 2,
-        "importPath": "core.host.qc",
-        "description": "core.host.qc",
-        "peekOfCode": "def channel_quality(x: np.ndarray):\n    fr = flatline_rate(x); jumps = jump_events(x)\n    qual = max(0.0, 1.0 - 0.5*fr - 0.02*jumps)\n    return float(np.clip(qual, 0.0, 1.0))",
-        "detail": "core.host.qc",
-        "documentation": {}
-    },
-    {
-        "label": "Ring",
-        "kind": 6,
-        "importPath": "core.host.windows",
-        "description": "core.host.windows",
-        "peekOfCode": "class Ring:\n    def __init__(self, maxlen: int):\n        self.ts = deque(maxlen=maxlen); self.x = deque(maxlen=maxlen)\n    def extend(self, ts_batch, x_batch):\n        self.ts.extend(ts_batch); self.x.extend(x_batch)\n    def window(self, t0, t1):\n        ts = np.array(self.ts, float); x = np.array(self.x, float)\n        if ts.size == 0: return None, None\n        sel = (ts>=t0) & (ts<=t1); \n        # For multi-channel, store as columns in x; in v1 demo, x is 1D stream.",
-        "detail": "core.host.windows",
-        "documentation": {}
-    },
-    {
-        "label": "epoch_relative",
-        "kind": 2,
-        "importPath": "core.host.windows",
-        "description": "core.host.windows",
-        "peekOfCode": "def epoch_relative(ring: Ring, t_event: float, pre_s: float, post_s: float, fs: int):\n    t0, t1 = t_event - pre_s, t_event + post_s\n    ts, x = ring.window(t0, t1)\n    if ts is None or x is None or ts.size == 0: \n        return None\n    n = int((pre_s + post_s) * fs)\n    if n <= 0: return None\n    grid = np.linspace(t0, t1, n, endpoint=False)\n    # 1D demo epoch; v1.1 will stack channels\n    X = np.interp(grid, ts, x)",
-        "detail": "core.host.windows",
-        "documentation": {}
-    },
-    {
-        "label": "ScoreLogger",
-        "kind": 6,
-        "importPath": "core.logging.score_logger",
-        "description": "core.logging.score_logger",
-        "peekOfCode": "class ScoreLogger:\n    \"\"\"Logs ScoreVectors to JSONL files with timestamps\"\"\"\n    def __init__(self, output_dir: str = \"data/logs\", session_id: Optional[str] = None):\n        self.output_dir = Path(output_dir)\n        self.output_dir.mkdir(parents=True, exist_ok=True)\n        # Generate session ID if not provided\n        if session_id is None:\n            session_id = datetime.now().strftime(\"%Y%m%d_%H%M%S\")\n        self.session_id = session_id\n        # Create session directory",
-        "detail": "core.logging.score_logger",
-        "documentation": {}
-    },
-    {
-        "label": "SystemMonitor",
-        "kind": 6,
-        "importPath": "core.monitoring.system_monitor",
-        "description": "core.monitoring.system_monitor",
-        "peekOfCode": "class SystemMonitor:\n    \"\"\"Monitor CPU, memory, and system resources\"\"\"\n    def __init__(self, output_dir: str = \"data/logs\", session_id: Optional[str] = None):\n        self.output_dir = Path(output_dir)\n        self.output_dir.mkdir(parents=True, exist_ok=True)\n        if session_id is None:\n            session_id = datetime.now().strftime(\"%Y%m%d_%H%M%S\")\n        self.session_id = session_id\n        self.session_dir = self.output_dir / session_id\n        self.session_dir.mkdir(parents=True, exist_ok=True)",
-        "detail": "core.monitoring.system_monitor",
-        "documentation": {}
-    },
-    {
-        "label": "ErrPDecoder",
-        "kind": 6,
-        "importPath": "core.scoring.errp_decoder",
-        "description": "core.scoring.errp_decoder",
-        "peekOfCode": "class ErrPDecoder:\n    def __init__(self):\n        self.clf = LDA(); self.ready = False\n    def fit(self, X, y):\n        self.clf.fit(X, y); self.ready = True\n    def score(self, x1):\n        if not self.ready: return 0.5\n        return float(self.clf.predict_proba([x1])[0,1])",
-        "detail": "core.scoring.errp_decoder",
-        "documentation": {}
-    },
-    {
-        "label": "P300Riemann",
-        "kind": 6,
-        "importPath": "core.scoring.p300_riemann",
-        "description": "core.scoring.p300_riemann",
-        "peekOfCode": "class P300Riemann:\n    def __init__(self, n_xdawn=4, C=1.0):\n        self.clf = make_pipeline(\n            XdawnCovariances(nfilter=n_xdawn, estimator=\"oas\"),\n            TangentSpace(),\n            LogisticRegression(C=C, max_iter=200)\n        )\n        self.ready = False\n    def fit(self, X, y):\n        self.clf.fit(X, y); self.ready = True",
-        "detail": "core.scoring.p300_riemann",
-        "documentation": {}
-    },
-    {
-        "label": "fbcca_score",
-        "kind": 2,
-        "importPath": "core.scoring.ssvep_csp",
-        "description": "core.scoring.ssvep_csp",
-        "peekOfCode": "def fbcca_score(epoch: np.ndarray, fs: int, targets=(31.0,32.0,33.0,34.5)):\n    \"\"\"\n    Compute FBCCA scores for SSVEP targets.\n    Returns:\n        k: int - index of winning target\n        max_score: float - correlation of winning target\n        metadata: dict - full scores, margin, target_freq, confidence\n    \"\"\"\n    t = np.arange(epoch.shape[-1]) / fs\n    sig = epoch.mean(0) if epoch.ndim==2 else epoch",
-        "detail": "core.scoring.ssvep_csp",
-        "documentation": {}
-    },
-    {
-        "label": "Timer",
-        "kind": 6,
-        "importPath": "eval.latency_audit",
-        "description": "eval.latency_audit",
-        "peekOfCode": "class Timer:\n    def __init__(self): self.t0=None\n    def start(self): self.t0=time.perf_counter()\n    def stop(self): return (time.perf_counter()-self.t0) if self.t0 else None",
-        "detail": "eval.latency_audit",
-        "documentation": {}
-    },
-    {
-        "label": "auroc",
-        "kind": 2,
-        "importPath": "eval.metrics",
-        "description": "eval.metrics",
-        "peekOfCode": "def auroc(y, p): return float(roc_auc_score(y, p))\ndef auprc(y, p): return float(average_precision_score(y, p))",
-        "detail": "eval.metrics",
-        "documentation": {}
-    },
-    {
-        "label": "auprc",
-        "kind": 2,
-        "importPath": "eval.metrics",
-        "description": "eval.metrics",
-        "peekOfCode": "def auprc(y, p): return float(average_precision_score(y, p))",
-        "detail": "eval.metrics",
-        "documentation": {}
-    },
-    {
-        "label": "simulate_calibration_data",
-        "kind": 2,
-        "importPath": "scripts.errp_fit",
-        "description": "scripts.errp_fit",
-        "peekOfCode": "def simulate_calibration_data(n_errors: int = 50, n_correct: int = 150, fs: int = 512, n_channels: int = 8):\n    \"\"\"\n    Simulate ErrP calibration data for demo.\n    In production, this would be replaced by real LSL acquisition.\n    Args:\n        n_errors: Number of error epochs (feedback indicating mistake)\n        n_correct: Number of correct epochs (feedback indicating success)\n        fs: Sampling frequency\n        n_channels: Number of EEG channels\n    Returns:",
-        "detail": "scripts.errp_fit",
-        "documentation": {}
-    },
-    {
-        "label": "train_and_evaluate",
-        "kind": 2,
-        "importPath": "scripts.errp_fit",
-        "description": "scripts.errp_fit",
-        "peekOfCode": "def train_and_evaluate(X, y):\n    \"\"\"\n    Train ErrP classifier and evaluate performance.\n    Args:\n        X: (n_epochs, n_channels, n_samples) array\n        y: (n_epochs,) binary labels\n    Returns:\n        model: Trained ErrPDecoder classifier\n        metrics: Dict with AUROC, AUPRC, thresholds\n    \"\"\"",
-        "detail": "scripts.errp_fit",
-        "documentation": {}
-    },
-    {
-        "label": "save_model_card",
-        "kind": 2,
-        "importPath": "scripts.errp_fit",
-        "description": "scripts.errp_fit",
-        "peekOfCode": "def save_model_card(clf, metrics, subject: str, output_dir: str = \"models\"):\n    \"\"\"\n    Save trained model and metadata to disk.\n    Args:\n        clf: Trained ErrPDecoder classifier\n        metrics: Performance metrics dict\n        subject: Subject ID\n        output_dir: Output directory for models\n    \"\"\"\n    output_path = Path(output_dir)",
-        "detail": "scripts.errp_fit",
+        "importPath": "json.",
+        "description": "json.",
+        "detail": "json.",
         "documentation": {}
     },
     {
         "label": "main",
         "kind": 2,
-        "importPath": "scripts.errp_fit",
-        "description": "scripts.errp_fit",
-        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser(description=\"ErrP Calibration Script\")\n    parser.add_argument(\"--duration\", type=int, default=180,\n                        help=\"Calibration duration (seconds)\")\n    parser.add_argument(\"--subject\", type=str, default=\"001\",\n                        help=\"Subject ID\")\n    parser.add_argument(\"--n-errors\", type=int, default=50,\n                        help=\"Number of error epochs (simulated)\")\n    parser.add_argument(\"--n-correct\", type=int, default=150,\n                        help=\"Number of correct epochs (simulated)\")",
-        "detail": "scripts.errp_fit",
+        "importPath": "scripts.calibrate",
+        "description": "scripts.calibrate",
+        "peekOfCode": "def main():\n    ap=argparse.ArgumentParser(); ap.add_argument('--out', default='data/processed/calibration.json'); args=ap.parse_args()\n    ensure_dir(os.path.dirname(args.out))\n    with open(args.out,'w') as f: json.dump(BARELY,f,indent=2)\n    print(f'Wrote {args.out} (barely-pass calibration)')\nif __name__=='__main__':\n    main()",
+        "detail": "scripts.calibrate",
         "documentation": {}
     },
     {
-        "label": "ROOT",
-        "kind": 5,
-        "importPath": "scripts.errp_fit",
-        "description": "scripts.errp_fit",
-        "peekOfCode": "ROOT = os.path.dirname(os.path.dirname(__file__))\nif ROOT not in sys.path:\n    sys.path.insert(0, ROOT)\nfrom core.scoring.errp_decoder import ErrPDecoder\ndef simulate_calibration_data(n_errors: int = 50, n_correct: int = 150, fs: int = 512, n_channels: int = 8):\n    \"\"\"\n    Simulate ErrP calibration data for demo.\n    In production, this would be replaced by real LSL acquisition.\n    Args:\n        n_errors: Number of error epochs (feedback indicating mistake)",
-        "detail": "scripts.errp_fit",
-        "documentation": {}
-    },
-    {
-        "label": "load_jsonl",
+        "label": "run",
         "kind": 2,
-        "importPath": "scripts.eval_offline",
-        "description": "scripts.eval_offline",
-        "peekOfCode": "def load_jsonl(file_path: Path):\n    \"\"\"Load JSONL file into list of dicts\"\"\"\n    if not file_path.exists():\n        return []\n    data = []\n    with open(file_path, 'r') as f:\n        for line in f:\n            try:\n                data.append(json.loads(line))\n            except json.JSONDecodeError:",
-        "detail": "scripts.eval_offline",
-        "documentation": {}
-    },
-    {
-        "label": "evaluate_classifier",
-        "kind": 2,
-        "importPath": "scripts.eval_offline",
-        "description": "scripts.eval_offline",
-        "peekOfCode": "def evaluate_classifier(scores, ground_truth_labels=None):\n    \"\"\"\n    Evaluate classifier performance (for P300/ErrP).\n    Args:\n        scores: List of score dicts with 'value' field (predicted probability)\n        ground_truth_labels: List of true labels (1 = positive, 0 = negative)\n                           If None, generates synthetic labels based on value distribution\n    Returns:\n        metrics: Dict with AUROC, AUPRC, calibration data\n    \"\"\"",
-        "detail": "scripts.eval_offline",
-        "documentation": {}
-    },
-    {
-        "label": "analyze_latencies",
-        "kind": 2,
-        "importPath": "scripts.eval_offline",
-        "description": "scripts.eval_offline",
-        "peekOfCode": "def analyze_latencies(scores):\n    \"\"\"\n    Analyze latency statistics from score logs.\n    Args:\n        scores: List of score dicts with 'latencies' field\n    Returns:\n        metrics: Dict with latency statistics\n    \"\"\"\n    e2e_latencies = []\n    processing_latencies = []",
-        "detail": "scripts.eval_offline",
-        "documentation": {}
-    },
-    {
-        "label": "analyze_quality",
-        "kind": 2,
-        "importPath": "scripts.eval_offline",
-        "description": "scripts.eval_offline",
-        "peekOfCode": "def analyze_quality(scores):\n    \"\"\"\n    Analyze signal quality scores.\n    Args:\n        scores: List of score dicts with 'quality' field\n    Returns:\n        metrics: Dict with quality statistics\n    \"\"\"\n    qualities = [s.get('quality', None) for s in scores if 'quality' in s]\n    if not qualities:",
-        "detail": "scripts.eval_offline",
-        "documentation": {}
-    },
-    {
-        "label": "plot_latency_histogram",
-        "kind": 2,
-        "importPath": "scripts.eval_offline",
-        "description": "scripts.eval_offline",
-        "peekOfCode": "def plot_latency_histogram(latencies, output_path):\n    \"\"\"Plot latency histogram\"\"\"\n    if 'e2e_ms' not in latencies or 'error' in latencies:\n        return\n    e2e = latencies['e2e_ms']\n    values = [e2e['mean']]  # Placeholder - in real use, plot full distribution\n    plt.figure(figsize=(10, 6))\n    # Note: In production, load full latency arrays from JSONL\n    # For now, just show summary stats as text\n    plt.text(0.5, 0.5, f\"E2E Latency Summary\\n\\n\"",
-        "detail": "scripts.eval_offline",
-        "documentation": {}
-    },
-    {
-        "label": "evaluate_session",
-        "kind": 2,
-        "importPath": "scripts.eval_offline",
-        "description": "scripts.eval_offline",
-        "peekOfCode": "def evaluate_session(session_dir: Path):\n    \"\"\"\n    Evaluate a complete session.\n    Args:\n        session_dir: Path to session directory (e.g., data/logs/20250930_120000)\n    Returns:\n        report: Dict with all evaluation metrics\n    \"\"\"\n    print(f\"\\n{'=' * 60}\")\n    print(f\"Offline Evaluation: {session_dir.name}\")",
-        "detail": "scripts.eval_offline",
+        "importPath": "scripts.control",
+        "description": "scripts.control",
+        "peekOfCode": "def run(cmd):\n    print('>',' '.join(cmd)); rc=subprocess.call(cmd); sys.exit(rc)\ndef main():\n    ap=argparse.ArgumentParser(description='Minimal V3 control')\n    ap.add_argument('cmd', choices=['prepare','train','calibrate','eval','download'])\n    ap.add_argument('--config', default='configs/v3.yaml')\n    ap.add_argument('--k', type=int, default=10)\n    # download options\n    ap.add_argument('--train', type=int, default=0, help='Download train2017 images (≈18GB)')\n    ap.add_argument('--val', type=int, default=1, help='Download val2017 images (≈1GB)')",
+        "detail": "scripts.control",
         "documentation": {}
     },
     {
         "label": "main",
         "kind": 2,
-        "importPath": "scripts.eval_offline",
-        "description": "scripts.eval_offline",
-        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser(description=\"Offline Evaluation Script\")\n    parser.add_argument(\"--session\", type=str, required=True,\n                        help=\"Path to session directory (e.g., data/logs/20250930_120000)\")\n    args = parser.parse_args()\n    session_dir = Path(args.session)\n    if not session_dir.exists():\n        print(f\"Error: Session directory not found: {session_dir}\")\n        sys.exit(1)\n    report = evaluate_session(session_dir)",
-        "detail": "scripts.eval_offline",
+        "importPath": "scripts.control",
+        "description": "scripts.control",
+        "peekOfCode": "def main():\n    ap=argparse.ArgumentParser(description='Minimal V3 control')\n    ap.add_argument('cmd', choices=['prepare','train','calibrate','eval','download'])\n    ap.add_argument('--config', default='configs/v3.yaml')\n    ap.add_argument('--k', type=int, default=10)\n    # download options\n    ap.add_argument('--train', type=int, default=0, help='Download train2017 images (≈18GB)')\n    ap.add_argument('--val', type=int, default=1, help='Download val2017 images (≈1GB)')\n    ap.add_argument('--ann', type=int, default=1, help='Download annotations (≈250MB)')\n    args=ap.parse_args()",
+        "detail": "scripts.control",
         "documentation": {}
     },
     {
-        "label": "ROOT",
-        "kind": 5,
-        "importPath": "scripts.host_errp_demo",
-        "description": "scripts.host_errp_demo",
-        "peekOfCode": "ROOT = os.path.dirname(os.path.dirname(__file__))\nif ROOT not in sys.path:\n    sys.path.insert(0, ROOT)\nfrom core.scoring.errp_decoder import ErrPDecoder\ndec = ErrPDecoder()\nX = np.random.randn(60, 16); y = np.r_[np.ones(30), np.zeros(30)]\ndec.fit(X, y)\nwhile True:\n    x1 = np.random.randn(16)\n    p = dec.score(x1)",
-        "detail": "scripts.host_errp_demo",
-        "documentation": {}
-    },
-    {
-        "label": "dec",
-        "kind": 5,
-        "importPath": "scripts.host_errp_demo",
-        "description": "scripts.host_errp_demo",
-        "peekOfCode": "dec = ErrPDecoder()\nX = np.random.randn(60, 16); y = np.r_[np.ones(30), np.zeros(30)]\ndec.fit(X, y)\nwhile True:\n    x1 = np.random.randn(16)\n    p = dec.score(x1)\n    payload = {\"t0\": time.time(), \"dt\": 0.6, \"kind\":\"errp\",\"value\": float(p), \"quality\": 0.85, \"meta\":{\"action_id\": 0}}\n    try:\n        requests.post(\"http://localhost:8008/publish\", json=payload, timeout=1.0)\n    except Exception:",
-        "detail": "scripts.host_errp_demo",
-        "documentation": {}
-    },
-    {
-        "label": "X",
-        "kind": 5,
-        "importPath": "scripts.host_errp_demo",
-        "description": "scripts.host_errp_demo",
-        "peekOfCode": "X = np.random.randn(60, 16); y = np.r_[np.ones(30), np.zeros(30)]\ndec.fit(X, y)\nwhile True:\n    x1 = np.random.randn(16)\n    p = dec.score(x1)\n    payload = {\"t0\": time.time(), \"dt\": 0.6, \"kind\":\"errp\",\"value\": float(p), \"quality\": 0.85, \"meta\":{\"action_id\": 0}}\n    try:\n        requests.post(\"http://localhost:8008/publish\", json=payload, timeout=1.0)\n    except Exception:\n        pass",
-        "detail": "scripts.host_errp_demo",
-        "documentation": {}
-    },
-    {
-        "label": "fake_stream_batch",
+        "label": "download",
         "kind": 2,
-        "importPath": "scripts.host_rsvp_demo",
-        "description": "scripts.host_rsvp_demo",
-        "peekOfCode": "def fake_stream_batch(n=64):\n    t0 = time.time()\n    ts = np.linspace(t0, t0 + (n-1)/fs, n)\n    x = np.random.randn(n)\n    return ts, x\ndef fake_marker_time(rate_hz=8):\n    return time.time()\nwhile True:\n    ts, x = fake_stream_batch()\n    ring.extend(ts, x)",
-        "detail": "scripts.host_rsvp_demo",
+        "importPath": "scripts.download_coco",
+        "description": "scripts.download_coco",
+        "peekOfCode": "def download(url: str, dest: Path):\n    dest.parent.mkdir(parents=True, exist_ok=True)\n    if dest.exists():\n        print(f\"✓ Exists: {dest}\")\n        return dest\n    print(f\"↓ Downloading: {url}\\n→ {dest}\")\n    urllib.request.urlretrieve(url, dest)  # no resume; simple and reliable\n    print(f\"✓ Downloaded: {dest}\")\n    return dest\ndef unzip(zpath: Path, out_dir: Path, members: tuple[str, ...] | None = None):",
+        "detail": "scripts.download_coco",
         "documentation": {}
     },
     {
-        "label": "fake_marker_time",
+        "label": "unzip",
         "kind": 2,
-        "importPath": "scripts.host_rsvp_demo",
-        "description": "scripts.host_rsvp_demo",
-        "peekOfCode": "def fake_marker_time(rate_hz=8):\n    return time.time()\nwhile True:\n    ts, x = fake_stream_batch()\n    ring.extend(ts, x)\n    evt = fake_marker_time()\n    # v1.5: Track EEG sample time\n    eeg_last_sample_time = ts[-1]\n    # v1.5: Track processing start\n    processing_start_time = time.time()",
-        "detail": "scripts.host_rsvp_demo",
-        "documentation": {}
-    },
-    {
-        "label": "ROOT",
-        "kind": 5,
-        "importPath": "scripts.host_rsvp_demo",
-        "description": "scripts.host_rsvp_demo",
-        "peekOfCode": "ROOT = os.path.dirname(os.path.dirname(__file__))\nif ROOT not in sys.path:\n    sys.path.insert(0, ROOT)\nfrom core.host.windows import Ring, epoch_relative\nfrom core.scoring.p300_riemann import P300Riemann\nfs = 512\nring = Ring(maxlen=fs*10)\nclf = P300Riemann()  # Will return random values for demo\ndef fake_stream_batch(n=64):\n    t0 = time.time()",
-        "detail": "scripts.host_rsvp_demo",
-        "documentation": {}
-    },
-    {
-        "label": "fs",
-        "kind": 5,
-        "importPath": "scripts.host_rsvp_demo",
-        "description": "scripts.host_rsvp_demo",
-        "peekOfCode": "fs = 512\nring = Ring(maxlen=fs*10)\nclf = P300Riemann()  # Will return random values for demo\ndef fake_stream_batch(n=64):\n    t0 = time.time()\n    ts = np.linspace(t0, t0 + (n-1)/fs, n)\n    x = np.random.randn(n)\n    return ts, x\ndef fake_marker_time(rate_hz=8):\n    return time.time()",
-        "detail": "scripts.host_rsvp_demo",
-        "documentation": {}
-    },
-    {
-        "label": "ring",
-        "kind": 5,
-        "importPath": "scripts.host_rsvp_demo",
-        "description": "scripts.host_rsvp_demo",
-        "peekOfCode": "ring = Ring(maxlen=fs*10)\nclf = P300Riemann()  # Will return random values for demo\ndef fake_stream_batch(n=64):\n    t0 = time.time()\n    ts = np.linspace(t0, t0 + (n-1)/fs, n)\n    x = np.random.randn(n)\n    return ts, x\ndef fake_marker_time(rate_hz=8):\n    return time.time()\nwhile True:",
-        "detail": "scripts.host_rsvp_demo",
-        "documentation": {}
-    },
-    {
-        "label": "clf",
-        "kind": 5,
-        "importPath": "scripts.host_rsvp_demo",
-        "description": "scripts.host_rsvp_demo",
-        "peekOfCode": "clf = P300Riemann()  # Will return random values for demo\ndef fake_stream_batch(n=64):\n    t0 = time.time()\n    ts = np.linspace(t0, t0 + (n-1)/fs, n)\n    x = np.random.randn(n)\n    return ts, x\ndef fake_marker_time(rate_hz=8):\n    return time.time()\nwhile True:\n    ts, x = fake_stream_batch()",
-        "detail": "scripts.host_rsvp_demo",
-        "documentation": {}
-    },
-    {
-        "label": "epoch",
-        "kind": 2,
-        "importPath": "scripts.host_ssvep_demo",
-        "description": "scripts.host_ssvep_demo",
-        "peekOfCode": "def epoch(n_ch=8, dur=0.8):\n    return np.random.randn(n_ch, int(dur*fs))\nwhile True:\n    # v1.5: Enhanced SSVEP with margin, scores, confidence\n    eeg_last_sample_time = time.time()\n    processing_start_time = time.time()\n    X = epoch()\n    k, s, ssvep_meta = fbcca_score(X, fs)\n    # Build payload with enhanced metadata\n    payload = {",
-        "detail": "scripts.host_ssvep_demo",
-        "documentation": {}
-    },
-    {
-        "label": "ROOT",
-        "kind": 5,
-        "importPath": "scripts.host_ssvep_demo",
-        "description": "scripts.host_ssvep_demo",
-        "peekOfCode": "ROOT = os.path.dirname(os.path.dirname(__file__))\nif ROOT not in sys.path:\n    sys.path.insert(0, ROOT)\nfrom core.scoring.ssvep_csp import fbcca_score\nfs = 512\ndef epoch(n_ch=8, dur=0.8):\n    return np.random.randn(n_ch, int(dur*fs))\nwhile True:\n    # v1.5: Enhanced SSVEP with margin, scores, confidence\n    eeg_last_sample_time = time.time()",
-        "detail": "scripts.host_ssvep_demo",
-        "documentation": {}
-    },
-    {
-        "label": "fs",
-        "kind": 5,
-        "importPath": "scripts.host_ssvep_demo",
-        "description": "scripts.host_ssvep_demo",
-        "peekOfCode": "fs = 512\ndef epoch(n_ch=8, dur=0.8):\n    return np.random.randn(n_ch, int(dur*fs))\nwhile True:\n    # v1.5: Enhanced SSVEP with margin, scores, confidence\n    eeg_last_sample_time = time.time()\n    processing_start_time = time.time()\n    X = epoch()\n    k, s, ssvep_meta = fbcca_score(X, fs)\n    # Build payload with enhanced metadata",
-        "detail": "scripts.host_ssvep_demo",
-        "documentation": {}
-    },
-    {
-        "label": "log_metrics",
-        "kind": 2,
-        "importPath": "scripts.latency_cpu_logger",
-        "description": "scripts.latency_cpu_logger",
-        "peekOfCode": "def log_metrics(duration_seconds: int, api_url: str, output_file: str, poll_interval: float = 1.0):\n    \"\"\"\n    Poll /metrics endpoint and log to JSONL.\n    Args:\n        duration_seconds: How long to run (0 = infinite)\n        api_url: Base URL of fabric bus API\n        output_file: Path to output JSONL file\n        poll_interval: Seconds between polls\n    \"\"\"\n    output_path = Path(output_file)",
-        "detail": "scripts.latency_cpu_logger",
+        "importPath": "scripts.download_coco",
+        "description": "scripts.download_coco",
+        "peekOfCode": "def unzip(zpath: Path, out_dir: Path, members: tuple[str, ...] | None = None):\n    print(f\"⇣ Extracting: {zpath} → {out_dir}\")\n    out_dir.mkdir(parents=True, exist_ok=True)\n    with zipfile.ZipFile(zpath, 'r') as zf:\n        if members:\n            for m in members:\n                for name in zf.namelist():\n                    if name.endswith(m):\n                        zf.extract(name, out_dir)\n        else:",
+        "detail": "scripts.download_coco",
         "documentation": {}
     },
     {
         "label": "main",
         "kind": 2,
-        "importPath": "scripts.latency_cpu_logger",
-        "description": "scripts.latency_cpu_logger",
-        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser(description=\"v1.5 Latency & CPU Logger\")\n    parser.add_argument(\"--duration\", type=int, default=0,\n                        help=\"Duration in seconds (0 = infinite)\")\n    parser.add_argument(\"--api-url\", type=str, default=\"http://localhost:8008\",\n                        help=\"API base URL\")\n    parser.add_argument(\"--output\", type=str, default=\"data/logs/metrics_live.jsonl\",\n                        help=\"Output JSONL file\")\n    parser.add_argument(\"--poll-interval\", type=float, default=1.0,\n                        help=\"Seconds between polls\")",
-        "detail": "scripts.latency_cpu_logger",
+        "importPath": "scripts.download_coco",
+        "description": "scripts.download_coco",
+        "peekOfCode": "def main():\n    ap = argparse.ArgumentParser(description=\"Download COCO2017 images and annotations\")\n    ap.add_argument(\"--root\", default=\"data/raw/coco2017\", help=\"Root folder for COCO2017\")\n    ap.add_argument(\"--val\", type=int, default=1, help=\"Download val2017 images (≈1GB)\")\n    ap.add_argument(\"--train\", type=int, default=0, help=\"Download train2017 images (≈18GB)\")\n    ap.add_argument(\"--ann\", type=int, default=1, help=\"Download annotations (≈250MB)\")\n    args = ap.parse_args()\n    root = Path(args.root)\n    zroot = root / \"_zips\"\n    zroot.mkdir(parents=True, exist_ok=True)",
+        "detail": "scripts.download_coco",
         "documentation": {}
     },
     {
-        "label": "Proc",
+        "label": "COCO_BASE",
+        "kind": 5,
+        "importPath": "scripts.download_coco",
+        "description": "scripts.download_coco",
+        "peekOfCode": "COCO_BASE = \"http://images.cocodataset.org\"\nURLS = {\n    \"val_images\": f\"{COCO_BASE}/zips/val2017.zip\",\n    \"train_images\": f\"{COCO_BASE}/zips/train2017.zip\",\n    \"annotations\": f\"{COCO_BASE}/annotations/annotations_trainval2017.zip\",\n}\ndef download(url: str, dest: Path):\n    dest.parent.mkdir(parents=True, exist_ok=True)\n    if dest.exists():\n        print(f\"✓ Exists: {dest}\")",
+        "detail": "scripts.download_coco",
+        "documentation": {}
+    },
+    {
+        "label": "URLS",
+        "kind": 5,
+        "importPath": "scripts.download_coco",
+        "description": "scripts.download_coco",
+        "peekOfCode": "URLS = {\n    \"val_images\": f\"{COCO_BASE}/zips/val2017.zip\",\n    \"train_images\": f\"{COCO_BASE}/zips/train2017.zip\",\n    \"annotations\": f\"{COCO_BASE}/annotations/annotations_trainval2017.zip\",\n}\ndef download(url: str, dest: Path):\n    dest.parent.mkdir(parents=True, exist_ok=True)\n    if dest.exists():\n        print(f\"✓ Exists: {dest}\")\n        return dest",
+        "detail": "scripts.download_coco",
+        "documentation": {}
+    },
+    {
+        "label": "sigmoid",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def sigmoid(x): return 1/(1+math.exp(-x))\ndef logit(p): p=min(max(p,1e-6),1-1e-6); return math.log(p/(1-p))\ndef build_boost_from_sim(cfg, rsvp, subset_index):\n    # Simulate P300 per RSVP event; use calibration if present\n    sim=cfg.get('sim',{})\n    a_t,b_t=sim.get('p300',{}).get('beta_target',[6,5])\n    a_n,b_n=sim.get('p300',{}).get('beta_nontarget',[5,6])\n    drop=sim.get('p300',{}).get('drop_rate',0.2)\n    rng=random.Random(1337)\n    e={}",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "logit",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def logit(p): p=min(max(p,1e-6),1-1e-6); return math.log(p/(1-p))\ndef build_boost_from_sim(cfg, rsvp, subset_index):\n    # Simulate P300 per RSVP event; use calibration if present\n    sim=cfg.get('sim',{})\n    a_t,b_t=sim.get('p300',{}).get('beta_target',[6,5])\n    a_n,b_n=sim.get('p300',{}).get('beta_nontarget',[5,6])\n    drop=sim.get('p300',{}).get('drop_rate',0.2)\n    rng=random.Random(1337)\n    e={}\n    for ev in rsvp['sequence']:",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "build_boost_from_sim",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def build_boost_from_sim(cfg, rsvp, subset_index):\n    # Simulate P300 per RSVP event; use calibration if present\n    sim=cfg.get('sim',{})\n    a_t,b_t=sim.get('p300',{}).get('beta_target',[6,5])\n    a_n,b_n=sim.get('p300',{}).get('beta_nontarget',[5,6])\n    drop=sim.get('p300',{}).get('drop_rate',0.2)\n    rng=random.Random(1337)\n    e={}\n    for ev in rsvp['sequence']:\n        iid=ev['item_id']; is_t=subset_index[iid]['is_target']",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "precision_at_k",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def precision_at_k(rank, gt, k):\n    top=rank[:k];\n    return sum(1 for r in top if gt.get(r,0)==1)/float(k) if top else 0.0\ndef dcg_at_k(rank, gt, k):\n    dcg=0.0\n    for i,iid in enumerate(rank[:k],start=1):\n        rel=gt.get(iid,0); \n        if rel: dcg += (2**rel -1)/math.log2(i+1)\n    return dcg\ndef ndcg_at_k(rank, gt, k):",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "dcg_at_k",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def dcg_at_k(rank, gt, k):\n    dcg=0.0\n    for i,iid in enumerate(rank[:k],start=1):\n        rel=gt.get(iid,0); \n        if rel: dcg += (2**rel -1)/math.log2(i+1)\n    return dcg\ndef ndcg_at_k(rank, gt, k):\n    dcg=dcg_at_k(rank,gt,k)\n    ideal=sorted(gt.keys(), key=lambda x: gt[x], reverse=True)\n    idcg=dcg_at_k(ideal,gt,k)",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "ndcg_at_k",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def ndcg_at_k(rank, gt, k):\n    dcg=dcg_at_k(rank,gt,k)\n    ideal=sorted(gt.keys(), key=lambda x: gt[x], reverse=True)\n    idcg=dcg_at_k(ideal,gt,k)\n    return 0.0 if idcg==0 else dcg/idcg\ndef eval_rsvp(priors, boost, alpha, items, k):\n    ids=[it['item_id'] for it in items]\n    gt={it['item_id']: it['is_target'] for it in items}\n    off={i: priors.get(i,0.0) for i in ids}\n    on ={i: priors.get(i,0.0)+ alpha*boost.get(i,0.0) for i in ids}",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "eval_rsvp",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def eval_rsvp(priors, boost, alpha, items, k):\n    ids=[it['item_id'] for it in items]\n    gt={it['item_id']: it['is_target'] for it in items}\n    off={i: priors.get(i,0.0) for i in ids}\n    on ={i: priors.get(i,0.0)+ alpha*boost.get(i,0.0) for i in ids}\n    r_off=sorted(ids, key=lambda i: off[i], reverse=True)\n    r_on =sorted(ids, key=lambda i: on[i],  reverse=True)\n    return {\n        'precision@k': {'off':precision_at_k(r_off,gt,k),'on':precision_at_k(r_on,gt,k)},\n        'ndcg@k': {'off': ndcg_at_k(r_off,gt,k), 'on': ndcg_at_k(r_on,gt,k)}",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "bootstrap_rsvp_delta",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def bootstrap_rsvp_delta(priors, boost, alpha, items, k, n_boot=400, seed=1234):\n    rng = random.Random(seed)\n    n = len(items)\n    deltas = []\n    for _ in range(n_boot):\n        idxs = [rng.randrange(0, n) for _ in range(n)]\n        sample = [items[i] for i in idxs]\n        m = eval_rsvp(priors, boost, alpha, sample, k)\n        deltas.append(m['precision@k']['on'] - m['precision@k']['off'])\n    deltas.sort()",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "simulate_ssvep_episode",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def simulate_ssvep_episode(margin_thr: float, dwell: int, attend: bool, seed: int = 0):\n    rng = random.Random(9000 + seed)\n    hop = 0.1\n    t = 0.0\n    consecutive = 0\n    decided = False\n    # tuned so realistic episodes pass when attend=True and rarely pass when idle\n    while t < 3.0:\n        # generate a synthetic margin\n        if attend:",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "eval_ssvep",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def eval_ssvep(margin_thr: float, dwell: int, n_attend: int = 5, n_idle: int = 5):\n    times=[]; succ=0\n    total_idle_time=0.0; false_idle=0\n    for i in range(n_attend):\n        ep = simulate_ssvep_episode(margin_thr, dwell, attend=True, seed=i)\n        if ep['decision']:\n            succ += 1\n            if ep['decision_time'] is not None:\n                times.append(ep['decision_time'])\n    for j in range(n_idle):",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "simulate_errp_stream",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def simulate_errp_stream(base_rate: float = 0.3, n_actions: int = 50, seed: int = 0):\n    rng = random.Random(7000+seed)\n    rec=[]\n    for i in range(n_actions):\n        is_error = 1 if rng.random()<base_rate else 0\n        value = 0.6 + 0.3*rng.random() if is_error else 0.2*rng.random()\n        quality = 0.6 + 0.3*rng.random()\n        rec.append({'value':value,'quality':quality,'meta':{'action_id':f'A{i:03d}','correct':0 if is_error else 1}})\n    return rec\ndef eval_errp(rec, lam: float, tau: float):",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "eval_errp",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def eval_errp(rec, lam: float, tau: float):\n    # Regret proxy: errors not vetoed\n    errors=[r for r in rec if r['meta'].get('correct')==0]\n    regret0 = len(errors)\n    regret_tau = sum(1 for r in errors if r['value']<tau)\n    red = (regret0 - regret_tau)/regret0 if regret0>0 else 0.0\n    false_veto = sum(1 for r in rec if r['meta'].get('correct')==1 and r['value']>=tau)\n    false_veto_rate = false_veto / max(1,sum(1 for r in rec if r['meta'].get('correct')==1))\n    reward_penalty = -lam * sum(r['value']*r.get('quality',1.0) for r in rec)/max(1,len(rec))\n    return {'regret_reduction':red,'false_veto_rate':false_veto_rate,'reward_penalty':reward_penalty}",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "auprc_score",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def auprc_score(pos, neg):\n    # Simple threshold sweep\n    scores=[(s,1) for s in pos]+[(s,0) for s in neg]\n    scores.sort(key=lambda x:x[0], reverse=True)\n    tp=0; fp=0; fn=len(pos); tn=len(neg)\n    last=-1; prc=[]\n    for s,l in scores:\n        if l==1:\n            tp+=1; fn-=1\n        else:",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "ece_score",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def ece_score(scores, labels, n_bins=10):\n    bins=[0]*(n_bins); conf=[0.0]*n_bins; acc=[0.0]*n_bins; cnt=[0]*n_bins\n    for s,l in zip(scores,labels):\n        b=min(n_bins-1, int(s*n_bins))\n        conf[b]+=s; acc[b]+=l; cnt[b]+=1\n    ece=0.0; total=len(scores)\n    for i in range(n_bins):\n        if cnt[i]==0: continue\n        c=conf[i]/cnt[i]; a=acc[i]/cnt[i]\n        ece += (cnt[i]/total)*abs(c-a)",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "auc_score",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def auc_score(pos, neg):\n    # Mann-Whitney U-based AUC\n    vals = [(float(v), 1) for v in pos] + [(float(v), 0) for v in neg]\n    if not vals or len(pos)==0 or len(neg)==0:\n        return float('nan')\n    vals.sort(key=lambda x: x[0])\n    ranks=[0.0]*len(vals)\n    i=0\n    while i<len(vals):\n        j=i",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "decoder_sanity_p300",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def decoder_sanity_p300(seed=321):\n    pos,neg=_gen_scores_beta(8,3,3,8,seed=seed)\n    auroc=auc_score(pos,neg)\n    auprc=auprc_score(pos,neg)\n    ece=ece_score(pos+neg,[1]*len(pos)+[0]*len(neg))\n    return {'auroc':auroc,'auprc':auprc,'ece':ece}\ndef decoder_sanity_errp(seed=654):\n    pos,neg=_gen_scores_beta(7,4,4,7,seed=seed)\n    auroc=auc_score(pos,neg)\n    auprc=auprc_score(pos,neg)",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "decoder_sanity_errp",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def decoder_sanity_errp(seed=654):\n    pos,neg=_gen_scores_beta(7,4,4,7,seed=seed)\n    auroc=auc_score(pos,neg)\n    auprc=auprc_score(pos,neg)\n    # balanced accuracy at 0.5\n    tp=sum(1 for s in pos if s>=0.5); fn=len(pos)-tp\n    tn=sum(1 for s in neg if s<0.5); fp=len(neg)-tn\n    bacc=0.5*(tp/max(1,tp+fn)+tn/max(1,tn+fp))\n    return {'auroc':auroc,'auprc':auprc,'balanced_accuracy':bacc}\n# --- Telemetry & BIDS (minimal) ---",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "simulate_latency",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def simulate_latency():\n    rng=random.Random(999)\n    # Generate latencies in ms\n    rsvp=[max(1.0, random.gauss(140.0,30.0)) for _ in range(1000)]\n    errp=[max(1.0, random.gauss(160.0,35.0)) for _ in range(1000)]\n    ssvep_decision=[max(0.2, random.gauss(0.8,0.15)) for _ in range(200)]\n    def p95(a):\n        a=sorted(a); idx=int(0.95*(len(a)-1)); return a[idx]\n    return {\n      'p95_rsvp_ms': p95(rsvp),",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "write_bids_like",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def write_bids_like(cfg, rsvp):\n    root=os.path.join('output','bids'); eeg=os.path.join(root,'sub-01','ses-01','eeg')\n    ensure_dir(eeg)\n    # dataset description\n    with open(os.path.join(root,'dataset_description.json'),'w') as f:\n        json.dump({'Name':'EEGCompute-Minimal V3','BIDSVersion':'1.8.0'}, f, indent=2)\n    # events.tsv\n    with open(os.path.join(eeg,'sub-01_ses-01_task-rsvp_events.tsv'),'w') as f:\n        f.write('onset\\tduration\\ttrial_type\\titem_id\\n')\n        for ev in rsvp['sequence']:",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "scripts.eval",
+        "description": "scripts.eval",
+        "peekOfCode": "def main():\n    ap=argparse.ArgumentParser()\n    ap.add_argument('--config', required=True)\n    ap.add_argument('--k', type=int, default=10)\n    ap.add_argument('--strict_locked', type=int, default=1)\n    args=ap.parse_args()\n    cfg=load_cfg(args.config)\n    proc=cfg['paths']['processed']; reports=cfg['paths']['reports']; ensure_dir(reports)\n    # load data\n    subset=list(read_jsonl(os.path.join(proc,'coco_subset.jsonl')))",
+        "detail": "scripts.eval",
+        "documentation": {}
+    },
+    {
+        "label": "MinimalV3GUI",
         "kind": 6,
-        "importPath": "scripts.launcher_gui_qt",
-        "description": "scripts.launcher_gui_qt",
-        "peekOfCode": "class Proc:\n    def __init__(self, name: str, cmd: list[str]):\n        self.name = name\n        self.cmd = cmd\n        self.p: subprocess.Popen | None = None\n        self._t: threading.Thread | None = None\n    def start(self, log_cb):\n        if self.p and self.p.poll() is None:\n            log_cb(f\"[{self.name}] already running\\n\")\n            return",
-        "detail": "scripts.launcher_gui_qt",
+        "importPath": "scripts.gui",
+        "description": "scripts.gui",
+        "peekOfCode": "class MinimalV3GUI(QMainWindow):\n    def __init__(self):\n        super().__init__()\n        self.setWindowTitle(\"EEGCompute V3 – Minimal Control\")\n        self.resize(900, 600)\n        self.proc: QProcess | None = None\n        self._build()\n    def _build(self):\n        root = QWidget(); self.setCentralWidget(root)\n        lay = QVBoxLayout(root)",
+        "detail": "scripts.gui",
         "documentation": {}
     },
     {
-        "label": "DataCard",
+        "label": "main",
+        "kind": 2,
+        "importPath": "scripts.gui",
+        "description": "scripts.gui",
+        "peekOfCode": "def main():\n    app = QApplication(sys.argv)\n    w = MinimalV3GUI(); w.show()\n    sys.exit(app.exec())\nif __name__ == \"__main__\":\n    main()",
+        "detail": "scripts.gui",
+        "documentation": {}
+    },
+    {
+        "label": "build_subset",
+        "kind": 2,
+        "importPath": "scripts.prepare",
+        "description": "scripts.prepare",
+        "peekOfCode": "def build_subset(cfg, split):\n    n = int(cfg['dataset']['subset_size'][split])\n    targets = set(cfg['dataset']['target_classes'])\n    ann_path = cfg['dataset']['annotations'][split]\n    items=[]\n    if os.path.exists(ann_path):\n        images, img_to_cats = _load_coco_annotations(ann_path)\n        # Build candidate pools\n        pos=[]; neg=[]\n        img_root = cfg['dataset']['images'][split]",
+        "detail": "scripts.prepare",
+        "documentation": {}
+    },
+    {
+        "label": "build_priors",
+        "kind": 2,
+        "importPath": "scripts.prepare",
+        "description": "scripts.prepare",
+        "peekOfCode": "def build_priors(cfg, items):\n    rng = random.Random(2025)\n    priors=[]\n    for it in items:\n        base = rng.random()\n        # Stronger overlap so OFF isn't trivially perfect\n        if it['is_target']:\n            pri = 0.49 + 0.07*base  # ~0.49..0.56\n        else:\n            pri = 0.46 + 0.09*base  # ~0.46..0.55",
+        "detail": "scripts.prepare",
+        "documentation": {}
+    },
+    {
+        "label": "build_rsvp",
+        "kind": 2,
+        "importPath": "scripts.prepare",
+        "description": "scripts.prepare",
+        "peekOfCode": "def build_rsvp(cfg, items):\n    rate = float(cfg['rsvp']['rate_hz']); dt=1.0/rate\n    seq=[{'t': round(i*dt,3), 'item_id': it['item_id']} for i,it in enumerate(items)]\n    return {'session':'S1','rate_hz':rate,'sequence':seq}\ndef main():\n    ap=argparse.ArgumentParser()\n    ap.add_argument('--config', required=True)\n    args=ap.parse_args()\n    cfg=load_cfg(args.config)\n    proc=cfg['paths']['processed']",
+        "detail": "scripts.prepare",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "scripts.prepare",
+        "description": "scripts.prepare",
+        "peekOfCode": "def main():\n    ap=argparse.ArgumentParser()\n    ap.add_argument('--config', required=True)\n    args=ap.parse_args()\n    cfg=load_cfg(args.config)\n    proc=cfg['paths']['processed']\n    ensure_dir(proc)\n    # subset\n    items = build_subset(cfg,'train')+build_subset(cfg,'val')\n    write_jsonl(os.path.join(proc,'coco_subset.jsonl'), items)",
+        "detail": "scripts.prepare",
+        "documentation": {}
+    },
+    {
+        "label": "train_cnn",
+        "kind": 2,
+        "importPath": "scripts.train",
+        "description": "scripts.train",
+        "peekOfCode": "def train_cnn(cfg, use_eeg_assist=False):\n    import torch\n    import torch.nn as nn\n    import torch.optim as optim\n    from torch.utils.data import DataLoader\n    from torchvision import models, transforms\n    from tqdm import tqdm\n    proc=cfg['paths']['processed']\n    # transforms\n    tfm = transforms.Compose([",
+        "detail": "scripts.train",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "scripts.train",
+        "description": "scripts.train",
+        "peekOfCode": "def main():\n    ap=argparse.ArgumentParser(); ap.add_argument('--config', required=True); args=ap.parse_args()\n    cfg=load_cfg(args.config)\n    models_dir=cfg['paths']['models']; ensure_dir(models_dir)\n    base = train_cnn(cfg, use_eeg_assist=False)\n    eeg  = train_cnn(cfg, use_eeg_assist=True)\n    with open(os.path.join(models_dir,'baseline.pkl'),'wb') as f: pickle.dump(base,f)\n    with open(os.path.join(models_dir,'eeg_trained.pkl'),'wb') as f: pickle.dump(eeg,f)\n    print('Saved models/baseline.pkl and models/eeg_trained.pkl (CNN)')\nif __name__=='__main__':",
+        "detail": "scripts.train",
+        "documentation": {}
+    },
+    {
+        "label": "JsonlImageDataset",
         "kind": 6,
-        "importPath": "scripts.launcher_gui_qt",
-        "description": "scripts.launcher_gui_qt",
-        "peekOfCode": "class DataCard(QFrame):\n    \"\"\"Modern card widget for displaying signal data\"\"\"\n    def __init__(self, title, icon, color, parent=None):\n        super().__init__(parent)\n        self.setFrameStyle(QFrame.Shape.StyledPanel)\n        self.setStyleSheet(f\"\"\"\n            DataCard {{\n                background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n                    stop:0 rgba(30, 30, 40, 240),\n                    stop:1 rgba(40, 40, 50, 240));",
-        "detail": "scripts.launcher_gui_qt",
+        "importPath": "scripts.utils",
+        "description": "scripts.utils",
+        "peekOfCode": "class JsonlImageDataset(Dataset):\n    \"\"\"Top-level dataset class so it is picklable by DataLoader workers.\"\"\"\n    def __init__(self, path, transform=None, target_key='is_target', subset_filter=None):\n        if Image is None or Dataset is object:\n            raise RuntimeError(\"PyTorch/Pillow required. pip install torch torchvision Pillow\")\n        self.items = []\n        for r in read_jsonl(path):\n            if subset_filter and not subset_filter(r):\n                continue\n            if not os.path.exists(r['filepath']):",
+        "detail": "scripts.utils",
         "documentation": {}
     },
     {
-        "label": "LauncherWindow",
-        "kind": 6,
-        "importPath": "scripts.launcher_gui_qt",
-        "description": "scripts.launcher_gui_qt",
-        "peekOfCode": "class LauncherWindow(QMainWindow):\n    log_signal = pyqtSignal(str)\n    def __init__(self):\n        super().__init__()\n        self.setWindowTitle(\"EEGCompute Fabric — Neural Interface Launcher\")\n        self.setGeometry(100, 100, 1400, 900)\n        self.python = sys.executable\n        self.procs = {}\n        # Data history for graphs\n        self.max_points = 100",
-        "detail": "scripts.launcher_gui_qt",
-        "documentation": {}
-    },
-    {
-        "label": "main",
+        "label": "ensure_dir",
         "kind": 2,
-        "importPath": "scripts.launcher_gui_qt",
-        "description": "scripts.launcher_gui_qt",
-        "peekOfCode": "def main():\n    app = QApplication(sys.argv)\n    app.setStyle(\"Fusion\")  # Modern style\n    window = LauncherWindow()\n    window.show()\n    sys.exit(app.exec())\nif __name__ == \"__main__\":\n    main()",
-        "detail": "scripts.launcher_gui_qt",
+        "importPath": "scripts.utils",
+        "description": "scripts.utils",
+        "peekOfCode": "def ensure_dir(p):\n    Path(p).mkdir(parents=True, exist_ok=True)\ndef write_jsonl(path, records):\n    ensure_dir(os.path.dirname(path))\n    with open(path, 'w') as f:\n        for r in records:\n            f.write(json.dumps(r)+\"\\n\")\ndef read_jsonl(path):\n    with open(path, 'r') as f:\n        for line in f:",
+        "detail": "scripts.utils",
         "documentation": {}
     },
     {
-        "label": "ROOT",
-        "kind": 5,
-        "importPath": "scripts.launcher_gui_qt",
-        "description": "scripts.launcher_gui_qt",
-        "peekOfCode": "ROOT = os.path.dirname(os.path.dirname(__file__))\nclass Proc:\n    def __init__(self, name: str, cmd: list[str]):\n        self.name = name\n        self.cmd = cmd\n        self.p: subprocess.Popen | None = None\n        self._t: threading.Thread | None = None\n    def start(self, log_cb):\n        if self.p and self.p.poll() is None:\n            log_cb(f\"[{self.name}] already running\\n\")",
-        "detail": "scripts.launcher_gui_qt",
-        "documentation": {}
-    },
-    {
-        "label": "simulate_calibration_data",
+        "label": "write_jsonl",
         "kind": 2,
-        "importPath": "scripts.p300_fit",
-        "description": "scripts.p300_fit",
-        "peekOfCode": "def simulate_calibration_data(n_targets: int = 40, n_nontargets: int = 160, fs: int = 512, n_channels: int = 8):\n    \"\"\"\n    Simulate P300 calibration data for demo.\n    In production, this would be replaced by real LSL acquisition.\n    Args:\n        n_targets: Number of target epochs\n        n_nontargets: Number of non-target epochs\n        fs: Sampling frequency\n        n_channels: Number of EEG channels\n    Returns:",
-        "detail": "scripts.p300_fit",
+        "importPath": "scripts.utils",
+        "description": "scripts.utils",
+        "peekOfCode": "def write_jsonl(path, records):\n    ensure_dir(os.path.dirname(path))\n    with open(path, 'w') as f:\n        for r in records:\n            f.write(json.dumps(r)+\"\\n\")\ndef read_jsonl(path):\n    with open(path, 'r') as f:\n        for line in f:\n            line=line.strip()\n            if not line: continue",
+        "detail": "scripts.utils",
         "documentation": {}
     },
     {
-        "label": "train_and_evaluate",
+        "label": "read_jsonl",
         "kind": 2,
-        "importPath": "scripts.p300_fit",
-        "description": "scripts.p300_fit",
-        "peekOfCode": "def train_and_evaluate(X, y, n_xdawn: int = 4, C: float = 1.0):\n    \"\"\"\n    Train P300 classifier and evaluate performance.\n    Args:\n        X: (n_epochs, n_channels, n_samples) array\n        y: (n_epochs,) binary labels\n        n_xdawn: Number of Xdawn spatial filters\n        C: Logistic regression regularization\n    Returns:\n        model: Trained P300Riemann classifier",
-        "detail": "scripts.p300_fit",
+        "importPath": "scripts.utils",
+        "description": "scripts.utils",
+        "peekOfCode": "def read_jsonl(path):\n    with open(path, 'r') as f:\n        for line in f:\n            line=line.strip()\n            if not line: continue\n            yield json.loads(line)\ndef load_cfg(path):\n    import json as _json\n    with open(path,'r') as f:\n        return _json.load(f)",
+        "detail": "scripts.utils",
         "documentation": {}
     },
     {
-        "label": "save_model_card",
+        "label": "load_cfg",
         "kind": 2,
-        "importPath": "scripts.p300_fit",
-        "description": "scripts.p300_fit",
-        "peekOfCode": "def save_model_card(clf, metrics, subject: str, n_xdawn: int, C: float, output_dir: str = \"models\"):\n    \"\"\"\n    Save trained model and metadata to disk.\n    Args:\n        clf: Trained P300Riemann classifier\n        metrics: Performance metrics dict\n        subject: Subject ID\n        n_xdawn: Model hyperparameter\n        C: Model hyperparameter\n        output_dir: Output directory for models",
-        "detail": "scripts.p300_fit",
+        "importPath": "scripts.utils",
+        "description": "scripts.utils",
+        "peekOfCode": "def load_cfg(path):\n    import json as _json\n    with open(path,'r') as f:\n        return _json.load(f)\ndef now_ts():\n    return time.time()\n# ---- Image dataset helpers (PyTorch) ----\ntry:\n    from PIL import Image\n    from torch.utils.data import Dataset",
+        "detail": "scripts.utils",
         "documentation": {}
     },
     {
-        "label": "main",
+        "label": "now_ts",
         "kind": 2,
-        "importPath": "scripts.p300_fit",
-        "description": "scripts.p300_fit",
-        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser(description=\"P300 Calibration Script\")\n    parser.add_argument(\"--duration\", type=int, default=180,\n                        help=\"Calibration duration (seconds)\")\n    parser.add_argument(\"--subject\", type=str, default=\"001\",\n                        help=\"Subject ID\")\n    parser.add_argument(\"--n-targets\", type=int, default=40,\n                        help=\"Number of target epochs (simulated)\")\n    parser.add_argument(\"--n-nontargets\", type=int, default=160,\n                        help=\"Number of non-target epochs (simulated)\")",
-        "detail": "scripts.p300_fit",
+        "importPath": "scripts.utils",
+        "description": "scripts.utils",
+        "peekOfCode": "def now_ts():\n    return time.time()\n# ---- Image dataset helpers (PyTorch) ----\ntry:\n    from PIL import Image\n    from torch.utils.data import Dataset\nexcept Exception:\n    Image = None\n    Dataset = object\nclass JsonlImageDataset(Dataset):",
+        "detail": "scripts.utils",
         "documentation": {}
     },
     {
-        "label": "ROOT",
-        "kind": 5,
-        "importPath": "scripts.p300_fit",
-        "description": "scripts.p300_fit",
-        "peekOfCode": "ROOT = os.path.dirname(os.path.dirname(__file__))\nif ROOT not in sys.path:\n    sys.path.insert(0, ROOT)\nfrom core.scoring.p300_riemann import P300Riemann\ndef simulate_calibration_data(n_targets: int = 40, n_nontargets: int = 160, fs: int = 512, n_channels: int = 8):\n    \"\"\"\n    Simulate P300 calibration data for demo.\n    In production, this would be replaced by real LSL acquisition.\n    Args:\n        n_targets: Number of target epochs",
-        "detail": "scripts.p300_fit",
-        "documentation": {}
-    },
-    {
-        "label": "ReRankingDemo",
-        "kind": 6,
-        "importPath": "scripts.reranking_demo",
-        "description": "scripts.reranking_demo",
-        "peekOfCode": "class ReRankingDemo:\n    \"\"\"Demonstrates real-time re-ranking with P300 scores.\"\"\"\n    def __init__(self, fabric_url=\"http://localhost:8008\"):\n        self.fabric_url = fabric_url\n        self.p300_scores = {}  # item_id -> cumulative P300 score\n        self.score_counts = {}  # item_id -> number of P300 observations\n        # Create toy dataset\n        self.items = self._create_toy_dataset()\n        print(f\"📊 Created toy dataset with {len(self.items)} items\")\n        # Track statistics",
-        "detail": "scripts.reranking_demo",
-        "documentation": {}
-    },
-    {
-        "label": "ROOT",
-        "kind": 5,
-        "importPath": "scripts.reranking_demo",
-        "description": "scripts.reranking_demo",
-        "peekOfCode": "ROOT = Path(__file__).parent.parent\nsys.path.insert(0, str(ROOT))\nfrom app_logic.reranker.ranker import rerank\nclass ReRankingDemo:\n    \"\"\"Demonstrates real-time re-ranking with P300 scores.\"\"\"\n    def __init__(self, fabric_url=\"http://localhost:8008\"):\n        self.fabric_url = fabric_url\n        self.p300_scores = {}  # item_id -> cumulative P300 score\n        self.score_counts = {}  # item_id -> number of P300 observations\n        # Create toy dataset",
-        "detail": "scripts.reranking_demo",
-        "documentation": {}
-    },
-    {
-        "label": "main",
+        "label": "build_image_dataset",
         "kind": 2,
-        "importPath": "scripts.simulate_lsl_eeg",
-        "description": "scripts.simulate_lsl_eeg",
-        "peekOfCode": "def main():\n    ap = argparse.ArgumentParser()\n    ap.add_argument(\"--fs\", type=int, default=512)\n    ap.add_argument(\"--channels\", type=int, default=8)\n    ap.add_argument(\"--name\", type=str, default=\"EEG\")\n    ap.add_argument(\"--type\", type=str, default=\"EEG\")\n    ap.add_argument(\"--alpha_hz\", type=float, default=10.0)\n    args = ap.parse_args()\n    info = StreamInfo(args.name, args.type, args.channels, args.fs, \"float32\", \"sim-eeg\")\n    outlet = StreamOutlet(info)",
-        "detail": "scripts.simulate_lsl_eeg",
-        "documentation": {}
-    },
-    {
-        "label": "main",
-        "kind": 2,
-        "importPath": "scripts.simulate_markers",
-        "description": "scripts.simulate_markers",
-        "peekOfCode": "def main():\n    ap = argparse.ArgumentParser()\n    ap.add_argument(\"--task\", choices=[\"rsvp\",\"ssvep\"], default=\"rsvp\")\n    ap.add_argument(\"--rate_hz\", type=float, default=8.0)\n    args = ap.parse_args()\n    info = StreamInfo(\"Markers\", \"Markers\", 1, 0, \"string\", \"sim-markers\")\n    outlet = StreamOutlet(info)\n    isi = 1.0/args.rate_hz\n    vocab = [f\"id_{i:03d}\" for i in range(1,101)]\n    ssvep = [\"31.0\",\"32.0\",\"33.0\",\"34.5\"]",
-        "detail": "scripts.simulate_markers",
-        "documentation": {}
-    },
-    {
-        "label": "validate_v15",
-        "kind": 2,
-        "importPath": "scripts.validate_v15",
-        "description": "scripts.validate_v15",
-        "peekOfCode": "def validate_v15(duration_minutes=10, api_url=\"http://localhost:8008\"):\n    \"\"\"Run v1.5 validation tests\"\"\"\n    print(\"=\" * 60)\n    print(\"EEGCompute Fabric v1.5 Validation\")\n    print(\"=\" * 60)\n    print(f\"\\nDuration: {duration_minutes} minutes\")\n    print(f\"API URL: {api_url}\\n\")\n    # Test 1: Check API is running\n    print(\"[1/6] Checking API connectivity...\")\n    try:",
-        "detail": "scripts.validate_v15",
-        "documentation": {}
-    },
-    {
-        "label": "ensure_dirs",
-        "kind": 2,
-        "importPath": "scripts.validate_v2",
-        "description": "scripts.validate_v2",
-        "peekOfCode": "def ensure_dirs() -> Dict[str, Path]:\n    base_out = Path(\"output\")\n    reports = base_out / \"reports\"\n    jsonl = base_out / \"jsonl\"\n    deriv = Path(\"derivatives\") / \"scores\"\n    for p in [reports, jsonl, deriv]:\n        p.mkdir(parents=True, exist_ok=True)\n    return {\"reports\": reports, \"jsonl\": jsonl, \"deriv\": deriv}\ndef get_metrics(api_url: str) -> dict:\n    try:",
-        "detail": "scripts.validate_v2",
-        "documentation": {}
-    },
-    {
-        "label": "get_metrics",
-        "kind": 2,
-        "importPath": "scripts.validate_v2",
-        "description": "scripts.validate_v2",
-        "peekOfCode": "def get_metrics(api_url: str) -> dict:\n    try:\n        r = requests.get(f\"{api_url}/metrics\", timeout=2)\n        return r.json() if r.status_code == 200 else {}\n    except Exception:\n        return {}\ndef get_latest(api_url: str) -> dict:\n    try:\n        r = requests.get(f\"{api_url}/latest\", timeout=2)\n        return r.json() if r.status_code == 200 else {}",
-        "detail": "scripts.validate_v2",
-        "documentation": {}
-    },
-    {
-        "label": "get_latest",
-        "kind": 2,
-        "importPath": "scripts.validate_v2",
-        "description": "scripts.validate_v2",
-        "peekOfCode": "def get_latest(api_url: str) -> dict:\n    try:\n        r = requests.get(f\"{api_url}/latest\", timeout=2)\n        return r.json() if r.status_code == 200 else {}\n    except Exception:\n        return {}\ndef summarize_latency(history: List[float]) -> Dict[str, float]:\n    if not history:\n        return {}\n    arr = np.array(history, float)",
-        "detail": "scripts.validate_v2",
-        "documentation": {}
-    },
-    {
-        "label": "summarize_latency",
-        "kind": 2,
-        "importPath": "scripts.validate_v2",
-        "description": "scripts.validate_v2",
-        "peekOfCode": "def summarize_latency(history: List[float]) -> Dict[str, float]:\n    if not history:\n        return {}\n    arr = np.array(history, float)\n    return {\n        \"mean_ms\": float(np.mean(arr)),\n        \"p50_ms\": float(np.percentile(arr, 50)),\n        \"p95_ms\": float(np.percentile(arr, 95)),\n        \"p99_ms\": float(np.percentile(arr, 99)),\n        \"max_ms\": float(np.max(arr)),",
-        "detail": "scripts.validate_v2",
-        "documentation": {}
-    },
-    {
-        "label": "find_latest_session_logs",
-        "kind": 2,
-        "importPath": "scripts.validate_v2",
-        "description": "scripts.validate_v2",
-        "peekOfCode": "def find_latest_session_logs() -> Optional[Path]:\n    log_root = Path(\"data/logs\")\n    if not log_root.exists():\n        return None\n    sessions = [p for p in log_root.iterdir() if p.is_dir()]\n    if not sessions:\n        return None\n    sessions.sort(key=lambda p: p.stat().st_mtime, reverse=True)\n    return sessions[0]\ndef copy_scores_to_derivatives(deriv_dir: Path) -> Optional[Path]:",
-        "detail": "scripts.validate_v2",
-        "documentation": {}
-    },
-    {
-        "label": "copy_scores_to_derivatives",
-        "kind": 2,
-        "importPath": "scripts.validate_v2",
-        "description": "scripts.validate_v2",
-        "peekOfCode": "def copy_scores_to_derivatives(deriv_dir: Path) -> Optional[Path]:\n    session_dir = find_latest_session_logs()\n    if not session_dir:\n        return None\n    target = deriv_dir / session_dir.name\n    target.mkdir(parents=True, exist_ok=True)\n    for fname in [\"p300_scores.jsonl\", \"ssvep_scores.jsonl\", \"errp_scores.jsonl\"]:\n        src = session_dir / fname\n        if src.exists():\n            dst = target / fname",
-        "detail": "scripts.validate_v2",
-        "documentation": {}
-    },
-    {
-        "label": "write_report",
-        "kind": 2,
-        "importPath": "scripts.validate_v2",
-        "description": "scripts.validate_v2",
-        "peekOfCode": "def write_report(report_path: Path, summary: dict) -> None:\n    lines = []\n    lines.append(f\"# V2 Validation Report\\n\")\n    lines.append(f\"Generated: {datetime.now().isoformat()}\\n\")\n    lines.append(\"\\n## Timing & Stability\\n\")\n    lat = summary.get(\"latency\", {})\n    for k in [\"p300\", \"ssvep\", \"errp\"]:\n        s = lat.get(k, {})\n        if s:\n            lines.append(f\"- {k.upper()} p95: {s.get('p95_ms', 'n/a'):.1f} ms; p99: {s.get('p99_ms', 'n/a'):.1f} ms (n={s.get('count', 0)})\\n\")",
-        "detail": "scripts.validate_v2",
-        "documentation": {}
-    },
-    {
-        "label": "main",
-        "kind": 2,
-        "importPath": "scripts.validate_v2",
-        "description": "scripts.validate_v2",
-        "peekOfCode": "def main():\n    ap = argparse.ArgumentParser(description=\"V2 Validation\")\n    ap.add_argument(\"--duration\", type=int, default=600, help=\"Duration in seconds (default 600 = 10 min)\")\n    ap.add_argument(\"--api-url\", type=str, default=\"http://localhost:8008\", help=\"Fabric API URL\")\n    args = ap.parse_args()\n    paths = ensure_dirs()\n    out_jsonl = paths[\"jsonl\"] / \"latency_cpu.jsonl\"\n    out_jsonl.parent.mkdir(parents=True, exist_ok=True)\n    # Connectivity check\n    print(\"[v2] Checking API connectivity...\")",
-        "detail": "scripts.validate_v2",
-        "documentation": {}
-    },
-    {
-        "label": "test_ok",
-        "kind": 2,
-        "importPath": "tests.test_smoke",
-        "description": "tests.test_smoke",
-        "peekOfCode": "def test_ok(): assert True",
-        "detail": "tests.test_smoke",
+        "importPath": "scripts.utils",
+        "description": "scripts.utils",
+        "peekOfCode": "def build_image_dataset(jsonl_path, transform=None, target_key='is_target', subset_filter=None):\n    return JsonlImageDataset(jsonl_path, transform, target_key, subset_filter)",
+        "detail": "scripts.utils",
         "documentation": {}
     }
 ]

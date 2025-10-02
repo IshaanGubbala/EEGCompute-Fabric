@@ -1,24 +1,7 @@
-numpy>=1.26
-scipy>=1.11
-scikit-learn>=1.3
-pandas>=2.2
-joblib>=1.3
-
-# Real-time stack
-pylsl>=1.16.2
-mne>=1.7
-mne-qt-browser>=0.6
-mne-icalabel>=0.6.3
-
-# ERP / Riemannian
-pyriemann>=0.5
-
-# API/UI
-fastapi>=0.115
-uvicorn>=0.30
-
-# BIDS (v2+)
-pybv>=0.7
-
-# Utilities used in demo scripts
-requests>=2.31
+pyyaml>=6.0
+numpy>=1.24
+PyQt6>=6.6
+torch>=2.2
+torchvision>=0.17
+Pillow>=10.0
+tqdm>=4.65

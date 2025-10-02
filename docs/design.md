@@ -1,1 +1,0 @@
-Code mirrors Architectural Overview and Repository Layout; Week 1 scope implemented.

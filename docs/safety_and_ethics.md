@@ -1,1 +1,0 @@
-Add consent/privacy/fatigue; ensure events contain no PII; manage drift and break scheduling.

@@ -1,1 +1,0 @@
-EEG-BIDS folder & sidecar templates; use BrainVision format (recommended by spec).
