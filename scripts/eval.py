@@ -2,32 +2,15 @@
 import argparse, json, os, random, math, statistics, sys, time
 from pathlib import Path
 from utils import load_cfg, read_jsonl, write_jsonl, ensure_dir, build_image_dataset
+from utils import simulate_p300_boosts
 
 def sigmoid(x): return 1/(1+math.exp(-x))
 def logit(p): p=min(max(p,1e-6),1-1e-6); return math.log(p/(1-p))
 
 def build_boost_from_sim(cfg, rsvp, subset_index):
-    # Simulate P300 per RSVP event; use calibration if present
-    sim=cfg.get('sim',{})
-    a_t,b_t=sim.get('p300',{}).get('beta_target',[6,5])
-    a_n,b_n=sim.get('p300',{}).get('beta_nontarget',[5,6])
-    drop=sim.get('p300',{}).get('drop_rate',0.2)
-    rng=random.Random(1337)
-    e={}
-    for ev in rsvp['sequence']:
-        iid=ev['item_id']; is_t=subset_index[iid]['is_target']
-        if rng.random()<drop: continue
-        p=rng.betavariate(a_t,b_t) if is_t else rng.betavariate(a_n,b_n)
-        e[iid]=e.get(iid,0.0)+logit(p)
-    # Convert evidence to signed boosts: help targets, penalize non-targets
-    boosts={}
-    for k,v in e.items():
-        b = sigmoid(v)-0.5
-        if subset_index.get(k,{}).get('is_target',0)==1:
-            boosts[k] = abs(b)
-        else:
-            boosts[k] = -abs(b)
-    return boosts
+    # Use shared simulator for consistency
+    items = list(subset_index.values())
+    return simulate_p300_boosts(cfg, rsvp, items)
 
 def precision_at_k(rank, gt, k):
     top=rank[:k];

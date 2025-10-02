@@ -1,0 +1,45 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Model files
+*.pkl
+*.h5
+*.pt
+*.pth
+
+# Data files
+data/raw/coco2017/images/
+data/raw/coco2017/_zips/*.zip
+
+# Output files
+output/
+
+# Logs
+*.log
+wget-log
+
+# Temporary files
+*.tmp
+*.bak
+*~

@@ -57,6 +57,14 @@
         "documentation": {}
     },
     {
+        "label": "simulate_p300_boosts",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
         "label": "ensure_dir",
         "importPath": "utils",
         "description": "utils",
@@ -81,6 +89,22 @@
         "documentation": {}
     },
     {
+        "label": "read_jsonl",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "simulate_p300_boosts",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
         "label": "load_cfg",
         "importPath": "utils",
         "description": "utils",
@@ -98,6 +122,30 @@
     },
     {
         "label": "build_image_dataset",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "read_jsonl",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "simulate_p300_boosts",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_scores",
         "importPath": "utils",
         "description": "utils",
         "isExtraImport": true,
@@ -403,7 +451,7 @@
         "kind": 2,
         "importPath": "scripts.eval",
         "description": "scripts.eval",
-        "peekOfCode": "def sigmoid(x): return 1/(1+math.exp(-x))\ndef logit(p): p=min(max(p,1e-6),1-1e-6); return math.log(p/(1-p))\ndef build_boost_from_sim(cfg, rsvp, subset_index):\n    # Simulate P300 per RSVP event; use calibration if present\n    sim=cfg.get('sim',{})\n    a_t,b_t=sim.get('p300',{}).get('beta_target',[6,5])\n    a_n,b_n=sim.get('p300',{}).get('beta_nontarget',[5,6])\n    drop=sim.get('p300',{}).get('drop_rate',0.2)\n    rng=random.Random(1337)\n    e={}",
+        "peekOfCode": "def sigmoid(x): return 1/(1+math.exp(-x))\ndef logit(p): p=min(max(p,1e-6),1-1e-6); return math.log(p/(1-p))\ndef build_boost_from_sim(cfg, rsvp, subset_index):\n    # Use shared simulator for consistency\n    items = list(subset_index.values())\n    return simulate_p300_boosts(cfg, rsvp, items)\ndef precision_at_k(rank, gt, k):\n    top=rank[:k];\n    return sum(1 for r in top if gt.get(r,0)==1)/float(k) if top else 0.0\ndef dcg_at_k(rank, gt, k):",
         "detail": "scripts.eval",
         "documentation": {}
     },
@@ -412,7 +460,7 @@
         "kind": 2,
         "importPath": "scripts.eval",
         "description": "scripts.eval",
-        "peekOfCode": "def logit(p): p=min(max(p,1e-6),1-1e-6); return math.log(p/(1-p))\ndef build_boost_from_sim(cfg, rsvp, subset_index):\n    # Simulate P300 per RSVP event; use calibration if present\n    sim=cfg.get('sim',{})\n    a_t,b_t=sim.get('p300',{}).get('beta_target',[6,5])\n    a_n,b_n=sim.get('p300',{}).get('beta_nontarget',[5,6])\n    drop=sim.get('p300',{}).get('drop_rate',0.2)\n    rng=random.Random(1337)\n    e={}\n    for ev in rsvp['sequence']:",
+        "peekOfCode": "def logit(p): p=min(max(p,1e-6),1-1e-6); return math.log(p/(1-p))\ndef build_boost_from_sim(cfg, rsvp, subset_index):\n    # Use shared simulator for consistency\n    items = list(subset_index.values())\n    return simulate_p300_boosts(cfg, rsvp, items)\ndef precision_at_k(rank, gt, k):\n    top=rank[:k];\n    return sum(1 for r in top if gt.get(r,0)==1)/float(k) if top else 0.0\ndef dcg_at_k(rank, gt, k):\n    dcg=0.0",
         "detail": "scripts.eval",
         "documentation": {}
     },
@@ -421,7 +469,7 @@
         "kind": 2,
         "importPath": "scripts.eval",
         "description": "scripts.eval",
-        "peekOfCode": "def build_boost_from_sim(cfg, rsvp, subset_index):\n    # Simulate P300 per RSVP event; use calibration if present\n    sim=cfg.get('sim',{})\n    a_t,b_t=sim.get('p300',{}).get('beta_target',[6,5])\n    a_n,b_n=sim.get('p300',{}).get('beta_nontarget',[5,6])\n    drop=sim.get('p300',{}).get('drop_rate',0.2)\n    rng=random.Random(1337)\n    e={}\n    for ev in rsvp['sequence']:\n        iid=ev['item_id']; is_t=subset_index[iid]['is_target']",
+        "peekOfCode": "def build_boost_from_sim(cfg, rsvp, subset_index):\n    # Use shared simulator for consistency\n    items = list(subset_index.values())\n    return simulate_p300_boosts(cfg, rsvp, items)\ndef precision_at_k(rank, gt, k):\n    top=rank[:k];\n    return sum(1 for r in top if gt.get(r,0)==1)/float(k) if top else 0.0\ndef dcg_at_k(rank, gt, k):\n    dcg=0.0\n    for i,iid in enumerate(rank[:k],start=1):",
         "detail": "scripts.eval",
         "documentation": {}
     },
@@ -601,7 +649,7 @@
         "kind": 2,
         "importPath": "scripts.prepare",
         "description": "scripts.prepare",
-        "peekOfCode": "def build_subset(cfg, split):\n    n = int(cfg['dataset']['subset_size'][split])\n    targets = set(cfg['dataset']['target_classes'])\n    ann_path = cfg['dataset']['annotations'][split]\n    items=[]\n    if os.path.exists(ann_path):\n        images, img_to_cats = _load_coco_annotations(ann_path)\n        # Build candidate pools\n        pos=[]; neg=[]\n        img_root = cfg['dataset']['images'][split]",
+        "peekOfCode": "def build_subset(cfg, split):\n    n = int(cfg['dataset']['subset_size'][split])\n    targets = set(cfg['dataset']['target_classes'])\n    ann_path = cfg['dataset']['annotations'][split]\n    # Resolve image root with auto-detection if configured path missing\n    img_root_cfg = cfg['dataset']['images'][split]\n    if not os.path.isdir(img_root_cfg):\n        # common alternative layout: data/raw/coco2017/{split}\n        alt = os.path.join(os.path.dirname(os.path.dirname(img_root_cfg)), split+'2017')\n        if os.path.isdir(alt):",
         "detail": "scripts.prepare",
         "documentation": {}
     },
@@ -709,7 +757,25 @@
         "kind": 2,
         "importPath": "scripts.utils",
         "description": "scripts.utils",
-        "peekOfCode": "def build_image_dataset(jsonl_path, transform=None, target_key='is_target', subset_filter=None):\n    return JsonlImageDataset(jsonl_path, transform, target_key, subset_filter)",
+        "peekOfCode": "def build_image_dataset(jsonl_path, transform=None, target_key='is_target', subset_filter=None):\n    return JsonlImageDataset(jsonl_path, transform, target_key, subset_filter)\n# ---- EEG Simulation Utilities ----\ndef simulate_p300_boosts(cfg, rsvp_stream, subset_items, seed: int = 1337):\n    \"\"\"\n    Produce per-item signed boosts based on RSVP events.\n    Positive for targets, negative for non-targets, with stochasticity.\n    Returns dict: item_id -> float boost in roughly [-1, 1].\n    \"\"\"\n    import random, math",
+        "detail": "scripts.utils",
+        "documentation": {}
+    },
+    {
+        "label": "simulate_p300_boosts",
+        "kind": 2,
+        "importPath": "scripts.utils",
+        "description": "scripts.utils",
+        "peekOfCode": "def simulate_p300_boosts(cfg, rsvp_stream, subset_items, seed: int = 1337):\n    \"\"\"\n    Produce per-item signed boosts based on RSVP events.\n    Positive for targets, negative for non-targets, with stochasticity.\n    Returns dict: item_id -> float boost in roughly [-1, 1].\n    \"\"\"\n    import random, math\n    def sigmoid(x):\n        return 1/(1+math.exp(-x))\n    sim = cfg.get('sim', {})",
+        "detail": "scripts.utils",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_scores",
+        "kind": 2,
+        "importPath": "scripts.utils",
+        "description": "scripts.utils",
+        "peekOfCode": "def normalize_scores(scores, method: str = 'z_tanh'):\n    \"\"\"\n    Normalize a dict[item_id->score] to roughly [-1,1].\n    Supported: 'z_tanh' (z-score then tanh), 'minmax' (-1..1), 'standard' (z-score only).\n    \"\"\"\n    import math\n    if not scores:\n        return {}\n    vals = list(scores.values())\n    n = len(vals)",
         "detail": "scripts.utils",
         "documentation": {}
     }

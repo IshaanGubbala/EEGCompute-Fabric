@@ -2,6 +2,7 @@
 import argparse, os, random, json
 from pathlib import Path
 from utils import ensure_dir, write_jsonl, load_cfg
+from utils import read_jsonl, simulate_p300_boosts
 
 def _load_coco_annotations(path):
     with open(path,'r') as f:
@@ -17,12 +18,22 @@ def build_subset(cfg, split):
     n = int(cfg['dataset']['subset_size'][split])
     targets = set(cfg['dataset']['target_classes'])
     ann_path = cfg['dataset']['annotations'][split]
+    # Resolve image root with auto-detection if configured path missing
+    img_root_cfg = cfg['dataset']['images'][split]
+    if not os.path.isdir(img_root_cfg):
+        # common alternative layout: data/raw/coco2017/{split}
+        alt = os.path.join(os.path.dirname(os.path.dirname(img_root_cfg)), split+'2017')
+        if os.path.isdir(alt):
+            img_root = alt
+        else:
+            img_root = img_root_cfg
+    else:
+        img_root = img_root_cfg
     items=[]
     if os.path.exists(ann_path):
         images, img_to_cats = _load_coco_annotations(ann_path)
         # Build candidate pools
         pos=[]; neg=[]
-        img_root = cfg['dataset']['images'][split]
         for img_id, img in images.items():
             classes = list(img_to_cats.get(img_id, []))
             has_target = any(c in targets for c in classes)
@@ -101,8 +112,13 @@ def main():
     # rsvp (use val split ordering)
     val_items=[it for it in items if it['split']=='val']
     write_jsonl(os.path.join(proc,'rsvp_streams.jsonl'), [build_rsvp(cfg, val_items)])
-    # placeholders
-    for n in ['scores_p300.jsonl','scores_ssvep.jsonl','scores_errp.jsonl']:
+    # EEG scores: write P300 simulated scores if not present; touch others
+    p300_path = os.path.join(proc,'scores_p300.jsonl')
+    if not os.path.exists(p300_path) or os.path.getsize(p300_path)==0:
+        boosts = simulate_p300_boosts(cfg, {'sequence':[{'item_id': it['item_id']} for it in val_items]}, val_items)
+        # Persist raw simulated scores for reproducibility; training will normalize as needed
+        write_jsonl(p300_path, [{ 'item_id': k, 'score': v } for k,v in boosts.items()])
+    for n in ['scores_ssvep.jsonl','scores_errp.jsonl']:
         Path(os.path.join(proc,n)).touch()
     print('Prepared subset, priors, rsvp, and placeholders')
 

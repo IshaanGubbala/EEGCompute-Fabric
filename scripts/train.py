@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse, os, pickle
 from utils import load_cfg, ensure_dir, build_image_dataset
+from utils import read_jsonl, simulate_p300_boosts, normalize_scores
 
 def train_cnn(cfg, use_eeg_assist=False):
     import torch
@@ -42,15 +43,29 @@ def train_cnn(cfg, use_eeg_assist=False):
     crit = nn.BCEWithLogitsLoss(reduction='none')
     opt = optim.AdamW(m.parameters(), lr=1e-4)
 
-    # EEG assistance: build weights from P300 if available
+    # EEG assistance: build weights from P300-like evidence
     boost = {}
     if use_eeg_assist:
-        # simple heuristic: weight positives higher
         try:
-            # weights per item_id from P300 boost can be injected later; use +0.5 for targets, +0.1 for non-targets here
-            pass
+            import json
+            # Load RSVP
+            with open(os.path.join(proc,'rsvp_streams.jsonl'),'r') as f:
+                rsvp = json.loads(next(l for l in f if l.strip()))
+            # Load real scores if available
+            boosts = {}
+            scores_path = os.path.join(proc,'scores_p300.jsonl')
+            if os.path.exists(scores_path) and os.path.getsize(scores_path) > 0:
+                for rec in read_jsonl(scores_path):
+                    iid = rec.get('item_id'); s = float(rec.get('score',0.0))
+                    boosts[iid] = s
+                boosts = normalize_scores(boosts, method='z_tanh')
+            # If missing, simulate using shared utility over the RSVP and current subset
+            if not boosts:
+                # use only items present in current dataset
+                boosts = simulate_p300_boosts(cfg, rsvp, ds.items)
+            boost = boosts
         except Exception:
-            pass
+            boost = {}
 
     m.train()
     epochs = 1  # keep minimal
@@ -62,8 +77,18 @@ def train_cnn(cfg, use_eeg_assist=False):
             logits = m(x)
             loss_raw = crit(logits, y)
             if use_eeg_assist:
-                # weight positives slightly higher
-                w = (y*1.5 + (1-y)*1.0)
+                # Map metadata item_ids to per-sample boosts
+                # r is a list[dict]; build weights that nudge logits via loss weighting
+                import torch
+                item_boosts = []
+                for rec in r:
+                    b = float(boost.get(rec.get('item_id'), 0.0))
+                    item_boosts.append(b)
+                w = torch.tensor(item_boosts, dtype=loss_raw.dtype, device=loss_raw.device).view(-1,1)
+                # Convert signed boost into weight multiplier around 1.0
+                # Positive boosts emphasize positives slightly more; negative the opposite
+                # Scale boosts: 0.7 chosen to be impactful but stable
+                w = 1.0 + 0.7*w
                 loss = (loss_raw * w).mean()
             else:
                 loss = loss_raw.mean()
