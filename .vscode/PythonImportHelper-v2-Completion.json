@@ -17,7 +17,39 @@
         "documentation": {}
     },
     {
+        "label": "read_jsonl",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "write_jsonl",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_scores",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
         "label": "load_cfg",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_dir",
         "importPath": "utils",
         "description": "utils",
         "isExtraImport": true,
@@ -41,23 +73,7 @@
         "documentation": {}
     },
     {
-        "label": "ensure_dir",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
         "label": "build_image_dataset",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "simulate_p300_boosts",
         "importPath": "utils",
         "description": "utils",
         "isExtraImport": true,
@@ -153,6 +169,54 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "argparse",
         "kind": 6,
         "isExtraImport": true,
@@ -189,46 +253,6 @@
         "documentation": {}
     },
     {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
         "label": "sys",
         "kind": 6,
         "isExtraImport": true,
@@ -247,6 +271,14 @@
     },
     {
         "label": "QProcess",
+        "importPath": "PyQt6.QtCore",
+        "description": "PyQt6.QtCore",
+        "isExtraImport": true,
+        "detail": "PyQt6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "QTimer",
         "importPath": "PyQt6.QtCore",
         "description": "PyQt6.QtCore",
         "isExtraImport": true,
@@ -366,6 +398,55 @@
         "documentation": {}
     },
     {
+        "label": "QComboBox",
+        "importPath": "PyQt6.QtWidgets",
+        "description": "PyQt6.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt6.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "brainflow_scores",
+        "importPath": "compute_p300",
+        "description": "compute_p300",
+        "isExtraImport": true,
+        "detail": "compute_p300",
+        "documentation": {}
+    },
+    {
+        "label": "synth_scores",
+        "importPath": "compute_p300",
+        "description": "compute_p300",
+        "isExtraImport": true,
+        "detail": "compute_p300",
+        "documentation": {}
+    },
+    {
+        "label": "brainflow_scores_ssvep",
+        "importPath": "compute_p300",
+        "description": "compute_p300",
+        "isExtraImport": true,
+        "detail": "compute_p300",
+        "documentation": {}
+    },
+    {
+        "label": "brainflow_scores_errp",
+        "importPath": "compute_p300",
+        "description": "compute_p300",
+        "isExtraImport": true,
+        "detail": "compute_p300",
+        "documentation": {}
+    },
+    {
         "label": "json,",
         "kind": 6,
         "isExtraImport": true,
@@ -384,11 +465,101 @@
         "documentation": {}
     },
     {
+        "label": "load_subset",
+        "kind": 2,
+        "importPath": "scripts.compute_p300",
+        "description": "scripts.compute_p300",
+        "peekOfCode": "def load_subset(proc_dir):\n    items = list(read_jsonl(os.path.join(proc_dir, 'coco_subset.jsonl')))\n    index = {it['item_id']: it for it in items}\n    return items, index\ndef load_rsvp(proc_dir):\n    with open(os.path.join(proc_dir, 'rsvp_streams.jsonl'), 'r') as f:\n        rsvp = json.loads(next(l for l in f if l.strip()))\n    return rsvp\ndef matches_key(item, key, mode='classes'):\n    if not key:",
+        "detail": "scripts.compute_p300",
+        "documentation": {}
+    },
+    {
+        "label": "load_rsvp",
+        "kind": 2,
+        "importPath": "scripts.compute_p300",
+        "description": "scripts.compute_p300",
+        "peekOfCode": "def load_rsvp(proc_dir):\n    with open(os.path.join(proc_dir, 'rsvp_streams.jsonl'), 'r') as f:\n        rsvp = json.loads(next(l for l in f if l.strip()))\n    return rsvp\ndef matches_key(item, key, mode='classes'):\n    if not key:\n        return False\n    k = key.lower()\n    if mode == 'classes':\n        for c in item.get('classes', []):",
+        "detail": "scripts.compute_p300",
+        "documentation": {}
+    },
+    {
+        "label": "matches_key",
+        "kind": 2,
+        "importPath": "scripts.compute_p300",
+        "description": "scripts.compute_p300",
+        "peekOfCode": "def matches_key(item, key, mode='classes'):\n    if not key:\n        return False\n    k = key.lower()\n    if mode == 'classes':\n        for c in item.get('classes', []):\n            if k in str(c).lower():\n                return True\n        return False\n    else:",
+        "detail": "scripts.compute_p300",
+        "documentation": {}
+    },
+    {
+        "label": "synth_scores",
+        "kind": 2,
+        "importPath": "scripts.compute_p300",
+        "description": "scripts.compute_p300",
+        "peekOfCode": "def synth_scores(cfg, rsvp, items, key, match_mode):\n    # Deterministic synthetic P300 injection based on key matches\n    rng = random.Random(4242)\n    idx = {it['item_id']: it for it in items}\n    # Template amplitudes\n    amp_hit = 1.0\n    amp_miss = 0.2\n    # Accumulate simple evidence per item as sum of (post-baseline) proxies\n    evidence = {}\n    for ev in rsvp['sequence']:",
+        "detail": "scripts.compute_p300",
+        "documentation": {}
+    },
+    {
+        "label": "mne_scores",
+        "kind": 2,
+        "importPath": "scripts.compute_p300",
+        "description": "scripts.compute_p300",
+        "peekOfCode": "def mne_scores(args, cfg, rsvp, items):\n    raise NotImplementedError('MNE mode removed to simplify to BrainFlow/synth paths')\ndef lsl_scores(args, cfg, rsvp, items):\n    raise NotImplementedError('LSL mode removed to simplify to BrainFlow/synth paths')\ndef brainflow_scores(args, cfg, rsvp, items):\n    try:\n        from brainflow.board_shim import BoardShim, BrainFlowInputParams, BoardIds\n        from brainflow.data_filter import DataFilter, DetrendOperations, FilterTypes\n    except Exception as e:\n        raise RuntimeError('BrainFlow is required for --mode brainflow. pip install brainflow') from e",
+        "detail": "scripts.compute_p300",
+        "documentation": {}
+    },
+    {
+        "label": "lsl_scores",
+        "kind": 2,
+        "importPath": "scripts.compute_p300",
+        "description": "scripts.compute_p300",
+        "peekOfCode": "def lsl_scores(args, cfg, rsvp, items):\n    raise NotImplementedError('LSL mode removed to simplify to BrainFlow/synth paths')\ndef brainflow_scores(args, cfg, rsvp, items):\n    try:\n        from brainflow.board_shim import BoardShim, BrainFlowInputParams, BoardIds\n        from brainflow.data_filter import DataFilter, DetrendOperations, FilterTypes\n    except Exception as e:\n        raise RuntimeError('BrainFlow is required for --mode brainflow. pip install brainflow') from e\n    # Parameters\n    board_id_str = getattr(args, 'board_id', 'synthetic').lower()",
+        "detail": "scripts.compute_p300",
+        "documentation": {}
+    },
+    {
+        "label": "brainflow_scores",
+        "kind": 2,
+        "importPath": "scripts.compute_p300",
+        "description": "scripts.compute_p300",
+        "peekOfCode": "def brainflow_scores(args, cfg, rsvp, items):\n    try:\n        from brainflow.board_shim import BoardShim, BrainFlowInputParams, BoardIds\n        from brainflow.data_filter import DataFilter, DetrendOperations, FilterTypes\n    except Exception as e:\n        raise RuntimeError('BrainFlow is required for --mode brainflow. pip install brainflow') from e\n    # Parameters\n    board_id_str = getattr(args, 'board_id', 'synthetic').lower()\n    duration = float(getattr(args, 'duration', 30.0))\n    fs_override = getattr(args, 'fs', None)",
+        "detail": "scripts.compute_p300",
+        "documentation": {}
+    },
+    {
+        "label": "brainflow_scores_ssvep",
+        "kind": 2,
+        "importPath": "scripts.compute_p300",
+        "description": "scripts.compute_p300",
+        "peekOfCode": "def brainflow_scores_ssvep(args, cfg, rsvp, items):\n    # reuse brainflow stream capture\n    args_p300 = argparse.Namespace(board_id=getattr(args,'board_id','synthetic'), serial=getattr(args,'serial',None), duration=getattr(args,'duration',20), fs=getattr(args,'fs',None), channels=getattr(args,'channels','0,1,2,3'), key=getattr(args,'key',None), match=getattr(args,'match','classes'))\n    try:\n        from brainflow.board_shim import BoardShim, BrainFlowInputParams, BoardIds\n        from brainflow.data_filter import DataFilter, DetrendOperations, FilterTypes\n    except Exception as e:\n        raise RuntimeError('BrainFlow is required for SSVEP. pip install brainflow') from e\n    # board setup\n    bid_map={'synthetic':BoardIds.SYNTHETIC_BOARD,'cyton':BoardIds.CYTON_BOARD,'cyton_daisy':BoardIds.CYTON_DAISY_BOARD,'ganglion':BoardIds.GANGLION_BOARD}",
+        "detail": "scripts.compute_p300",
+        "documentation": {}
+    },
+    {
+        "label": "brainflow_scores_errp",
+        "kind": 2,
+        "importPath": "scripts.compute_p300",
+        "description": "scripts.compute_p300",
+        "peekOfCode": "def brainflow_scores_errp(args, cfg, rsvp, items):\n    # Similar stream capture as above\n    args_p = argparse.Namespace(board_id=getattr(args,'board_id','synthetic'), serial=getattr(args,'serial',None), duration=getattr(args,'duration',20), fs=getattr(args,'fs',None), channels=getattr(args,'channels','0,1,2,3'), key=getattr(args,'key',None), match=getattr(args,'match','classes'))\n    try:\n        from brainflow.board_shim import BoardShim, BrainFlowInputParams, BoardIds\n    except Exception as e:\n        raise RuntimeError('BrainFlow is required for ErrP. pip install brainflow') from e\n    bid_map={'synthetic':BoardIds.SYNTHETIC_BOARD,'cyton':BoardIds.CYTON_BOARD,'cyton_daisy':BoardIds.CYTON_DAISY_BOARD,'ganglion':BoardIds.GANGLION_BOARD}\n    bid = bid_map.get(args_p.board_id, BoardIds.SYNTHETIC_BOARD)\n    params = BrainFlowInputParams();",
+        "detail": "scripts.compute_p300",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "scripts.compute_p300",
+        "description": "scripts.compute_p300",
+        "peekOfCode": "def main():\n    ap = argparse.ArgumentParser(description='Compute item-level P300 scores')\n    ap.add_argument('--mode', choices=['synth','lsl','mne','brainflow'], default='synth')\n    ap.add_argument('--key', default='dog', help='Keyword to positively inject P300 for matching items (synth mode)')\n    ap.add_argument('--match', choices=['classes','item_id'], default='classes', help='How to match the key to items')\n    ap.add_argument('--config', default='configs/v3.yaml')\n    ap.add_argument('--out', default='data/processed/scores_p300.jsonl')\n    ap.add_argument('--proc', default='data/processed')\n    ap.add_argument('--mne-file', default=None)\n    # BrainFlow-specific",
+        "detail": "scripts.compute_p300",
+        "documentation": {}
+    },
+    {
         "label": "run",
         "kind": 2,
         "importPath": "scripts.control",
         "description": "scripts.control",
-        "peekOfCode": "def run(cmd):\n    print('>',' '.join(cmd)); rc=subprocess.call(cmd); sys.exit(rc)\ndef main():\n    ap=argparse.ArgumentParser(description='Minimal V3 control')\n    ap.add_argument('cmd', choices=['prepare','train','calibrate','eval','download'])\n    ap.add_argument('--config', default='configs/v3.yaml')\n    ap.add_argument('--k', type=int, default=10)\n    # download options\n    ap.add_argument('--train', type=int, default=0, help='Download train2017 images (≈18GB)')\n    ap.add_argument('--val', type=int, default=1, help='Download val2017 images (≈1GB)')",
+        "peekOfCode": "def run(cmd):\n    print('>',' '.join(cmd)); rc=subprocess.call(cmd); sys.exit(rc)\ndef main():\n    ap=argparse.ArgumentParser(description='Minimal V3 control')\n    ap.add_argument('cmd', choices=['prepare','train','calibrate','download','compute-p300','benchmark'])\n    ap.add_argument('--config', default='configs/v3.yaml')\n    ap.add_argument('--k', type=int, default=10)\n    ap.add_argument('--full', type=int, default=0)\n    # download options\n    ap.add_argument('--train', type=int, default=0, help='Download train2017 images (≈18GB)')",
         "detail": "scripts.control",
         "documentation": {}
     },
@@ -397,7 +568,7 @@
         "kind": 2,
         "importPath": "scripts.control",
         "description": "scripts.control",
-        "peekOfCode": "def main():\n    ap=argparse.ArgumentParser(description='Minimal V3 control')\n    ap.add_argument('cmd', choices=['prepare','train','calibrate','eval','download'])\n    ap.add_argument('--config', default='configs/v3.yaml')\n    ap.add_argument('--k', type=int, default=10)\n    # download options\n    ap.add_argument('--train', type=int, default=0, help='Download train2017 images (≈18GB)')\n    ap.add_argument('--val', type=int, default=1, help='Download val2017 images (≈1GB)')\n    ap.add_argument('--ann', type=int, default=1, help='Download annotations (≈250MB)')\n    args=ap.parse_args()",
+        "peekOfCode": "def main():\n    ap=argparse.ArgumentParser(description='Minimal V3 control')\n    ap.add_argument('cmd', choices=['prepare','train','calibrate','download','compute-p300','benchmark'])\n    ap.add_argument('--config', default='configs/v3.yaml')\n    ap.add_argument('--k', type=int, default=10)\n    ap.add_argument('--full', type=int, default=0)\n    # download options\n    ap.add_argument('--train', type=int, default=0, help='Download train2017 images (≈18GB)')\n    ap.add_argument('--val', type=int, default=1, help='Download val2017 images (≈1GB)')\n    ap.add_argument('--ann', type=int, default=1, help='Download annotations (≈250MB)')",
         "detail": "scripts.control",
         "documentation": {}
     },
@@ -447,186 +618,6 @@
         "documentation": {}
     },
     {
-        "label": "sigmoid",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def sigmoid(x): return 1/(1+math.exp(-x))\ndef logit(p): p=min(max(p,1e-6),1-1e-6); return math.log(p/(1-p))\ndef build_boost_from_sim(cfg, rsvp, subset_index):\n    # Use shared simulator for consistency\n    items = list(subset_index.values())\n    return simulate_p300_boosts(cfg, rsvp, items)\ndef precision_at_k(rank, gt, k):\n    top=rank[:k];\n    return sum(1 for r in top if gt.get(r,0)==1)/float(k) if top else 0.0\ndef dcg_at_k(rank, gt, k):",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "logit",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def logit(p): p=min(max(p,1e-6),1-1e-6); return math.log(p/(1-p))\ndef build_boost_from_sim(cfg, rsvp, subset_index):\n    # Use shared simulator for consistency\n    items = list(subset_index.values())\n    return simulate_p300_boosts(cfg, rsvp, items)\ndef precision_at_k(rank, gt, k):\n    top=rank[:k];\n    return sum(1 for r in top if gt.get(r,0)==1)/float(k) if top else 0.0\ndef dcg_at_k(rank, gt, k):\n    dcg=0.0",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "build_boost_from_sim",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def build_boost_from_sim(cfg, rsvp, subset_index):\n    # Use shared simulator for consistency\n    items = list(subset_index.values())\n    return simulate_p300_boosts(cfg, rsvp, items)\ndef precision_at_k(rank, gt, k):\n    top=rank[:k];\n    return sum(1 for r in top if gt.get(r,0)==1)/float(k) if top else 0.0\ndef dcg_at_k(rank, gt, k):\n    dcg=0.0\n    for i,iid in enumerate(rank[:k],start=1):",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "precision_at_k",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def precision_at_k(rank, gt, k):\n    top=rank[:k];\n    return sum(1 for r in top if gt.get(r,0)==1)/float(k) if top else 0.0\ndef dcg_at_k(rank, gt, k):\n    dcg=0.0\n    for i,iid in enumerate(rank[:k],start=1):\n        rel=gt.get(iid,0); \n        if rel: dcg += (2**rel -1)/math.log2(i+1)\n    return dcg\ndef ndcg_at_k(rank, gt, k):",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "dcg_at_k",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def dcg_at_k(rank, gt, k):\n    dcg=0.0\n    for i,iid in enumerate(rank[:k],start=1):\n        rel=gt.get(iid,0); \n        if rel: dcg += (2**rel -1)/math.log2(i+1)\n    return dcg\ndef ndcg_at_k(rank, gt, k):\n    dcg=dcg_at_k(rank,gt,k)\n    ideal=sorted(gt.keys(), key=lambda x: gt[x], reverse=True)\n    idcg=dcg_at_k(ideal,gt,k)",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "ndcg_at_k",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def ndcg_at_k(rank, gt, k):\n    dcg=dcg_at_k(rank,gt,k)\n    ideal=sorted(gt.keys(), key=lambda x: gt[x], reverse=True)\n    idcg=dcg_at_k(ideal,gt,k)\n    return 0.0 if idcg==0 else dcg/idcg\ndef eval_rsvp(priors, boost, alpha, items, k):\n    ids=[it['item_id'] for it in items]\n    gt={it['item_id']: it['is_target'] for it in items}\n    off={i: priors.get(i,0.0) for i in ids}\n    on ={i: priors.get(i,0.0)+ alpha*boost.get(i,0.0) for i in ids}",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "eval_rsvp",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def eval_rsvp(priors, boost, alpha, items, k):\n    ids=[it['item_id'] for it in items]\n    gt={it['item_id']: it['is_target'] for it in items}\n    off={i: priors.get(i,0.0) for i in ids}\n    on ={i: priors.get(i,0.0)+ alpha*boost.get(i,0.0) for i in ids}\n    r_off=sorted(ids, key=lambda i: off[i], reverse=True)\n    r_on =sorted(ids, key=lambda i: on[i],  reverse=True)\n    return {\n        'precision@k': {'off':precision_at_k(r_off,gt,k),'on':precision_at_k(r_on,gt,k)},\n        'ndcg@k': {'off': ndcg_at_k(r_off,gt,k), 'on': ndcg_at_k(r_on,gt,k)}",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "bootstrap_rsvp_delta",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def bootstrap_rsvp_delta(priors, boost, alpha, items, k, n_boot=400, seed=1234):\n    rng = random.Random(seed)\n    n = len(items)\n    deltas = []\n    for _ in range(n_boot):\n        idxs = [rng.randrange(0, n) for _ in range(n)]\n        sample = [items[i] for i in idxs]\n        m = eval_rsvp(priors, boost, alpha, sample, k)\n        deltas.append(m['precision@k']['on'] - m['precision@k']['off'])\n    deltas.sort()",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "simulate_ssvep_episode",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def simulate_ssvep_episode(margin_thr: float, dwell: int, attend: bool, seed: int = 0):\n    rng = random.Random(9000 + seed)\n    hop = 0.1\n    t = 0.0\n    consecutive = 0\n    decided = False\n    # tuned so realistic episodes pass when attend=True and rarely pass when idle\n    while t < 3.0:\n        # generate a synthetic margin\n        if attend:",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "eval_ssvep",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def eval_ssvep(margin_thr: float, dwell: int, n_attend: int = 5, n_idle: int = 5):\n    times=[]; succ=0\n    total_idle_time=0.0; false_idle=0\n    for i in range(n_attend):\n        ep = simulate_ssvep_episode(margin_thr, dwell, attend=True, seed=i)\n        if ep['decision']:\n            succ += 1\n            if ep['decision_time'] is not None:\n                times.append(ep['decision_time'])\n    for j in range(n_idle):",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "simulate_errp_stream",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def simulate_errp_stream(base_rate: float = 0.3, n_actions: int = 50, seed: int = 0):\n    rng = random.Random(7000+seed)\n    rec=[]\n    for i in range(n_actions):\n        is_error = 1 if rng.random()<base_rate else 0\n        value = 0.6 + 0.3*rng.random() if is_error else 0.2*rng.random()\n        quality = 0.6 + 0.3*rng.random()\n        rec.append({'value':value,'quality':quality,'meta':{'action_id':f'A{i:03d}','correct':0 if is_error else 1}})\n    return rec\ndef eval_errp(rec, lam: float, tau: float):",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "eval_errp",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def eval_errp(rec, lam: float, tau: float):\n    # Regret proxy: errors not vetoed\n    errors=[r for r in rec if r['meta'].get('correct')==0]\n    regret0 = len(errors)\n    regret_tau = sum(1 for r in errors if r['value']<tau)\n    red = (regret0 - regret_tau)/regret0 if regret0>0 else 0.0\n    false_veto = sum(1 for r in rec if r['meta'].get('correct')==1 and r['value']>=tau)\n    false_veto_rate = false_veto / max(1,sum(1 for r in rec if r['meta'].get('correct')==1))\n    reward_penalty = -lam * sum(r['value']*r.get('quality',1.0) for r in rec)/max(1,len(rec))\n    return {'regret_reduction':red,'false_veto_rate':false_veto_rate,'reward_penalty':reward_penalty}",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "auprc_score",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def auprc_score(pos, neg):\n    # Simple threshold sweep\n    scores=[(s,1) for s in pos]+[(s,0) for s in neg]\n    scores.sort(key=lambda x:x[0], reverse=True)\n    tp=0; fp=0; fn=len(pos); tn=len(neg)\n    last=-1; prc=[]\n    for s,l in scores:\n        if l==1:\n            tp+=1; fn-=1\n        else:",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "ece_score",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def ece_score(scores, labels, n_bins=10):\n    bins=[0]*(n_bins); conf=[0.0]*n_bins; acc=[0.0]*n_bins; cnt=[0]*n_bins\n    for s,l in zip(scores,labels):\n        b=min(n_bins-1, int(s*n_bins))\n        conf[b]+=s; acc[b]+=l; cnt[b]+=1\n    ece=0.0; total=len(scores)\n    for i in range(n_bins):\n        if cnt[i]==0: continue\n        c=conf[i]/cnt[i]; a=acc[i]/cnt[i]\n        ece += (cnt[i]/total)*abs(c-a)",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "auc_score",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def auc_score(pos, neg):\n    # Mann-Whitney U-based AUC\n    vals = [(float(v), 1) for v in pos] + [(float(v), 0) for v in neg]\n    if not vals or len(pos)==0 or len(neg)==0:\n        return float('nan')\n    vals.sort(key=lambda x: x[0])\n    ranks=[0.0]*len(vals)\n    i=0\n    while i<len(vals):\n        j=i",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "decoder_sanity_p300",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def decoder_sanity_p300(seed=321):\n    pos,neg=_gen_scores_beta(8,3,3,8,seed=seed)\n    auroc=auc_score(pos,neg)\n    auprc=auprc_score(pos,neg)\n    ece=ece_score(pos+neg,[1]*len(pos)+[0]*len(neg))\n    return {'auroc':auroc,'auprc':auprc,'ece':ece}\ndef decoder_sanity_errp(seed=654):\n    pos,neg=_gen_scores_beta(7,4,4,7,seed=seed)\n    auroc=auc_score(pos,neg)\n    auprc=auprc_score(pos,neg)",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "decoder_sanity_errp",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def decoder_sanity_errp(seed=654):\n    pos,neg=_gen_scores_beta(7,4,4,7,seed=seed)\n    auroc=auc_score(pos,neg)\n    auprc=auprc_score(pos,neg)\n    # balanced accuracy at 0.5\n    tp=sum(1 for s in pos if s>=0.5); fn=len(pos)-tp\n    tn=sum(1 for s in neg if s<0.5); fp=len(neg)-tn\n    bacc=0.5*(tp/max(1,tp+fn)+tn/max(1,tn+fp))\n    return {'auroc':auroc,'auprc':auprc,'balanced_accuracy':bacc}\n# --- Telemetry & BIDS (minimal) ---",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "simulate_latency",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def simulate_latency():\n    rng=random.Random(999)\n    # Generate latencies in ms\n    rsvp=[max(1.0, random.gauss(140.0,30.0)) for _ in range(1000)]\n    errp=[max(1.0, random.gauss(160.0,35.0)) for _ in range(1000)]\n    ssvep_decision=[max(0.2, random.gauss(0.8,0.15)) for _ in range(200)]\n    def p95(a):\n        a=sorted(a); idx=int(0.95*(len(a)-1)); return a[idx]\n    return {\n      'p95_rsvp_ms': p95(rsvp),",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "write_bids_like",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def write_bids_like(cfg, rsvp):\n    root=os.path.join('output','bids'); eeg=os.path.join(root,'sub-01','ses-01','eeg')\n    ensure_dir(eeg)\n    # dataset description\n    with open(os.path.join(root,'dataset_description.json'),'w') as f:\n        json.dump({'Name':'EEGCompute-Minimal V3','BIDSVersion':'1.8.0'}, f, indent=2)\n    # events.tsv\n    with open(os.path.join(eeg,'sub-01_ses-01_task-rsvp_events.tsv'),'w') as f:\n        f.write('onset\\tduration\\ttrial_type\\titem_id\\n')\n        for ev in rsvp['sequence']:",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
-        "label": "main",
-        "kind": 2,
-        "importPath": "scripts.eval",
-        "description": "scripts.eval",
-        "peekOfCode": "def main():\n    ap=argparse.ArgumentParser()\n    ap.add_argument('--config', required=True)\n    ap.add_argument('--k', type=int, default=10)\n    ap.add_argument('--strict_locked', type=int, default=1)\n    args=ap.parse_args()\n    cfg=load_cfg(args.config)\n    proc=cfg['paths']['processed']; reports=cfg['paths']['reports']; ensure_dir(reports)\n    # load data\n    subset=list(read_jsonl(os.path.join(proc,'coco_subset.jsonl')))",
-        "detail": "scripts.eval",
-        "documentation": {}
-    },
-    {
         "label": "MinimalV3GUI",
         "kind": 6,
         "importPath": "scripts.gui",
@@ -645,11 +636,110 @@
         "documentation": {}
     },
     {
+        "label": "run_prepare",
+        "kind": 2,
+        "importPath": "scripts.pipeline",
+        "description": "scripts.pipeline",
+        "peekOfCode": "def run_prepare(cfg_path: str, full: bool):\n    import subprocess\n    cmd = [\"python\",\"scripts/prepare.py\",\"--config\",cfg_path]\n    if full:\n        cmd += [\"--full\",\"1\"]\n    print('>',' '.join(cmd)); subprocess.check_call(cmd)\ndef run_calibrate():\n    import subprocess\n    print('> python scripts/calibrate.py'); subprocess.check_call([\"python\",\"scripts/calibrate.py\"])\ndef compute_eeg_scores(cfg_path: str, mode: str = 'brainflow', key: str = 'dog'):",
+        "detail": "scripts.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "run_calibrate",
+        "kind": 2,
+        "importPath": "scripts.pipeline",
+        "description": "scripts.pipeline",
+        "peekOfCode": "def run_calibrate():\n    import subprocess\n    print('> python scripts/calibrate.py'); subprocess.check_call([\"python\",\"scripts/calibrate.py\"])\ndef compute_eeg_scores(cfg_path: str, mode: str = 'brainflow', key: str = 'dog'):\n    cfg = load_cfg(cfg_path)\n    proc = cfg['paths']['processed']\n    # Load RSVP + subset\n    import json as _json\n    with open(os.path.join(proc,'rsvp_streams.jsonl'),'r') as f:\n        rsvp = _json.loads(next(l for l in f if l.strip()))",
+        "detail": "scripts.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "compute_eeg_scores",
+        "kind": 2,
+        "importPath": "scripts.pipeline",
+        "description": "scripts.pipeline",
+        "peekOfCode": "def compute_eeg_scores(cfg_path: str, mode: str = 'brainflow', key: str = 'dog'):\n    cfg = load_cfg(cfg_path)\n    proc = cfg['paths']['processed']\n    # Load RSVP + subset\n    import json as _json\n    with open(os.path.join(proc,'rsvp_streams.jsonl'),'r') as f:\n        rsvp = _json.loads(next(l for l in f if l.strip()))\n    items = list(read_jsonl(os.path.join(proc,'coco_subset.jsonl')))\n    val_items = [it for it in items if it.get('split')=='val']\n    # EEG streaming duration from config (faster default)",
+        "detail": "scripts.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "train_model",
+        "kind": 2,
+        "importPath": "scripts.pipeline",
+        "description": "scripts.pipeline",
+        "peekOfCode": "def train_model(cfg, use_eeg_assist=False, label='baseline', log_writer=None):\n    import time\n    import importlib\n    # Import train module from the current scripts directory\n    train_mod = importlib.import_module('train')\n    # Energy estimator using psutil if available\n    try:\n        import psutil\n    except Exception:\n        psutil=None",
+        "detail": "scripts.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "predict_logits",
+        "kind": 2,
+        "importPath": "scripts.pipeline",
+        "description": "scripts.pipeline",
+        "peekOfCode": "def predict_logits(cfg, model_dict, split='val'):\n    import torch\n    from torchvision import transforms, models\n    proc = cfg['paths']['processed']\n    tfm = transforms.Compose([\n        transforms.Resize((224,224)),\n        transforms.ToTensor(),\n        transforms.Normalize(mean=[0.485,0.456,0.406], std=[0.229,0.224,0.225])\n    ])\n    ds = build_image_dataset(os.path.join(proc,'coco_subset.jsonl'), transform=tfm, subset_filter=lambda r: r.get('split')==split)",
+        "detail": "scripts.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "sigmoid",
+        "kind": 2,
+        "importPath": "scripts.pipeline",
+        "description": "scripts.pipeline",
+        "peekOfCode": "def sigmoid(x):\n    try:\n        return 1.0/(1.0+math.exp(-x))\n    except OverflowError:\n        return 0.0 if x<0 else 1.0\ndef accuracy_from_logits(logits, gts, threshold=0.5):\n    preds=[1 if sigmoid(z)>=threshold else 0 for z in logits]\n    correct=sum(1 for p,t in zip(preds,gts) if p==t)\n    return correct/max(1,len(gts))\ndef aucs_from_logits(logits, gts):",
+        "detail": "scripts.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "accuracy_from_logits",
+        "kind": 2,
+        "importPath": "scripts.pipeline",
+        "description": "scripts.pipeline",
+        "peekOfCode": "def accuracy_from_logits(logits, gts, threshold=0.5):\n    preds=[1 if sigmoid(z)>=threshold else 0 for z in logits]\n    correct=sum(1 for p,t in zip(preds,gts) if p==t)\n    return correct/max(1,len(gts))\ndef aucs_from_logits(logits, gts):\n    # Compute AUROC and AUPRC without sklearn\n    pairs = sorted([(float(sigmoid(z)), int(t)) for z,t in zip(logits,gts)], key=lambda x: x[0], reverse=True)\n    P = sum(t for _,t in pairs); N = len(pairs)-P\n    if P==0 or N==0:\n        return 0.0, 0.0",
+        "detail": "scripts.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "aucs_from_logits",
+        "kind": 2,
+        "importPath": "scripts.pipeline",
+        "description": "scripts.pipeline",
+        "peekOfCode": "def aucs_from_logits(logits, gts):\n    # Compute AUROC and AUPRC without sklearn\n    pairs = sorted([(float(sigmoid(z)), int(t)) for z,t in zip(logits,gts)], key=lambda x: x[0], reverse=True)\n    P = sum(t for _,t in pairs); N = len(pairs)-P\n    if P==0 or N==0:\n        return 0.0, 0.0\n    # ROC and PR points\n    tp=0; fp=0; roc=[]; prec=[]; rec=[]\n    for s,t in pairs:\n        if t==1: tp+=1",
+        "detail": "scripts.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "load_scores",
+        "kind": 2,
+        "importPath": "scripts.pipeline",
+        "description": "scripts.pipeline",
+        "peekOfCode": "def load_scores(proc_dir, fname):\n    p = os.path.join(proc_dir, fname)\n    d={}\n    if os.path.exists(p) and os.path.getsize(p)>0:\n        for rec in read_jsonl(p): d[rec['item_id']]=float(rec.get('score',0.0))\n    return d\ndef fuse_logits_with_eeg(logits, meta, proc_dir, cfg):\n    # combine CNN logits with EEG (P300, SSVEP, ErrP) boosts\n    alpha = float(cfg.get('fusion',{}).get('alpha_p300_boost', 1.3))\n    beta  = float(cfg.get('fusion',{}).get('beta_ssvep', 0.5))",
+        "detail": "scripts.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "fuse_logits_with_eeg",
+        "kind": 2,
+        "importPath": "scripts.pipeline",
+        "description": "scripts.pipeline",
+        "peekOfCode": "def fuse_logits_with_eeg(logits, meta, proc_dir, cfg):\n    # combine CNN logits with EEG (P300, SSVEP, ErrP) boosts\n    alpha = float(cfg.get('fusion',{}).get('alpha_p300_boost', 1.3))\n    beta  = float(cfg.get('fusion',{}).get('beta_ssvep', 0.5))\n    gamma = float(cfg.get('fusion',{}).get('gamma_errp', 0.3))\n    p300 = load_scores(proc_dir, 'scores_p300.jsonl')\n    ssvep= load_scores(proc_dir, 'scores_ssvep.jsonl')\n    errp = load_scores(proc_dir, 'scores_errp.jsonl')\n    fused=[]\n    for z, r in zip(logits, meta):",
+        "detail": "scripts.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "scripts.pipeline",
+        "description": "scripts.pipeline",
+        "peekOfCode": "def main():\n    ap = argparse.ArgumentParser(description='Unified pipeline: calibrate → prepare → EEG → train 4 models → eval & report')\n    ap.add_argument('--config', default='configs/v3.yaml')\n    ap.add_argument('--full', type=int, default=0)\n    ap.add_argument('--eeg-key', default='dog')\n    args = ap.parse_args()\n    cfg = load_cfg(args.config)\n    reports_dir = cfg['paths'].get('reports', 'output/reports')\n    ensure_dir(reports_dir)\n    run_calibrate()",
+        "detail": "scripts.pipeline",
+        "documentation": {}
+    },
+    {
         "label": "build_subset",
         "kind": 2,
         "importPath": "scripts.prepare",
         "description": "scripts.prepare",
-        "peekOfCode": "def build_subset(cfg, split):\n    n = int(cfg['dataset']['subset_size'][split])\n    targets = set(cfg['dataset']['target_classes'])\n    ann_path = cfg['dataset']['annotations'][split]\n    # Resolve image root with auto-detection if configured path missing\n    img_root_cfg = cfg['dataset']['images'][split]\n    if not os.path.isdir(img_root_cfg):\n        # common alternative layout: data/raw/coco2017/{split}\n        alt = os.path.join(os.path.dirname(os.path.dirname(img_root_cfg)), split+'2017')\n        if os.path.isdir(alt):",
+        "peekOfCode": "def build_subset(cfg, split, full=False):\n    n = int(cfg['dataset']['subset_size'][split])\n    targets = set(cfg['dataset']['target_classes'])\n    ann_path = cfg['dataset']['annotations'][split]\n    # Resolve image root with auto-detection if configured path missing\n    img_root_cfg = cfg['dataset']['images'][split]\n    if not os.path.isdir(img_root_cfg):\n        # common alternative layout: data/raw/coco2017/{split}\n        alt = os.path.join(os.path.dirname(os.path.dirname(img_root_cfg)), split+'2017')\n        if os.path.isdir(alt):",
         "detail": "scripts.prepare",
         "documentation": {}
     },
@@ -667,7 +757,7 @@
         "kind": 2,
         "importPath": "scripts.prepare",
         "description": "scripts.prepare",
-        "peekOfCode": "def build_rsvp(cfg, items):\n    rate = float(cfg['rsvp']['rate_hz']); dt=1.0/rate\n    seq=[{'t': round(i*dt,3), 'item_id': it['item_id']} for i,it in enumerate(items)]\n    return {'session':'S1','rate_hz':rate,'sequence':seq}\ndef main():\n    ap=argparse.ArgumentParser()\n    ap.add_argument('--config', required=True)\n    args=ap.parse_args()\n    cfg=load_cfg(args.config)\n    proc=cfg['paths']['processed']",
+        "peekOfCode": "def build_rsvp(cfg, items):\n    rate = float(cfg['rsvp']['rate_hz']); dt=1.0/rate\n    seq=[{'t': round(i*dt,3), 'item_id': it['item_id']} for i,it in enumerate(items)]\n    return {'session':'S1','rate_hz':rate,'sequence':seq}\ndef main():\n    ap=argparse.ArgumentParser()\n    ap.add_argument('--config', required=True)\n    ap.add_argument('--full', type=int, default=0, help='Use all available images on disk for each split')\n    args=ap.parse_args()\n    cfg=load_cfg(args.config)",
         "detail": "scripts.prepare",
         "documentation": {}
     },
@@ -676,7 +766,7 @@
         "kind": 2,
         "importPath": "scripts.prepare",
         "description": "scripts.prepare",
-        "peekOfCode": "def main():\n    ap=argparse.ArgumentParser()\n    ap.add_argument('--config', required=True)\n    args=ap.parse_args()\n    cfg=load_cfg(args.config)\n    proc=cfg['paths']['processed']\n    ensure_dir(proc)\n    # subset\n    items = build_subset(cfg,'train')+build_subset(cfg,'val')\n    write_jsonl(os.path.join(proc,'coco_subset.jsonl'), items)",
+        "peekOfCode": "def main():\n    ap=argparse.ArgumentParser()\n    ap.add_argument('--config', required=True)\n    ap.add_argument('--full', type=int, default=0, help='Use all available images on disk for each split')\n    args=ap.parse_args()\n    cfg=load_cfg(args.config)\n    proc=cfg['paths']['processed']\n    ensure_dir(proc)\n    # subset\n    items = build_subset(cfg,'train', full=bool(args.full)) + build_subset(cfg,'val', full=bool(args.full))",
         "detail": "scripts.prepare",
         "documentation": {}
     },
@@ -685,7 +775,7 @@
         "kind": 2,
         "importPath": "scripts.train",
         "description": "scripts.train",
-        "peekOfCode": "def train_cnn(cfg, use_eeg_assist=False):\n    import torch\n    import torch.nn as nn\n    import torch.optim as optim\n    from torch.utils.data import DataLoader\n    from torchvision import models, transforms\n    from tqdm import tqdm\n    proc=cfg['paths']['processed']\n    # transforms\n    tfm = transforms.Compose([",
+        "peekOfCode": "def train_cnn(cfg, use_eeg_assist=False, log_writer=None, label='baseline'):\n    import torch\n    import torch.nn as nn\n    import torch.optim as optim\n    from torch.utils.data import DataLoader\n    from torchvision import models, transforms\n    from tqdm import tqdm\n    proc=cfg['paths']['processed']\n    # transforms (separate train/val to allow augmentation)\n    tr_cfg = cfg.get('training',{})",
         "detail": "scripts.train",
         "documentation": {}
     },
@@ -694,7 +784,7 @@
         "kind": 2,
         "importPath": "scripts.train",
         "description": "scripts.train",
-        "peekOfCode": "def main():\n    ap=argparse.ArgumentParser(); ap.add_argument('--config', required=True); args=ap.parse_args()\n    cfg=load_cfg(args.config)\n    models_dir=cfg['paths']['models']; ensure_dir(models_dir)\n    base = train_cnn(cfg, use_eeg_assist=False)\n    eeg  = train_cnn(cfg, use_eeg_assist=True)\n    with open(os.path.join(models_dir,'baseline.pkl'),'wb') as f: pickle.dump(base,f)\n    with open(os.path.join(models_dir,'eeg_trained.pkl'),'wb') as f: pickle.dump(eeg,f)\n    print('Saved models/baseline.pkl and models/eeg_trained.pkl (CNN)')\nif __name__=='__main__':",
+        "peekOfCode": "def main():\n    ap=argparse.ArgumentParser(); ap.add_argument('--config', required=True); args=ap.parse_args()\n    cfg=load_cfg(args.config)\n    models_dir=cfg['paths']['models']; ensure_dir(models_dir)\n    # logging\n    logs_dir=os.path.join(cfg['paths'].get('reports','output/reports'),'..','logs')\n    logs_dir=os.path.normpath(logs_dir)\n    ensure_dir(logs_dir)\n    log_path=os.path.join(logs_dir,'train_loss.csv')\n    # initialize CSV header if not exists",
         "detail": "scripts.train",
         "documentation": {}
     },

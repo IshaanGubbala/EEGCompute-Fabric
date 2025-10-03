@@ -14,7 +14,7 @@ def _load_coco_annotations(path):
         img_to_cats.setdefault(ann['image_id'], set()).add(categories.get(ann['category_id']))
     return images, img_to_cats
 
-def build_subset(cfg, split):
+def build_subset(cfg, split, full=False):
     n = int(cfg['dataset']['subset_size'][split])
     targets = set(cfg['dataset']['target_classes'])
     ann_path = cfg['dataset']['annotations'][split]
@@ -52,17 +52,21 @@ def build_subset(cfg, split):
                 neg.append(item)
         rng = random.Random(1337 + (0 if split=='train' else 1))
         rng.shuffle(pos); rng.shuffle(neg)
-        # Slightly fewer targets to keep it non-trivial
-        n_pos = min(int(0.45*n), len(pos))
-        n_neg = min(n-n_pos, len(neg))
-        items = pos[:n_pos] + neg[:n_neg]
-        rng.shuffle(items)
-        # Filter out any missing files silently (user must place COCO images locally)
-        items = [it for it in items if os.path.exists(it['filepath'])]
-        # If after filtering we are short, top up with remaining candidates that exist
-        if len(items) < n:
-            extra = [it for it in (pos[n_pos:]+neg[n_neg:]) if os.path.exists(it['filepath'])]
-            items += extra[: max(0, n-len(items))]
+        if full:
+            # Take all items that exist on disk
+            items = [it for it in (pos + neg) if os.path.exists(it['filepath'])]
+        else:
+            # Slightly fewer targets to keep it non-trivial
+            n_pos = min(int(0.45*n), len(pos))
+            n_neg = min(n-n_pos, len(neg))
+            items = pos[:n_pos] + neg[:n_neg]
+            rng.shuffle(items)
+            # Filter out any missing files silently (user must place COCO images locally)
+            items = [it for it in items if os.path.exists(it['filepath'])]
+            # If after filtering we are short, top up with remaining candidates that exist
+            if len(items) < n:
+                extra = [it for it in (pos[n_pos:]+neg[n_neg:]) if os.path.exists(it['filepath'])]
+                items += extra[: max(0, n-len(items))]
     else:
         # Fallback synthetic subset if annotations are not present
         rng = random.Random(1337 + (0 if split=='train' else 1))
@@ -100,13 +104,18 @@ def build_rsvp(cfg, items):
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument('--config', required=True)
+    ap.add_argument('--full', type=int, default=0, help='Use all available images on disk for each split')
     args=ap.parse_args()
     cfg=load_cfg(args.config)
     proc=cfg['paths']['processed']
     ensure_dir(proc)
     # subset
-    items = build_subset(cfg,'train')+build_subset(cfg,'val')
+    items = build_subset(cfg,'train', full=bool(args.full)) + build_subset(cfg,'val', full=bool(args.full))
     write_jsonl(os.path.join(proc,'coco_subset.jsonl'), items)
+    # counts
+    n_train = sum(1 for it in items if it['split']=='train')
+    n_val = sum(1 for it in items if it['split']=='val')
+    print(f"Prepared subset counts: train={n_train}, val={n_val}")
     # priors
     write_jsonl(os.path.join(proc,'prior_scores.jsonl'), build_priors(cfg, items))
     # rsvp (use val split ordering)
