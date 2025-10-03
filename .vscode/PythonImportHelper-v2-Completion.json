@@ -505,7 +505,7 @@
         "kind": 2,
         "importPath": "scripts.compute_p300",
         "description": "scripts.compute_p300",
-        "peekOfCode": "def synth_scores(cfg, rsvp, items, key, match_mode):\n    # Deterministic synthetic P300 injection based on key matches\n    rng = random.Random(4242)\n    idx = {it['item_id']: it for it in items}\n    # Template amplitudes\n    amp_hit = 1.0\n    amp_miss = 0.2\n    # Accumulate simple evidence per item as sum of (post-baseline) proxies\n    evidence = {}\n    for ev in rsvp['sequence']:",
+        "peekOfCode": "def synth_scores(cfg, rsvp, items, key, match_mode):\n    # Deterministic synthetic P300 injection based on key matches\n    rng = random.Random(4242)\n    idx = {it['item_id']: it for it in items}\n    # Template amplitudes (exaggerated for stronger signal)\n    amp_hit = 2.0\n    amp_miss = 0.1\n    # Accumulate simple evidence per item as sum of (post-baseline) proxies\n    evidence = {}\n    for ev in rsvp['sequence']:",
         "detail": "scripts.compute_p300",
         "documentation": {}
     },
@@ -676,7 +676,7 @@
         "kind": 2,
         "importPath": "scripts.pipeline",
         "description": "scripts.pipeline",
-        "peekOfCode": "def train_model(cfg, use_eeg_assist=False, label='baseline', log_writer=None):\n    import time\n    import importlib\n    # Import train module from the current scripts directory\n    train_mod = importlib.import_module('train')\n    # Energy estimator using psutil if available\n    try:\n        import psutil\n    except Exception:\n        psutil=None",
+        "peekOfCode": "def train_model(cfg, use_eeg_assist=False, label='baseline', log_writer=None):\n    import time\n    import importlib\n    from eeg_utils import create_power_monitor\n    # Import train module from the current scripts directory\n    train_mod = importlib.import_module('train')\n    # Start power monitoring (tries real powermetrics, falls back to CPU estimate)\n    power_mon = create_power_monitor(prefer_real=True)\n    power_mon.start()\n    t0 = time.time()",
         "detail": "scripts.pipeline",
         "documentation": {}
     },
@@ -690,11 +690,20 @@
         "documentation": {}
     },
     {
+        "label": "save_logits_for_grid_search",
+        "kind": 2,
+        "importPath": "scripts.pipeline",
+        "description": "scripts.pipeline",
+        "peekOfCode": "def save_logits_for_grid_search(logits, gts, meta, proc_dir):\n    \"\"\"Save baseline logits and labels for grid search.\"\"\"\n    records = []\n    for logit, label, r in zip(logits, gts, meta):\n        records.append({\n            'item_id': r['item_id'],\n            'logit': float(logit),\n            'label': int(label)\n        })\n    path = os.path.join(proc_dir, 'baseline_logits.jsonl')",
+        "detail": "scripts.pipeline",
+        "documentation": {}
+    },
+    {
         "label": "sigmoid",
         "kind": 2,
         "importPath": "scripts.pipeline",
         "description": "scripts.pipeline",
-        "peekOfCode": "def sigmoid(x):\n    try:\n        return 1.0/(1.0+math.exp(-x))\n    except OverflowError:\n        return 0.0 if x<0 else 1.0\ndef accuracy_from_logits(logits, gts, threshold=0.5):\n    preds=[1 if sigmoid(z)>=threshold else 0 for z in logits]\n    correct=sum(1 for p,t in zip(preds,gts) if p==t)\n    return correct/max(1,len(gts))\ndef aucs_from_logits(logits, gts):",
+        "peekOfCode": "def sigmoid(x):\n    try:\n        return 1.0/(1.0+math.exp(-x))\n    except OverflowError:\n        return 0.0 if x<0 else 1.0\ndef accuracy_from_logits(logits, gts, threshold=0.5):\n    preds=[1 if sigmoid(z)>=threshold else 0 for z in logits]\n    correct=sum(1 for p,t in zip(preds,gts) if p==t)\n    return correct/max(1,len(gts))\ndef compute_map(logits, gts):",
         "detail": "scripts.pipeline",
         "documentation": {}
     },
@@ -703,7 +712,25 @@
         "kind": 2,
         "importPath": "scripts.pipeline",
         "description": "scripts.pipeline",
-        "peekOfCode": "def accuracy_from_logits(logits, gts, threshold=0.5):\n    preds=[1 if sigmoid(z)>=threshold else 0 for z in logits]\n    correct=sum(1 for p,t in zip(preds,gts) if p==t)\n    return correct/max(1,len(gts))\ndef aucs_from_logits(logits, gts):\n    # Compute AUROC and AUPRC without sklearn\n    pairs = sorted([(float(sigmoid(z)), int(t)) for z,t in zip(logits,gts)], key=lambda x: x[0], reverse=True)\n    P = sum(t for _,t in pairs); N = len(pairs)-P\n    if P==0 or N==0:\n        return 0.0, 0.0",
+        "peekOfCode": "def accuracy_from_logits(logits, gts, threshold=0.5):\n    preds=[1 if sigmoid(z)>=threshold else 0 for z in logits]\n    correct=sum(1 for p,t in zip(preds,gts) if p==t)\n    return correct/max(1,len(gts))\ndef compute_map(logits, gts):\n    \"\"\"Compute mean Average Precision (mAP) - same as AUPRC for binary.\"\"\"\n    try:\n        from sklearn.metrics import average_precision_score\n        import numpy as np\n        probs = [sigmoid(z) for z in logits]",
+        "detail": "scripts.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "compute_map",
+        "kind": 2,
+        "importPath": "scripts.pipeline",
+        "description": "scripts.pipeline",
+        "peekOfCode": "def compute_map(logits, gts):\n    \"\"\"Compute mean Average Precision (mAP) - same as AUPRC for binary.\"\"\"\n    try:\n        from sklearn.metrics import average_precision_score\n        import numpy as np\n        probs = [sigmoid(z) for z in logits]\n        return average_precision_score(gts, probs)\n    except Exception:\n        # Fallback: use AUPRC calculation\n        _, auprc = aucs_from_logits(logits, gts)",
+        "detail": "scripts.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "per_class_metrics",
+        "kind": 2,
+        "importPath": "scripts.pipeline",
+        "description": "scripts.pipeline",
+        "peekOfCode": "def per_class_metrics(logits, gts, meta):\n    \"\"\"Compute per-class accuracy and AUROC.\"\"\"\n    from collections import defaultdict\n    # Group by class\n    class_data = defaultdict(lambda: {'logits': [], 'gts': []})\n    for z, t, r in zip(logits, gts, meta):\n        # Get target classes from metadata\n        classes = r.get('classes', [])\n        if not classes:\n            classes = ['background']",
         "detail": "scripts.pipeline",
         "documentation": {}
     },
@@ -721,7 +748,7 @@
         "kind": 2,
         "importPath": "scripts.pipeline",
         "description": "scripts.pipeline",
-        "peekOfCode": "def load_scores(proc_dir, fname):\n    p = os.path.join(proc_dir, fname)\n    d={}\n    if os.path.exists(p) and os.path.getsize(p)>0:\n        for rec in read_jsonl(p): d[rec['item_id']]=float(rec.get('score',0.0))\n    return d\ndef fuse_logits_with_eeg(logits, meta, proc_dir, cfg):\n    # combine CNN logits with EEG (P300, SSVEP, ErrP) boosts\n    alpha = float(cfg.get('fusion',{}).get('alpha_p300_boost', 1.3))\n    beta  = float(cfg.get('fusion',{}).get('beta_ssvep', 0.5))",
+        "peekOfCode": "def load_scores(proc_dir, fname):\n    p = os.path.join(proc_dir, fname)\n    d={}\n    if os.path.exists(p) and os.path.getsize(p)>0:\n        for rec in read_jsonl(p): d[rec['item_id']]=float(rec.get('score',0.0))\n    return d\ndef fuse_logits_with_eeg(logits, meta, proc_dir, cfg, use_sham=False):\n    # combine CNN logits with EEG (P300, SSVEP, ErrP) boosts\n    alpha = float(cfg.get('fusion',{}).get('alpha_p300_boost', 1.3))\n    beta  = float(cfg.get('fusion',{}).get('beta_ssvep', 0.5))",
         "detail": "scripts.pipeline",
         "documentation": {}
     },
@@ -730,7 +757,7 @@
         "kind": 2,
         "importPath": "scripts.pipeline",
         "description": "scripts.pipeline",
-        "peekOfCode": "def fuse_logits_with_eeg(logits, meta, proc_dir, cfg):\n    # combine CNN logits with EEG (P300, SSVEP, ErrP) boosts\n    alpha = float(cfg.get('fusion',{}).get('alpha_p300_boost', 1.3))\n    beta  = float(cfg.get('fusion',{}).get('beta_ssvep', 0.5))\n    gamma = float(cfg.get('fusion',{}).get('gamma_errp', 0.3))\n    p300 = load_scores(proc_dir, 'scores_p300.jsonl')\n    ssvep= load_scores(proc_dir, 'scores_ssvep.jsonl')\n    errp = load_scores(proc_dir, 'scores_errp.jsonl')\n    fused=[]\n    for z, r in zip(logits, meta):",
+        "peekOfCode": "def fuse_logits_with_eeg(logits, meta, proc_dir, cfg, use_sham=False):\n    # combine CNN logits with EEG (P300, SSVEP, ErrP) boosts\n    alpha = float(cfg.get('fusion',{}).get('alpha_p300_boost', 1.3))\n    beta  = float(cfg.get('fusion',{}).get('beta_ssvep', 0.5))\n    gamma = float(cfg.get('fusion',{}).get('gamma_errp', 0.3))\n    quality_gate = float(cfg.get('fusion',{}).get('quality_gate', 0.7))\n    # Load raw scores (sham or real)\n    suffix = '_sham' if use_sham else ''\n    p300 = load_scores(proc_dir, f'scores_p300{suffix}.jsonl')\n    ssvep= load_scores(proc_dir, f'scores_ssvep{suffix}.jsonl')",
         "detail": "scripts.pipeline",
         "documentation": {}
     },
