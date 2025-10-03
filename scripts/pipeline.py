@@ -56,32 +56,35 @@ def compute_eeg_scores(cfg_path: str, mode: str = 'brainflow', key: str = 'dog')
 def train_model(cfg, use_eeg_assist=False, label='baseline', log_writer=None):
     import time
     import importlib
-    from eeg_utils import create_power_monitor
-
     # Import train module from the current scripts directory
     train_mod = importlib.import_module('train')
-
-    # Start power monitoring (tries real powermetrics, falls back to CPU estimate)
-    power_mon = create_power_monitor(prefer_real=True)
-    power_mon.start()
-
-    t0 = time.time()
+    # Energy estimator using psutil if available
+    try:
+        import psutil
+    except Exception:
+        psutil=None
+    samples=[]; stop_flag={'stop':False}
+    def sampler():
+        if not psutil: return
+        while not stop_flag['stop']:
+            try:
+                samples.append(psutil.cpu_percent(interval=0.5))
+            except Exception:
+                break
+    t0=time.time()
+    th = threading.Thread(target=sampler, daemon=True); th.start()
     out = train_mod.train_cnn(cfg, use_eeg_assist=use_eeg_assist, log_writer=log_writer, label=label)
-    dt = time.time() - t0
-
-    # Stop power monitoring and get energy
-    energy_result = power_mon.stop()
-
-    if energy_result:
-        out['energy_J'] = energy_result['total_energy_J']
-        out['power_W'] = energy_result['avg_power_W']
-        out['power_method'] = energy_result['method']
+    stop_flag['stop']=True; th.join(timeout=1.0)
+    dt=time.time()-t0
+    # Compute energy estimate
+    base_power = 15.0
+    if samples:
+        avg_util = sum(samples)/len(samples)
+        power = base_power * (avg_util/100.0)
     else:
-        # Fallback estimate
-        out['energy_J'] = 15.0 * dt
-        out['power_W'] = 15.0
-        out['power_method'] = 'fallback_estimate'
-
+        power = base_power
+    energy = power * dt
+    out['energy_J_est'] = energy
     return out, dt
 
 
@@ -140,20 +143,6 @@ def predict_logits(cfg, model_dict, split='val'):
     return logits, gts, meta
 
 
-def save_logits_for_grid_search(logits, gts, meta, proc_dir):
-    """Save baseline logits and labels for grid search."""
-    records = []
-    for logit, label, r in zip(logits, gts, meta):
-        records.append({
-            'item_id': r['item_id'],
-            'logit': float(logit),
-            'label': int(label)
-        })
-    path = os.path.join(proc_dir, 'baseline_logits.jsonl')
-    write_jsonl(path, records)
-    print(f"Saved {len(records)} baseline logits to {path}")
-
-
 def sigmoid(x):
     try:
         return 1.0/(1.0+math.exp(-x))
@@ -165,55 +154,6 @@ def accuracy_from_logits(logits, gts, threshold=0.5):
     preds=[1 if sigmoid(z)>=threshold else 0 for z in logits]
     correct=sum(1 for p,t in zip(preds,gts) if p==t)
     return correct/max(1,len(gts))
-
-
-def compute_map(logits, gts):
-    """Compute mean Average Precision (mAP) - same as AUPRC for binary."""
-    try:
-        from sklearn.metrics import average_precision_score
-        import numpy as np
-        probs = [sigmoid(z) for z in logits]
-        return average_precision_score(gts, probs)
-    except Exception:
-        # Fallback: use AUPRC calculation
-        _, auprc = aucs_from_logits(logits, gts)
-        return auprc
-
-
-def per_class_metrics(logits, gts, meta):
-    """Compute per-class accuracy and AUROC."""
-    from collections import defaultdict
-
-    # Group by class
-    class_data = defaultdict(lambda: {'logits': [], 'gts': []})
-
-    for z, t, r in zip(logits, gts, meta):
-        # Get target classes from metadata
-        classes = r.get('classes', [])
-        if not classes:
-            classes = ['background']
-
-        for cls in classes:
-            class_data[cls]['logits'].append(z)
-            class_data[cls]['gts'].append(t)
-
-    # Compute metrics per class
-    results = {}
-    for cls, data in class_data.items():
-        if len(data['gts']) < 2:
-            continue
-
-        acc = accuracy_from_logits(data['logits'], data['gts'])
-        auroc, auprc = aucs_from_logits(data['logits'], data['gts'])
-
-        results[cls] = {
-            'accuracy': acc,
-            'auroc': auroc,
-            'auprc': auprc,
-            'n_samples': len(data['gts'])
-        }
-
-    return results
 
 
 def aucs_from_logits(logits, gts):
@@ -252,55 +192,18 @@ def load_scores(proc_dir, fname):
     return d
 
 
-def fuse_logits_with_eeg(logits, meta, proc_dir, cfg, use_sham=False):
+def fuse_logits_with_eeg(logits, meta, proc_dir, cfg):
     # combine CNN logits with EEG (P300, SSVEP, ErrP) boosts
     alpha = float(cfg.get('fusion',{}).get('alpha_p300_boost', 1.3))
     beta  = float(cfg.get('fusion',{}).get('beta_ssvep', 0.5))
     gamma = float(cfg.get('fusion',{}).get('gamma_errp', 0.3))
-    quality_gate = float(cfg.get('fusion',{}).get('quality_gate', 0.7))
-
-    # Load raw scores (sham or real)
-    suffix = '_sham' if use_sham else ''
-    p300 = load_scores(proc_dir, f'scores_p300{suffix}.jsonl')
-    ssvep= load_scores(proc_dir, f'scores_ssvep{suffix}.jsonl')
-    errp = load_scores(proc_dir, f'scores_errp{suffix}.jsonl')
-
-    # Load calibrations if available
-    calib_path = os.path.join(proc_dir, 'eeg_calibrations.json')
-    calibrations = {}
-    if os.path.exists(calib_path):
-        import json as _json
-        with open(calib_path, 'r') as f:
-            calibrations = _json.load(f)
-
-    # Quality scores (simple proxy: abs magnitude)
-    def quality(score):
-        return abs(score)
-
+    p300 = load_scores(proc_dir, 'scores_p300.jsonl')
+    ssvep= load_scores(proc_dir, 'scores_ssvep.jsonl')
+    errp = load_scores(proc_dir, 'scores_errp.jsonl')
     fused=[]
     for z, r in zip(logits, meta):
         iid=r['item_id']
-
-        # Get raw scores
-        p300_raw = p300.get(iid, 0.0)
-        ssvep_raw = ssvep.get(iid, 0.0)
-        errp_raw = errp.get(iid, 0.0)
-
-        # Apply calibration if available
-        from eeg_utils import apply_calibration
-        p300_cal = apply_calibration(p300_raw, calibrations.get('p300'))
-        errp_cal = apply_calibration(errp_raw, calibrations.get('errp'))
-        ssvep_cal = apply_calibration(ssvep_raw, calibrations.get('ssvep'))
-
-        # Quality gating: only apply if quality >= threshold
-        boost = 0.0
-        if quality(p300_raw) >= quality_gate:
-            boost += alpha * p300_cal
-        if quality(errp_raw) >= quality_gate:
-            boost += gamma * errp_cal
-        if quality(ssvep_raw) >= quality_gate:
-            boost += beta * ssvep_cal
-
+        boost = alpha*p300.get(iid,0.0) + beta*ssvep.get(iid,0.0) + gamma*errp.get(iid,0.0)
         fused.append(z + boost)
     return fused
 
@@ -320,12 +223,6 @@ def main():
     run_prepare(args.config, full=bool(args.full))
     compute_eeg_scores(args.config, mode='brainflow', key=args.eeg_key)
 
-    # Run EEG calibration (Platt scaling on P300 and ErrP)
-    import subprocess
-    calib_cmd = ["python", "scripts/eeg_utils.py", "calibrate", "--config", args.config, "--method", "platt", "--signals", "p300,errp"]
-    print('>', ' '.join(calib_cmd))
-    subprocess.check_call(calib_cmd)
-
     # training logs CSV
     logs_dir=os.path.join(cfg['paths'].get('reports','output/reports'),'..','logs')
     logs_dir=os.path.normpath(logs_dir)
@@ -343,87 +240,32 @@ def main():
     logits_eegt, _, _ = predict_logits(cfg, eegt, split='val')
 
     proc = cfg['paths']['processed']
-
-    # Save baseline logits for grid search
-    save_logits_for_grid_search(logits_base, gts, meta, proc)
-
-    # Run grid search to find optimal fusion coefficients
-    grid_cmd = ["python", "scripts/eeg_utils.py", "grid_search", "--config", args.config]
-    print('>', ' '.join(grid_cmd))
-    subprocess.check_call(grid_cmd)
-
-    # Load best params from grid search
-    grid_results_path = os.path.join(proc, 'grid_search_results.json')
-    if os.path.exists(grid_results_path):
-        with open(grid_results_path, 'r') as f:
-            grid_results = json.load(f)
-            best = grid_results['best_params']
-            cfg['fusion']['alpha_p300_boost'] = best['alpha']
-            cfg['fusion']['beta_ssvep'] = best['beta']
-            cfg['fusion']['gamma_errp'] = best['gamma']
-            print(f"Updated fusion params: α={best['alpha']}, β={best['beta']}, γ={best['gamma']}")
-
-    # Generate sham controls
-    sham_cmd = ["python", "scripts/eeg_utils.py", "sham", "--config", args.config]
-    print('>', ' '.join(sham_cmd))
-    subprocess.check_call(sham_cmd)
-
-    # Real EEG fusion
-    logits_base_asst = fuse_logits_with_eeg(logits_base, meta, proc, cfg, use_sham=False)
-    logits_eegt_asst = fuse_logits_with_eeg(logits_eegt, meta, proc, cfg, use_sham=False)
-
-    # Sham EEG fusion (control)
-    logits_base_sham = fuse_logits_with_eeg(logits_base, meta, proc, cfg, use_sham=True)
-    logits_eegt_sham = fuse_logits_with_eeg(logits_eegt, meta, proc, cfg, use_sham=True)
+    logits_base_asst = fuse_logits_with_eeg(logits_base, meta, proc, cfg)
+    logits_eegt_asst = fuse_logits_with_eeg(logits_eegt, meta, proc, cfg)
 
     # metrics
     acc_base = accuracy_from_logits(logits_base, gts)
     acc_eegt = accuracy_from_logits(logits_eegt, gts)
     acc_base_asst = accuracy_from_logits(logits_base_asst, gts)
     acc_eegt_asst = accuracy_from_logits(logits_eegt_asst, gts)
-    acc_base_sham = accuracy_from_logits(logits_base_sham, gts)
-    acc_eegt_sham = accuracy_from_logits(logits_eegt_sham, gts)
     auroc_base, auprc_base = aucs_from_logits(logits_base, gts)
     auroc_eegt, auprc_eegt = aucs_from_logits(logits_eegt, gts)
     auroc_base_asst, auprc_base_asst = aucs_from_logits(logits_base_asst, gts)
     auroc_eegt_asst, auprc_eegt_asst = aucs_from_logits(logits_eegt_asst, gts)
 
-    # Compute mAP
-    map_base = compute_map(logits_base, gts)
-    map_eegt = compute_map(logits_eegt, gts)
-    map_base_asst = compute_map(logits_base_asst, gts)
-    map_eegt_asst = compute_map(logits_eegt_asst, gts)
-
-    # Per-class metrics
-    pc_base = per_class_metrics(logits_base, gts, meta)
-    pc_base_asst = per_class_metrics(logits_base_asst, gts, meta)
-
-    # Get energy measurements (prefer real, fallback to estimate)
-    energy_base = base.get('energy_J', base.get('energy_J_est', 15.0*t_base))
-    energy_eegt = eegt.get('energy_J', eegt.get('energy_J_est', 15.0*t_eegt))
-    power_base = base.get('power_W', 15.0)
-    power_eegt = eegt.get('power_W', 15.0)
-    power_method = base.get('power_method', 'fallback_estimate')
+    energy_base = base.get('energy_J_est', 15.0*t_base)
+    energy_eegt = eegt.get('energy_J_est', 15.0*t_eegt)
 
     run_id = time.strftime('%Y%m%d-%H%M%S', time.localtime()) + '-' + str(random.randint(1000,9999))
     results = {
         'run_id': run_id,
         'models': {
-            'baseline': {'accuracy': acc_base, 'auroc': auroc_base, 'auprc': auprc_base, 'map': map_base, 'train_time_s': t_base, 'energy_J': energy_base, 'power_W': power_base, 'acc_per_sec': acc_base/max(1e-6,t_base), 'acc_per_kJ': acc_base/max(1e-6,energy_base/1000.0)},
-            'eeg_trained': {'accuracy': acc_eegt, 'auroc': auroc_eegt, 'auprc': auprc_eegt, 'map': map_eegt, 'train_time_s': t_eegt, 'energy_J': energy_eegt, 'power_W': power_eegt, 'acc_per_sec': acc_eegt/max(1e-6,t_eegt), 'acc_per_kJ': acc_eegt/max(1e-6,energy_eegt/1000.0)},
-            'assist_only': {'accuracy': acc_base_asst, 'auroc': auroc_base_asst, 'auprc': auprc_base_asst, 'map': map_base_asst, 'train_time_s': t_base, 'energy_J': energy_base, 'power_W': power_base, 'acc_per_sec': acc_base_asst/max(1e-6,t_base), 'acc_per_kJ': acc_base_asst/max(1e-6,energy_base/1000.0)},
-            'eeg_trained_assist': {'accuracy': acc_eegt_asst, 'auroc': auroc_eegt_asst, 'auprc': auprc_eegt_asst, 'map': map_eegt_asst, 'train_time_s': t_eegt, 'energy_J': energy_eegt, 'power_W': power_eegt, 'acc_per_sec': acc_eegt_asst/max(1e-6,t_eegt), 'acc_per_kJ': acc_eegt_asst/max(1e-6,energy_eegt/1000.0)},
-            'baseline_sham': {'accuracy': acc_base_sham},
-            'eeg_trained_sham': {'accuracy': acc_eegt_sham}
+            'baseline': {'accuracy': acc_base, 'auroc': auroc_base, 'auprc': auprc_base, 'train_time_s': t_base, 'energy_J_est': energy_base, 'acc_per_sec': acc_base/max(1e-6,t_base), 'acc_per_kJ': acc_base/max(1e-6,energy_base/1000.0)},
+            'eeg_trained': {'accuracy': acc_eegt, 'auroc': auroc_eegt, 'auprc': auprc_eegt, 'train_time_s': t_eegt, 'energy_J_est': energy_eegt, 'acc_per_sec': acc_eegt/max(1e-6,t_eegt), 'acc_per_kJ': acc_eegt/max(1e-6,energy_eegt/1000.0)},
+            'assist_only': {'accuracy': acc_base_asst, 'auroc': auroc_base_asst, 'auprc': auprc_base_asst, 'train_time_s': t_base, 'energy_J_est': energy_base, 'acc_per_sec': acc_base_asst/max(1e-6,t_base), 'acc_per_kJ': acc_base_asst/max(1e-6,energy_base/1000.0)},
+            'eeg_trained_assist': {'accuracy': acc_eegt_asst, 'auroc': auroc_eegt_asst, 'auprc': auprc_eegt_asst, 'train_time_s': t_eegt, 'energy_J_est': energy_eegt, 'acc_per_sec': acc_eegt_asst/max(1e-6,t_eegt), 'acc_per_kJ': acc_eegt_asst/max(1e-6,energy_eegt/1000.0)}
         },
-        'per_class': {
-            'baseline': pc_base,
-            'assist_only': pc_base_asst
-        },
-        'notes': {
-            'energy_note': f'Power measurement method: {power_method}',
-            'power_method': power_method
-        }
+        'notes': {'energy_note': 'Energy is an estimate from CPU utilization; consider attaching a real meter for accurate energy measurements.'}
     }
     write_jsonl(os.path.join(reports_dir,'benchmark.jsonl'), [results])
     md = os.path.join(reports_dir, f'benchmark_{run_id}.md')
@@ -432,30 +274,10 @@ def main():
         f.write(f'Run ID: {run_id}\n\n')
         f.write('## Accuracies (val split)\n')
         f.write(f"\n- baseline: {acc_base:.4f}\n- eeg_trained: {acc_eegt:.4f}\n- assist_only: {acc_base_asst:.4f}\n- eeg_trained_assist: {acc_eegt_asst:.4f}\n")
-        f.write('\n## Sham Controls (shuffled EEG)\n')
-        f.write(f"\n- baseline+sham: {acc_base_sham:.4f} (Δ={acc_base_sham-acc_base:+.4f})\n- eeg_trained+sham: {acc_eegt_sham:.4f} (Δ={acc_eegt_sham-acc_eegt:+.4f})\n")
-        f.write(f"\n**Expected:** Sham ≈ baseline (no causal benefit). Real EEG should show Δ > sham.\n")
-        f.write('\n## mAP (mean Average Precision)\n')
-        f.write(f"\n- baseline: {map_base:.4f}\n- eeg_trained: {map_eegt:.4f}\n- assist_only: {map_base_asst:.4f} (Δ={map_base_asst-map_base:+.4f})\n- eeg_trained_assist: {map_eegt_asst:.4f} (Δ={map_eegt_asst-map_eegt:+.4f})\n")
         f.write('\n## AUCs\n')
         f.write(f"\n- baseline: AUROC={auroc_base:.3f}, AUPRC={auprc_base:.3f}\n- eeg_trained: AUROC={auroc_eegt:.3f}, AUPRC={auprc_eegt:.3f}\n- assist_only: AUROC={auroc_base_asst:.3f}, AUPRC={auprc_base_asst:.3f}\n- eeg_trained_assist: AUROC={auroc_eegt_asst:.3f}, AUPRC={auprc_eegt_asst:.3f}\n")
-        f.write('\n## Per-Class Analysis\n\n')
-        f.write('| Class | Baseline Acc | +EEG Acc | Δ Acc | Baseline AUROC | +EEG AUROC | n |\n')
-        f.write('|-------|-------------|----------|-------|---------------|-----------|---|\n')
-        for cls in sorted(pc_base.keys()):
-            b_acc = pc_base[cls]['accuracy']
-            a_acc = pc_base_asst.get(cls, {}).get('accuracy', 0.0)
-            b_auroc = pc_base[cls]['auroc']
-            a_auroc = pc_base_asst.get(cls, {}).get('auroc', 0.0)
-            n = pc_base[cls]['n_samples']
-            delta = a_acc - b_acc
-            f.write(f"| {cls} | {b_acc:.3f} | {a_acc:.3f} | {delta:+.3f} | {b_auroc:.3f} | {a_auroc:.3f} | {n} |\n")
-        f.write('\n## Training Cost & Energy\n')
-        f.write(f"\n- baseline: {t_base:.1f}s, {power_base:.1f}W, {energy_base:.0f}J ({energy_base/1000.0:.2f} kJ)\n")
-        f.write(f"- eeg_trained: {t_eegt:.1f}s, {power_eegt:.1f}W, {energy_eegt:.0f}J ({energy_eegt/1000.0:.2f} kJ)\n")
-        f.write(f"\n**Efficiency:**\n")
-        f.write(f"- baseline: {acc_base/max(1e-6,t_base):.6f} acc/s, {acc_base/max(1e-6,energy_base/1000.0):.4f} acc/kJ\n")
-        f.write(f"- eeg_trained: {acc_eegt/max(1e-6,t_eegt):.6f} acc/s, {acc_eegt/max(1e-6,energy_eegt/1000.0):.4f} acc/kJ\n")
+        f.write('\n## Training Cost\n')
+        f.write(f"\n- baseline: {t_base:.1f}s (~{energy_base:.0f} J)\n- eeg_trained: {t_eegt:.1f}s (~{energy_eegt:.0f} J)\n")
         f.write('\n## Notes\n')
         f.write(results['notes']['energy_note']+'\n')
     print(f'Wrote {md}')

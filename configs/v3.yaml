@@ -15,7 +15,7 @@
   "rsvp": {"rate_hz": 8, "epoch_window_s": [0.2,0.8], "stream_length_items": 160},
   "ssvep": {"window_s": 0.2, "hop_s": 0.1, "margin_delta": 0.24, "dwell_windows": 3},
   "errp": {"lambda_penalty": 1.0, "veto_tau": 0.8},
-  "fusion": {"alpha_p300_boost": 1.3, "beta_ssvep": 0.5, "gamma_errp": 0.3, "quality_gate": 0.7},
+  "fusion": {"alpha_p300_boost": 1.3, "quality_gate": 0.4},
   "paths": {"processed": "data/processed", "models": "models", "reports": "output/reports"}
   ,
   "vision": {"use_clip": false},

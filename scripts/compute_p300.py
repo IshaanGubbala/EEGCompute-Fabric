@@ -34,9 +34,9 @@ def synth_scores(cfg, rsvp, items, key, match_mode):
     # Deterministic synthetic P300 injection based on key matches
     rng = random.Random(4242)
     idx = {it['item_id']: it for it in items}
-    # Template amplitudes (exaggerated for stronger signal)
-    amp_hit = 2.0
-    amp_miss = 0.1
+    # Template amplitudes
+    amp_hit = 1.0
+    amp_miss = 0.2
     # Accumulate simple evidence per item as sum of (post-baseline) proxies
     evidence = {}
     for ev in rsvp['sequence']:
@@ -157,7 +157,7 @@ def brainflow_scores(args, cfg, rsvp, items):
             return _mk(it, key, mode=getattr(args,'match','classes')) if key else False
         except Exception:
             return False
-    amp_hit = 0.8; amp_miss = 0.05
+    amp_hit = 0.4; amp_miss = 0.1
 
     # Score per event
     ev_scores = {}
@@ -262,8 +262,8 @@ def brainflow_scores_ssvep(args, cfg, rsvp, items):
                 continue
             pb = _band_limited_power(base_seg, fs, f0, f1)
             pp = _band_limited_power(post_seg, fs, f0, f1)
-            # inject stronger margin for matches (exaggerated)
-            it = idx.get(ev['item_id']); inj = 0.4 if _is_match(it) else 0.02
+            # inject stronger margin for matches
+            it = idx.get(ev['item_id']); inj = 0.2 if _is_match(it) else 0.05
             ch_vals.append((pp + inj) - pb)
         if ch_vals:
             scores.setdefault(ev['item_id'], []).append(sum(ch_vals)/len(ch_vals))
@@ -344,8 +344,8 @@ def brainflow_scores_errp(args, cfg, rsvp, items):
             mu = sum(base_seg)/len(base_seg)
             post = [x-mu for x in post_seg]
             sc = match_score(post)
-            # inject: stronger negative correlation for matches (exaggerated)
-            it = idx.get(ev['item_id']); inj = 0.2 if _is_match(it) else 0.01
+            # inject: stronger negative correlation for matches
+            it = idx.get(ev['item_id']); inj = 0.1 if _is_match(it) else 0.02
             vals.append(sc - inj)
         if vals:
             scores.setdefault(ev['item_id'], []).append(sum(vals)/len(vals))
