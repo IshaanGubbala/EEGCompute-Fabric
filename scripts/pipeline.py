@@ -88,22 +88,25 @@ def train_model(cfg, use_eeg_assist=False, label='baseline', log_writer=None):
     return out, dt
 
 
+def _predict_collate(batch):
+    import torch
+    xs, ys, rs = zip(*batch)
+    return torch.stack(xs,0), torch.tensor(ys, dtype=torch.float32), rs
+
 def predict_logits(cfg, model_dict, split='val'):
     import torch
     from torchvision import transforms, models
     proc = cfg['paths']['processed']
+    img_size = int(cfg.get('training', {}).get('image_size', 224))
     tfm = transforms.Compose([
-        transforms.Resize((224,224)),
+        transforms.Resize((img_size,img_size)),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485,0.456,0.406], std=[0.229,0.224,0.225])
     ])
     ds = build_image_dataset(os.path.join(proc,'coco_subset.jsonl'), transform=tfm, subset_filter=lambda r: r.get('split')==split)
     from torch.utils.data import DataLoader
-    def collate(batch):
-        xs, ys, rs = zip(*batch)
-        import torch
-        return torch.stack(xs,0), torch.tensor(ys, dtype=torch.float32), rs
-    dl = DataLoader(ds, batch_size=32, shuffle=False, num_workers=0, collate_fn=collate)
+    # Use faster DataLoader for inference
+    dl = DataLoader(ds, batch_size=256, shuffle=False, num_workers=8, collate_fn=_predict_collate, pin_memory=False, prefetch_factor=4)
     # build model - must match training structure (Sequential with Dropout + Linear)
     import torch.nn as nn
     # Check which backbone was used
@@ -111,20 +114,31 @@ def predict_logits(cfg, model_dict, split='val'):
     if backbone == 'mobilenet_v3_small':
         from torchvision.models import mobilenet_v3_small, MobileNet_V3_Small_Weights
         m = mobilenet_v3_small(weights=MobileNet_V3_Small_Weights.DEFAULT)
-        in_f = m.classifier[-1].in_features
-        m.classifier = nn.Sequential(nn.Dropout(p=0.2), nn.Linear(in_f, 1))
+        in_f = m.classifier[0].in_features
+        m.classifier = nn.Sequential(nn.Dropout(p=0.0), nn.Linear(in_f, 1))  # No dropout at inference
     else:
         m = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
         in_f = m.fc.in_features
-        m.fc = nn.Sequential(nn.Dropout(p=0.2), nn.Linear(in_f, 1))
+        m.fc = nn.Sequential(nn.Dropout(p=0.0), nn.Linear(in_f, 1))  # No dropout at inference
     m.load_state_dict(model_dict['state_dict'])
     m.eval()
+
+    # Try to use MPS for inference if available
+    device = torch.device('cpu')
+    try:
+        if hasattr(torch.backends, 'mps') and torch.backends.mps.is_available():
+            device = torch.device('mps')
+    except Exception:
+        pass
+    m = m.to(device)
+
     logits=[]; gts=[]; meta=[]
-    with torch.no_grad():
+    with torch.no_grad(), torch.inference_mode():
         for x,y,r in dl:
+            x = x.to(device, non_blocking=True)
             z = m(x)
-            logits += [float(t) for t in z.view(-1)]
-            gts += [int(t) for t in y.view(-1)]
+            logits += z.view(-1).tolist()
+            gts += y.view(-1).int().tolist()
             meta += r
     return logits, gts, meta
 

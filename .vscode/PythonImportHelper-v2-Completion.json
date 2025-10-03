@@ -447,6 +447,15 @@
         "documentation": {}
     },
     {
+        "label": "torch",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "torch",
+        "description": "torch",
+        "detail": "torch",
+        "documentation": {}
+    },
+    {
         "label": "json,",
         "kind": 6,
         "isExtraImport": true,
@@ -676,7 +685,7 @@
         "kind": 2,
         "importPath": "scripts.pipeline",
         "description": "scripts.pipeline",
-        "peekOfCode": "def predict_logits(cfg, model_dict, split='val'):\n    import torch\n    from torchvision import transforms, models\n    proc = cfg['paths']['processed']\n    tfm = transforms.Compose([\n        transforms.Resize((224,224)),\n        transforms.ToTensor(),\n        transforms.Normalize(mean=[0.485,0.456,0.406], std=[0.229,0.224,0.225])\n    ])\n    ds = build_image_dataset(os.path.join(proc,'coco_subset.jsonl'), transform=tfm, subset_filter=lambda r: r.get('split')==split)",
+        "peekOfCode": "def predict_logits(cfg, model_dict, split='val'):\n    import torch\n    from torchvision import transforms, models\n    proc = cfg['paths']['processed']\n    img_size = int(cfg.get('training', {}).get('image_size', 224))\n    tfm = transforms.Compose([\n        transforms.Resize((img_size,img_size)),\n        transforms.ToTensor(),\n        transforms.Normalize(mean=[0.485,0.456,0.406], std=[0.229,0.224,0.225])\n    ])",
         "detail": "scripts.pipeline",
         "documentation": {}
     },
@@ -768,6 +777,15 @@
         "description": "scripts.prepare",
         "peekOfCode": "def main():\n    ap=argparse.ArgumentParser()\n    ap.add_argument('--config', required=True)\n    ap.add_argument('--full', type=int, default=0, help='Use all available images on disk for each split')\n    args=ap.parse_args()\n    cfg=load_cfg(args.config)\n    proc=cfg['paths']['processed']\n    ensure_dir(proc)\n    # subset\n    items = build_subset(cfg,'train', full=bool(args.full)) + build_subset(cfg,'val', full=bool(args.full))",
         "detail": "scripts.prepare",
+        "documentation": {}
+    },
+    {
+        "label": "collate_fn",
+        "kind": 2,
+        "importPath": "scripts.train",
+        "description": "scripts.train",
+        "peekOfCode": "def collate_fn(batch):\n    xs, ys, rs = zip(*batch)\n    xs = torch.stack(xs, 0)\n    ys = torch.tensor(ys, dtype=torch.float32)\n    return xs, ys, rs\ndef train_cnn(cfg, use_eeg_assist=False, log_writer=None, label='baseline'):\n    import torch\n    import torch.nn as nn\n    import torch.optim as optim\n    from torch.utils.data import DataLoader",
+        "detail": "scripts.train",
         "documentation": {}
     },
     {

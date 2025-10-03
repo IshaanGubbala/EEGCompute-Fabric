@@ -31,6 +31,8 @@ ENV/
 # Data files
 data/raw/coco2017/images/
 data/raw/coco2017/_zips/*.zip
+data/processed/
+data/raw/coco2017/annotations/
 
 # Output files
 output/
@@ -43,3 +45,4 @@ wget-log
 *.tmp
 *.bak
 *~
+.tmp/

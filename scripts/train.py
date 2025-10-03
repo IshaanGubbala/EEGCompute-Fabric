@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
 import argparse, os, pickle
+import torch
 from utils import load_cfg, ensure_dir, build_image_dataset
 from utils import read_jsonl, simulate_p300_boosts, normalize_scores
+
+# Module-level collate function for multiprocessing
+def collate_fn(batch):
+    xs, ys, rs = zip(*batch)
+    xs = torch.stack(xs, 0)
+    ys = torch.tensor(ys, dtype=torch.float32)
+    return xs, ys, rs
 
 def train_cnn(cfg, use_eeg_assist=False, log_writer=None, label='baseline'):
     import torch
@@ -31,7 +39,7 @@ def train_cnn(cfg, use_eeg_assist=False, log_writer=None, label='baseline'):
     img_size = int(tr_cfg.get('image_size', 224))
     if aug:
         tfm_train = transforms.Compose([
-            transforms.RandomResizedCrop(img_size, scale=(0.8, 1.0)),
+            transforms.Resize((img_size,img_size)),
             transforms.RandomHorizontalFlip(p=0.5),
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485,0.456,0.406], std=[0.229,0.224,0.225])
@@ -54,31 +62,30 @@ def train_cnn(cfg, use_eeg_assist=False, log_writer=None, label='baseline'):
         ds = build_image_dataset(os.path.join(proc,'coco_subset.jsonl'), transform=tfm_val, subset_filter=lambda r: r.get('split')=='val')
         if len(ds)==0:
             raise RuntimeError('No images found in either train or val splits. Please download COCO val/train images to configured paths (use scripts/control.py download and optionally scripts/download_coco.py --train 1).')
-    # Custom collate to handle dict metadata without forcing equal-size collate
-    def collate(batch):
-        xs, ys, rs = zip(*batch)
-        xs = torch.stack(xs, 0)
-        ys = torch.tensor(ys, dtype=torch.float32)
-        return xs, ys, rs
     # DataLoader tuning
     batch_size = int(tr_cfg.get('batch_size', 16))
-    # Disable multiprocessing on MPS to avoid pickling issues
-    if device.type == 'mps':
-        num_workers = 0
-    else:
-        num_workers = int(tr_cfg.get('num_workers', max(1, (os.cpu_count() or 2) - 1)))
+    num_workers = int(tr_cfg.get('num_workers', max(1, (os.cpu_count() or 2) - 1)))
     pin_memory = (device.type == 'cuda')
-    persistent = num_workers > 0
+    # CRITICAL: Don't use persistent workers on MPS - causes massive slowdown after ep1
+    persistent = (num_workers > 0) and (device.type != 'mps')
+
+    # Optimized DataLoader with prefetching (reduce prefetch to prevent bloat)
+    prefetch = 2 if num_workers > 0 else None
     try:
-        dl = DataLoader(ds, batch_size=batch_size, shuffle=True, num_workers=num_workers, pin_memory=pin_memory, collate_fn=collate, persistent_workers=persistent, prefetch_factor=2)
-    except Exception:
-        dl = DataLoader(ds, batch_size=batch_size, shuffle=True, num_workers=0, pin_memory=False, collate_fn=collate)
-    # Validation loader (val split if available)
+        dl = DataLoader(ds, batch_size=batch_size, shuffle=True, num_workers=num_workers,
+                       pin_memory=pin_memory, collate_fn=collate_fn,
+                       persistent_workers=persistent, prefetch_factor=prefetch)
+    except Exception as e:
+        print(f"[WARN] DataLoader init failed ({e}), falling back to num_workers=0")
+        num_workers = 0
+        persistent = False
+        dl = DataLoader(ds, batch_size=batch_size, shuffle=True, num_workers=0, pin_memory=False, collate_fn=collate_fn)
+    # Validation loader (val split if available) - never use persistent workers for validation
     dsv = build_image_dataset(os.path.join(proc,'coco_subset.jsonl'), transform=tfm_val, subset_filter=lambda r: r.get('split')=='val')
     try:
-        dl_val = DataLoader(dsv, batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=pin_memory, collate_fn=collate, persistent_workers=persistent, prefetch_factor=2) if len(dsv)>0 else None
+        dl_val = DataLoader(dsv, batch_size=batch_size*2, shuffle=False, num_workers=num_workers, pin_memory=pin_memory, collate_fn=collate_fn, persistent_workers=False, prefetch_factor=2) if len(dsv)>0 else None
     except Exception:
-        dl_val = DataLoader(dsv, batch_size=batch_size, shuffle=False, num_workers=0, pin_memory=False, collate_fn=collate) if len(dsv)>0 else None
+        dl_val = DataLoader(dsv, batch_size=batch_size*2, shuffle=False, num_workers=0, pin_memory=False, collate_fn=collate_fn) if len(dsv)>0 else None
 
     # Model: selectable backbone with binary head
     backbone = str(tr_cfg.get('backbone','resnet18'))
@@ -98,7 +105,7 @@ def train_cnn(cfg, use_eeg_assist=False, log_writer=None, label='baseline'):
         m.fc = nn.Sequential(nn.Dropout(p=dropout_p), nn.Linear(in_f, 1))
         head_prefix = 'fc'
     m = m.to(device)
-    # Only use channels_last for CUDA (not MPS)
+    # Optimize for device type
     if device.type == 'cuda':
         m = m.to(memory_format=torch.channels_last)
         try:
@@ -107,6 +114,7 @@ def train_cnn(cfg, use_eeg_assist=False, log_writer=None, label='baseline'):
                 cudnn.benchmark = True
         except Exception:
             pass
+    # Note: torch.compile doesn't work well with MPS + dropout, skip for now
     # class imbalance: pos_weight auto if requested
     pos_weight_auto = bool(tr_cfg.get('pos_weight_auto', True))
     if pos_weight_auto:
@@ -188,18 +196,44 @@ def train_cnn(cfg, use_eeg_assist=False, log_writer=None, label='baseline'):
         x2 = min(cx + cut_w // 2, W)
         y2 = min(cy + cut_h // 2, H)
         return x1, y1, x2, y2
-    early_metric = tr_cfg.get('early_stop_metric','val_loss')  # or 'auroc'
-    best_metric = -1e9 if early_metric=='auroc' else float('inf')
+    early_metric = tr_cfg.get('early_stop_metric','val_loss')  # 'val_loss', 'auroc', or 'map'
+    best_metric = -1e9 if early_metric in ['auroc', 'map'] else float('inf')
     use_amp = (device.type == 'cuda')
     scaler = None
     if use_amp:
         scaler = torch.cuda.amp.GradScaler()
+    # Gradient accumulation for effective larger batch size
+    grad_accum_steps = 1  # Set to 2-4 if running out of memory
+
     for ep in range(epochs):
         running = 0.0; n_ex=0
+        # Aggressive MPS cleanup at epoch start
+        if device.type == 'mps':
+            try:
+                torch.mps.empty_cache()
+                torch.mps.synchronize()  # Force sync before starting
+                import gc
+                gc.collect()  # Python GC pass
+            except Exception:
+                pass
+
+        # Recreate DataLoader every epoch on MPS to prevent worker memory buildup
+        # Small spawn cost (~2s) is worth it to maintain speed
+        if ep > 0 and device.type == 'mps':
+            try:
+                del dl
+                import gc
+                gc.collect()  # Clean up old workers
+                dl = DataLoader(ds, batch_size=batch_size, shuffle=True, num_workers=num_workers,
+                               pin_memory=pin_memory, collate_fn=collate_fn,
+                               persistent_workers=persistent, prefetch_factor=prefetch)
+            except Exception:
+                pass
+
         pbar = tqdm(dl, desc=f"train ep{ep+1}")
-        for x, y, r in pbar:
-            x = x.to(device)
-            y = y.view(-1,1).to(device)
+        for batch_idx, (x, y, r) in enumerate(pbar):
+            x = x.to(device, non_blocking=True)
+            y = y.view(-1,1).to(device, non_blocking=True)
             # label smoothing toward 0.5
             if label_smooth > 0:
                 y = y*(1.0 - label_smooth) + 0.5*label_smooth
@@ -241,16 +275,42 @@ def train_cnn(cfg, use_eeg_assist=False, log_writer=None, label='baseline'):
                 # Positive boosts emphasize positives slightly more; negative the opposite
                 # Scale boosts: 0.7 chosen to be impactful but stable
                 w = 1.0 + 0.7*w
+                # Normalize weights to mean 1.0 and clamp to [0.5, 1.5]
+                w = torch.clamp(w / (w.mean() + 1e-8), 0.5, 1.5)
                 loss = (loss_raw * w).mean()
             else:
                 loss = loss_raw.mean()
-            opt.zero_grad()
+
+            # Gradient accumulation
+            loss = loss / grad_accum_steps
             if use_amp:
-                scaler.scale(loss).backward(); scaler.step(opt); scaler.update()
+                scaler.scale(loss).backward()
             else:
-                loss.backward(); opt.step()
-            running += float(loss.item())*x.size(0); n_ex += x.size(0)
-            pbar.set_postfix({'loss': float(loss.item())})
+                loss.backward()
+
+            if (batch_idx + 1) % grad_accum_steps == 0:
+                if use_amp:
+                    scaler.step(opt); scaler.update()
+                else:
+                    opt.step()
+                opt.zero_grad()
+
+            running += float(loss.item())*x.size(0)*grad_accum_steps; n_ex += x.size(0)
+            pbar.set_postfix({'loss': float(loss.item())*grad_accum_steps})
+
+            # Clear references to prevent memory buildup
+            del x, y, logits, loss_raw, loss
+
+            # More aggressive periodic cleanup for MPS (every 50 batches)
+            if device.type == 'mps' and (batch_idx + 1) % 50 == 0:
+                try:
+                    torch.mps.empty_cache()
+                    if (batch_idx + 1) % 200 == 0:
+                        torch.mps.synchronize()
+                        import gc
+                        gc.collect()
+                except Exception:
+                    pass
 
         # epoch averages
         tr_loss = running/max(1,n_ex)
@@ -262,23 +322,69 @@ def train_cnn(cfg, use_eeg_assist=False, log_writer=None, label='baseline'):
             m.eval(); v_running=0.0; v_ex=0
             import torch
             val_logits=[]; val_targets=[]
-            with torch.no_grad():
+            with torch.no_grad(), torch.inference_mode():
                 for x,y,r in dl_val:
-                    x=x.to(device); y=y.view(-1,1).to(device)
+                    x=x.to(device, non_blocking=True); y=y.view(-1,1).to(device, non_blocking=True)
                     logits=m(x)
+                    # Unweighted validation loss (no EEG boost)
                     vloss=crit(logits,y).mean()
                     v_running += float(vloss.item())*x.size(0); v_ex += x.size(0)
-                    val_logits += [float(t) for t in logits.view(-1)]
-                    val_targets += [int(t) for t in y.view(-1)]
+                    val_logits += logits.view(-1).tolist()
+                    val_targets += y.view(-1).int().tolist()
             val_loss = v_running/max(1,v_ex)
+
+            # Compute metrics: AUROC, AUPRC, mAP
+            import math
+            val_auroc, val_auprc, val_map = 0.0, 0.0, 0.0
+            if val_logits:
+                # Convert logits to probabilities
+                probs = [1.0/(1.0+math.exp(-z)) for z in val_logits]
+                pairs = sorted([(p, t) for p,t in zip(probs, val_targets)], key=lambda x: x[0], reverse=True)
+                P = sum(t for _,t in pairs); N = len(pairs)-P
+                if P > 0 and N > 0:
+                    # AUROC
+                    tp=0; fp=0; roc=[]
+                    for s,t in pairs:
+                        if t==1: tp+=1
+                        else: fp+=1
+                        roc.append((fp/float(N), tp/float(P)))
+                    roc = sorted(roc); val_auroc=0.0
+                    for i in range(1,len(roc)):
+                        x0,y0=roc[i-1]; x1,y1=roc[i]; val_auroc += (x1-x0)*(y0+y1)/2.0
+                    # AUPRC (precision-recall)
+                    tp=0; fp=0; pr=[]
+                    for s,t in pairs:
+                        if t==1: tp+=1
+                        else: fp+=1
+                        prec = tp/float(max(1,tp+fp)); rec = tp/float(P)
+                        pr.append((rec, prec))
+                    pr = sorted(pr); val_auprc=0.0
+                    for i in range(1,len(pr)):
+                        x0,y0=pr[i-1]; x1,y1=pr[i]; val_auprc += (x1-x0)*(y0+y1)/2.0
+                    # mAP (average precision - area under PR curve, interpolated)
+                    val_map = val_auprc
+
             if log_writer:
                 log_writer('val', ep+1, label, val_loss)
-            if val_loss < best_val - 1e-6:
+
+            # Early stopping based on selected metric
+            current_metric = val_map if early_metric == 'map' else (val_auroc if early_metric == 'auroc' else val_loss)
+            is_better = False
+            if early_metric in ['map', 'auroc']:
+                is_better = current_metric > best_metric + 1e-6
+            else:
+                is_better = current_metric < best_metric - 1e-6
+
+            if is_better:
+                best_metric = current_metric
                 best_val = val_loss
                 best_state = copy.deepcopy(m.state_dict())
                 bad_epochs = 0
+                print(f"  ep{ep+1}: val_loss={val_loss:.4f}, mAP={val_map:.4f}, AUROC={val_auroc:.4f}, AUPRC={val_auprc:.4f} [BEST]")
             else:
                 bad_epochs += 1
+                print(f"  ep{ep+1}: val_loss={val_loss:.4f}, mAP={val_map:.4f}, AUROC={val_auroc:.4f}, AUPRC={val_auprc:.4f}")
+
             # step scheduler
             if sched_type=='cosine':
                 sched.step()
@@ -286,8 +392,7 @@ def train_cnn(cfg, use_eeg_assist=False, log_writer=None, label='baseline'):
                 sched.step(val_loss)
             m.train()
             # early stopping
-            # optional early stop on AUROC
-            if early_metric=='auroc' and val_logits:
+            if False and early_metric=='auroc' and val_logits:
                 # compute auroc quickly
                 import math
                 pairs = sorted([(1.0/(1.0+math.exp(-z)), t) for z,t in zip(val_logits,val_targets)], key=lambda x: x[0], reverse=True)
