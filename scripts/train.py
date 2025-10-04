@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
-import argparse, os, pickle
+import argparse, os, pickle, json, math
 import torch
 from utils import load_cfg, ensure_dir, build_image_dataset
 from utils import read_jsonl, simulate_p300_boosts, normalize_scores
+
+# simple JSONL writer
+def _write_jsonl(path, records):
+    with open(path, 'w') as f:
+        for r in records:
+            f.write(json.dumps(r) + "\n")
 
 # Module-level collate function for multiprocessing
 def collate_fn(batch):
@@ -421,6 +427,154 @@ def train_cnn(cfg, use_eeg_assist=False, log_writer=None, label='baseline'):
     sd = best_state if best_state is not None else m.state_dict()
     return { 'state_dict': sd, 'arch': 'resnet18', 'normalize': True }
 
+
+# ---- Per-image prediction report helper ----
+def dump_predictions(cfg, model_blob, label='baseline', split='val'):
+    """
+    Run a prediction pass over `split` (default val), writing per-image predictions
+    and a compact report.
+    Outputs:
+      reports/preds_{label}_{split}.jsonl
+      reports/preds_{label}_{split}.csv
+      reports/single_image_report_{label}_{split}.md
+    """
+    import torch
+    import torch.nn as nn
+    from torch.utils.data import DataLoader
+    from torchvision import models, transforms
+    proc = cfg['paths']['processed']
+    rep_dir = cfg['paths'].get('reports', 'output/reports')
+    ensure_dir(rep_dir)
+
+    tr_cfg = cfg.get('training', {})
+    img_size = int(tr_cfg.get('image_size', 224))
+    tfm = transforms.Compose([
+        transforms.Resize((img_size, img_size)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485,0.456,0.406], std=[0.229,0.224,0.225])
+    ])
+
+    # dataset for the requested split
+    from functools import partial
+    ds = build_image_dataset(os.path.join(proc,'coco_subset.jsonl'), transform=tfm,
+                             subset_filter=(lambda r: r.get('split')==split))
+    if len(ds) == 0:
+        print(f"[dump_predictions] No samples found for split='{split}'. Skipping.")
+        return None
+
+    # device
+    device = torch.device('cpu')
+    try:
+        if torch.cuda.is_available():
+            device = torch.device('cuda')
+        elif hasattr(torch.backends, 'mps') and torch.backends.mps.is_available():
+            device = torch.device('mps')
+    except Exception:
+        device = torch.device('cpu')
+
+    # rebuild model to match saved arch
+    arch = model_blob.get('arch', 'resnet18')
+    if arch == 'mobilenet_v3_small':
+        from torchvision.models import mobilenet_v3_small, MobileNet_V3_Small_Weights
+        m = mobilenet_v3_small(weights=None)
+        in_f = m.classifier[0].in_features
+        m.classifier = nn.Sequential(nn.Dropout(p=float(tr_cfg.get('dropout',0.2))), nn.Linear(in_f, 1))
+    else:
+        m = models.resnet18(weights=None)
+        in_f = m.fc.in_features
+        m.fc = nn.Sequential(nn.Dropout(p=float(tr_cfg.get('dropout',0.2))), nn.Linear(in_f, 1))
+    m.load_state_dict(model_blob['state_dict'])
+    m.to(device).eval()
+
+    # dataloader
+    dl = DataLoader(ds, batch_size=int(tr_cfg.get('batch_size',16))*2, shuffle=False,
+                    num_workers=int(tr_cfg.get('num_workers', max(1,(os.cpu_count() or 2)-1))),
+                    pin_memory=(device.type=='cuda'), collate_fn=collate_fn)
+
+    # pass
+    rows = []
+    logits_all = []
+    y_all = []
+    with torch.no_grad(), torch.inference_mode():
+        for x, y, r in dl:
+            x = x.to(device, non_blocking=True)
+            logits = m(x).view(-1)
+            probs = torch.sigmoid(logits).cpu().numpy().tolist()
+            ys = y.view(-1).int().tolist()
+            logits_all += logits.cpu().numpy().tolist()
+            y_all += ys
+            # one record per sample
+            for i, rec in enumerate(r):
+                rows.append({
+                    'item_id': rec.get('item_id'),
+                    'image_path': rec.get('image_path') or rec.get('path') or '',
+                    'y_true': int(ys[i]),
+                    'logit': float(logits.cpu().numpy()[i]),
+                    'prob': float(probs[i])
+                })
+
+    # Write JSONL and CSV
+    jsonl_path = os.path.join(rep_dir, f"preds_{label}_{split}.jsonl")
+    _write_jsonl(jsonl_path, rows)
+    csv_path = os.path.join(rep_dir, f"preds_{label}_{split}.csv")
+    import csv
+    with open(csv_path, 'w', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=['item_id','image_path','y_true','logit','prob'])
+        w.writeheader(); w.writerows(rows)
+
+    # Simple metrics (AUROC/AUPRC/acc@0.5)
+    # Compute AUROC/AUPRC using the same trapezoid code used in training
+    pairs = sorted([(1.0/(1.0+math.exp(-z)), t) for z,t in zip(logits_all, y_all)], key=lambda x: x[0], reverse=True)
+    P = sum(t for _,t in pairs); N = len(pairs) - P
+    auroc = 0.0; auprc = 0.0
+    if P>0 and N>0:
+        tp=0; fp=0; roc=[]
+        for s,t in pairs:
+            if t==1: tp+=1
+            else: fp+=1
+            roc.append((fp/float(N), tp/float(P)))
+        roc = sorted(roc)
+        for i in range(1,len(roc)):
+            x0,y0=roc[i-1]; x1,y1=roc[i]; auroc += (x1-x0)*(y0+y1)/2.0
+        tp=0; fp=0; pr=[]
+        for s,t in pairs:
+            if t==1: tp+=1
+            else: fp+=1
+            prec = tp/float(max(1,tp+fp)); rec = tp/float(P)
+            pr.append((rec, prec))
+        pr = sorted(pr)
+        for i in range(1,len(pr)):
+            x0,y0=pr[i-1]; x1,y1=pr[i]; auprc += (x1-x0)*(y0+y1)/2.0
+    # accuracy@0.5
+    import numpy as np
+    acc = float(np.mean([(1 if (1/(1+math.exp(-z))>=0.5) else 0)==t for z,t in zip(logits_all, y_all)])) if rows else 0.0
+
+    # Top mistakes / top hits
+    sorted_rows = sorted(rows, key=lambda r: r['prob'], reverse=True)
+    top_fp = [r for r in sorted_rows if r['y_true']==0][:10]
+    top_fn = [r for r in sorted(rows, key=lambda r: r['prob']) if r['y_true']==1][:10]
+    top_tp = [r for r in sorted_rows if r['y_true']==1][:10]
+
+    # Markdown report
+    md_path = os.path.join(rep_dir, f"single_image_report_{label}_{split}.md")
+    with open(md_path, 'w') as f:
+        f.write(f"# Single-image Predictions — {label} ({split})\n\n")
+        f.write(f"Samples: {len(rows)}\n\n")
+        f.write(f"**Accuracy@0.5:** {acc:.4f}  |  **AUROC:** {auroc:.3f}  |  **AUPRC:** {auprc:.3f}\n\n")
+        def _tbl(title, rows):
+            f.write(f"## {title}\n\n")
+            f.write("item_id | prob | y_true | image_path\n")
+            f.write("---|---:|---:|---\n")
+            for r in rows:
+                f.write(f"{r['item_id']} | {r['prob']:.3f} | {r['y_true']} | {os.path.basename(r['image_path'])}\n")
+            f.write("\n")
+        _tbl("Top-Confidence True Positives", top_tp)
+        _tbl("Top-Confidence False Positives", top_fp)
+        _tbl("Top-Confidence False Negatives (lowest prob among positives)", top_fn)
+
+    print(f"[dump_predictions] Wrote: {jsonl_path}, {csv_path}, {md_path}; metrics: acc@0.5={acc:.4f}, AUROC={auroc:.3f}, AUPRC={auprc:.3f}")
+    return {'acc': acc, 'auroc': auroc, 'auprc': auprc, 'n': len(rows)}
+
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--config', required=True); args=ap.parse_args()
     cfg=load_cfg(args.config)
@@ -444,7 +598,12 @@ def main():
 
     with open(os.path.join(models_dir,'baseline.pkl'),'wb') as f: pickle.dump(base,f)
     with open(os.path.join(models_dir,'eeg_trained.pkl'),'wb') as f: pickle.dump(eeg,f)
-    print('Saved models/baseline.pkl and models/eeg_trained.pkl (CNN)')
+
+    # Dump single-image prediction reports (validation split) for both models
+    dump_predictions(cfg, base, label='baseline', split='val')
+    dump_predictions(cfg, eeg,  label='eeg_trained', split='val')
+
+    print('Saved models/baseline.pkl and models/eeg_trained.pkl (CNN). Per-image prediction reports written under', cfg['paths'].get('reports','output/reports'))
 
 if __name__=='__main__':
     main()

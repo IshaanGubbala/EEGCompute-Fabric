@@ -474,6 +474,15 @@
         "documentation": {}
     },
     {
+        "label": "minmax_sym",
+        "kind": 2,
+        "importPath": "scripts.compute_p300",
+        "description": "scripts.compute_p300",
+        "peekOfCode": "def minmax_sym(scores: dict) -> dict:\n    if not scores:\n        return {}\n    try:\n        vals = list(scores.values())\n        lo = min(vals)\n        hi = max(vals)\n        if hi == lo:\n            return {k: 0.0 for k in scores}\n        scale = 2.0 / (hi - lo)",
+        "detail": "scripts.compute_p300",
+        "documentation": {}
+    },
+    {
         "label": "load_subset",
         "kind": 2,
         "importPath": "scripts.compute_p300",
@@ -794,6 +803,15 @@
         "importPath": "scripts.train",
         "description": "scripts.train",
         "peekOfCode": "def train_cnn(cfg, use_eeg_assist=False, log_writer=None, label='baseline'):\n    import torch\n    import torch.nn as nn\n    import torch.optim as optim\n    from torch.utils.data import DataLoader\n    from torchvision import models, transforms\n    from tqdm import tqdm\n    proc=cfg['paths']['processed']\n    # transforms (separate train/val to allow augmentation)\n    tr_cfg = cfg.get('training',{})",
+        "detail": "scripts.train",
+        "documentation": {}
+    },
+    {
+        "label": "dump_predictions",
+        "kind": 2,
+        "importPath": "scripts.train",
+        "description": "scripts.train",
+        "peekOfCode": "def dump_predictions(cfg, model_blob, label='baseline', split='val'):\n    \"\"\"\n    Run a prediction pass over `split` (default val), writing per-image predictions\n    and a compact report.\n    Outputs:\n      reports/preds_{label}_{split}.jsonl\n      reports/preds_{label}_{split}.csv\n      reports/single_image_report_{label}_{split}.md\n    \"\"\"\n    import torch",
         "detail": "scripts.train",
         "documentation": {}
     },

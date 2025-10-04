@@ -2,7 +2,26 @@
 import argparse, json, os, sys, math, random
 from pathlib import Path
 
+
 from utils import read_jsonl, write_jsonl, normalize_scores
+
+# --- Normalization helpers ---------------------------------------------------
+# Map arbitrary score dict {item_id: value} to symmetric [-1, 1] using per-run
+# min/max. If all values are equal, map to 0.0 to avoid division by zero.
+def minmax_sym(scores: dict) -> dict:
+    if not scores:
+        return {}
+    try:
+        vals = list(scores.values())
+        lo = min(vals)
+        hi = max(vals)
+        if hi == lo:
+            return {k: 0.0 for k in scores}
+        scale = 2.0 / (hi - lo)
+        return {k: -1.0 + (v - lo) * scale for k, v in scores.items()}
+    except Exception:
+        # Be conservative; if something goes wrong, return zeros of same keys.
+        return {k: 0.0 for k in scores}
 
 
 def load_subset(proc_dir):
@@ -52,7 +71,7 @@ def synth_scores(cfg, rsvp, items, key, match_mode):
         evidence[iid] = evidence.get(iid, 0.0) + val
     # Convert to normalized score per item
     scores = evidence
-    scores = normalize_scores(scores, method='z_tanh')
+    scores = minmax_sym(scores)
     return scores
 
 
@@ -186,7 +205,7 @@ def brainflow_scores(args, cfg, rsvp, items):
 
     # Aggregate per item and normalize
     scores = {iid: (sum(v)/len(v)) for iid, v in ev_scores.items()}
-    scores = normalize_scores(scores, method='z_tanh')
+    scores = minmax_sym(scores)
     return scores
 
 
@@ -269,7 +288,7 @@ def brainflow_scores_ssvep(args, cfg, rsvp, items):
             scores.setdefault(ev['item_id'], []).append(sum(ch_vals)/len(ch_vals))
     # aggregate per item and normalize
     agg={k: sum(v)/len(v) for k,v in scores.items()}
-    return normalize_scores(agg,'z_tanh')
+    return minmax_sym(agg)
 
 
 def brainflow_scores_errp(args, cfg, rsvp, items):
@@ -350,7 +369,7 @@ def brainflow_scores_errp(args, cfg, rsvp, items):
         if vals:
             scores.setdefault(ev['item_id'], []).append(sum(vals)/len(vals))
     agg={k: sum(v)/len(v) for k,v in scores.items()}
-    return normalize_scores(agg,'z_tanh')
+    return minmax_sym(agg)
 
 
 def main():
